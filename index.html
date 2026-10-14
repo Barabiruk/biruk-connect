@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Barabiruk — personal website, ideas, learning, and projects.">
+  <meta name="theme-color" content="#102a43">
+  <title>Barabiruk | Personal Website</title>
+  <style>
+    :root{--navy:#102a43;--blue:#176b87;--gold:#e6b85c;--ink:#1f2937;--muted:#667085;--paper:#f5f7fa;--white:#fff}
+    *{box-sizing:border-box} html{scroll-behavior:smooth} body{margin:0;font-family:Inter,Segoe UI,Arial,sans-serif;color:var(--ink);background:var(--paper);line-height:1.65}
+    a{color:inherit} .wrap{width:min(1100px,92%);margin:auto}
+    header{background:var(--navy);color:#fff;position:sticky;top:0;z-index:10;box-shadow:0 5px 22px #102a4320}
+    .nav{min-height:72px;display:flex;align-items:center;justify-content:space-between;gap:18px}
+    .brand{font-size:1.3rem;font-weight:800;letter-spacing:.3px;text-decoration:none}.brand span{color:var(--gold)}
+    nav{display:flex;gap:22px;align-items:center}nav a{text-decoration:none;font-size:.95rem;color:#e8eef5}nav a:hover{color:var(--gold)}
+    .lang{border:1px solid #ffffff60;background:#183b58;color:#fff;padding:9px 12px;border-radius:10px;font:inherit;cursor:pointer}
+    .hero{background:linear-gradient(120deg,#102a43 0%,#164e63 68%,#176b87 100%);color:#fff;padding:82px 0 88px;overflow:hidden}
+    .hero-grid{display:grid;grid-template-columns:1.5fr .8fr;gap:45px;align-items:center}
+    .eyebrow{color:var(--gold);font-weight:700;text-transform:uppercase;letter-spacing:2px;font-size:.8rem}
+    h1{font-size:clamp(2.6rem,6vw,4.8rem);line-height:1.08;margin:14px 0 22px;letter-spacing:-1.8px}
+    .hero p{font-size:1.13rem;color:#e0eaf2;max-width:640px}
+    .actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
+    .btn{display:inline-block;padding:12px 19px;border-radius:11px;text-decoration:none;font-weight:700;border:1px solid transparent}
+    .primary{background:var(--gold);color:#142536}.secondary{border-color:#ffffff70;color:#fff}
+    .portrait{width:min(280px,100%);aspect-ratio:1;border-radius:30px;margin:auto;background:linear-gradient(145deg,#ffffff25,#ffffff08);border:1px solid #ffffff40;display:grid;place-items:center;box-shadow:0 25px 70px #06152255;transform:rotate(2deg)}
+    .portrait-inner{width:82%;height:82%;border:1px dashed #ffffff80;border-radius:24px;display:grid;place-items:center;text-align:center;padding:20px;color:#d9e5ee}
+    .portrait strong{font-size:3.8rem;color:var(--gold);display:block;line-height:1.1}
+    section{padding:72px 0}.section-head{max-width:700px;margin-bottom:30px}.section-head h2{font-size:clamp(1.8rem,4vw,2.5rem);color:var(--navy);margin:0 0 8px}.section-head p{margin:0;color:var(--muted)}
+    .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .card{background:#fff;padding:25px;border-radius:18px;border:1px solid #e4e9ef;box-shadow:0 8px 28px #102a4308}
+    .card .icon{font-size:1.6rem}.card h3{margin:10px 0 8px;color:var(--navy)}.card p{color:var(--muted);margin:0}
+    .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start}
+    .about-panel{background:#fff;border-radius:18px;padding:28px;border:1px solid #e4e9ef}
+    .tag{display:inline-block;background:#eaf3f6;color:#15566b;border-radius:100px;padding:6px 11px;font-size:.88rem;margin:5px 4px 0 0}
+    .contact{background:#eaf0f5}.contact-box{background:var(--navy);color:#fff;padding:36px;border-radius:22px;display:flex;justify-content:space-between;align-items:center;gap:25px}
+    .contact-box h2{font-size:2rem;margin:0 0 8px}.contact-box p{color:#d5e0e9;margin:0}
+    .contact-box .btn{white-space:nowrap}
+    footer{background:#0b1f33;color:#cbd5df;padding:24px 0;font-size:.9rem}.foot{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+    .note{font-size:.9rem;color:var(--muted)}
+    @media(max-width:760px){.nav{padding:12px 0;flex-wrap:wrap}.nav nav{order:3;width:100%;justify-content:space-between;gap:10px}.hero{padding:58px 0}.hero-grid,.about-grid{grid-template-columns:1fr}.portrait{max-width:210px}.cards{grid-template-columns:1fr}.contact-box{align-items:flex-start;flex-direction:column}section{padding:54px 0}}
+  </style>
+</head>
+<body>
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="#home">Bara<span>biruk</span></a>
+    <nav aria-label="Main navigation">
+      <a href="#home" data-i18n="navHome">Home</a>
+      <a href="#about" data-i18n="navAbout">About</a>
+      <a href="#interests" data-i18n="navInterests">Interests</a>
+      <a href="#contact" data-i18n="navContact">Contact</a>
+    </nav>
+    <select class="lang" id="language" aria-label="Choose language">
+      <option value="en">English</option><option value="om">Afaan Oromo</option><option value="am">አማርኛ</option>
+    </select>
+  </div>
+</header>
+<main>
+  <section class="hero" id="home">
+    <div class="wrap hero-grid">
+      <div>
+        <div class="eyebrow" data-i18n="eyebrow">Personal website · Ideas · Growth</div>
+        <h1 data-i18n="heroTitle">Welcome to<br>Barabiruk.</h1>
+        <p data-i18n="heroText">A personal space for my journey, ideas, learning, and projects. I believe in continuous growth, meaningful work, and creating positive change.</p>
+        <div class="actions">
+          <a class="btn primary" href="#about" data-i18n="discover">Discover my story</a>
+          <a class="btn secondary" href="#contact" data-i18n="getInTouch">Get in touch</a>
+        </div>
+      </div>
+      <div class="portrait" aria-label="Personal profile placeholder">
+        <div class="portrait-inner"><div><strong>B</strong><span data-i18n="photoHint">Your photo can go here</span></div></div>
+      </div>
+    </div>
+  </section>
+  <section id="about">
+    <div class="wrap about-grid">
+      <div class="section-head">
+        <h2 data-i18n="aboutTitle">A little about me</h2>
+        <p data-i18n="aboutIntro">I am building my knowledge, skills, and ideas step by step. This website is where I can share what I do, what I learn, and what I hope to contribute.</p>
+        <p class="note" data-i18n="editHint">Personalize this section with your real biography, education, experience, and goals before publishing.</p>
+      </div>
+      <div class="about-panel">
+        <h3 data-i18n="valuesTitle">What guides me</h3>
+        <p data-i18n="valuesText">Curiosity, discipline, service, and lifelong learning. I want my work to be useful, thoughtful, and connected to a positive future.</p>
+        <span class="tag" data-i18n="tagLearning">Continuous learning</span><span class="tag" data-i18n="tagLeadership">Leadership</span><span class="tag" data-i18n="tagCommunity">Community impact</span>
+      </div>
+    </div>
+  </section>
+  <section id="interests">
+    <div class="wrap">
+      <div class="section-head"><h2 data-i18n="interestTitle">Interests & focus</h2><p data-i18n="interestIntro">A few areas I care about and want to keep developing.</p></div>
+      <div class="cards">
+        <article class="card"><div class="icon">✦</div><h3 data-i18n="card1Title">Learning & growth</h3><p data-i18n="card1Text">Developing new skills, improving communication, and turning knowledge into action.</p></article>
+        <article class="card"><div class="icon">◎</div><h3 data-i18n="card2Title">Business & ideas</h3><p data-i18n="card2Text">Exploring practical ideas, digital opportunities, and responsible ways to create value.</p></article>
+        <article class="card"><div class="icon">♡</div><h3 data-i18n="card3Title">Community</h3><p data-i18n="card3Text">Supporting people, sharing useful knowledge, and contributing to positive change.</p></article>
+      </div>
+    </div>
+  </section>
+  <section class="contact" id="contact">
+    <div class="wrap contact-box">
+      <div><h2 data-i18n="contactTitle">Let’s connect.</h2><p data-i18n="contactText">Have a question, an idea, or a chance to collaborate? I’d be happy to hear from you.</p><p class="note" style="color:#cbd5df;margin-top:10px" data-i18n="emailHint">Before publishing, replace the sample email link with your own contact address.</p></div>
+      <a class="btn primary" href="mailto:hello@example.com" data-i18n="emailButton">Email me</a>
+    </div>
+  </section>
+</main>
+<footer><div class="wrap foot"><span>© <span id="year"></span> Barabiruk</span><span data-i18n="footer">Made to share ideas and inspire growth.</span></div></footer>
+<script>
+const translations = {
+ en:{
+  navHome:"Home",navAbout:"About",navInterests:"Interests",navContact:"Contact",
+  eyebrow:"Personal website · Ideas · Growth",heroTitle:"Welcome to<br>Barabiruk.",
+  heroText:"A personal space for my journey, ideas, learning, and projects. I believe in continuous growth, meaningful work, and creating positive change.",
+  discover:"Discover my story",getInTouch:"Get in touch",photoHint:"Your photo can go here",
+  aboutTitle:"A little about me",aboutIntro:"I am building my knowledge, skills, and ideas step by step. This website is where I can share what I do, what I learn, and what I hope to contribute.",
+  editHint:"Personalize this section with your real biography, education, experience, and goals before publishing.",
+  valuesTitle:"What guides me",valuesText:"Curiosity, discipline, service, and lifelong learning. I want my work to be useful, thoughtful, and connected to a positive future.",
+  tagLearning:"Continuous learning",tagLeadership:"Leadership",tagCommunity:"Community impact",
+  interestTitle:"Interests & focus",interestIntro:"A few areas I care about and want to keep developing.",
+  card1Title:"Learning & growth",card1Text:"Developing new skills, improving communication, and turning knowledge into action.",
+  card2Title:"Business & ideas",card2Text:"Exploring practical ideas, digital opportunities, and responsible ways to create value.",
+  card3Title:"Community",card3Text:"Supporting people, sharing useful knowledge, and contributing to positive change.",
+  contactTitle:"Let’s connect.",contactText:"Have a question, an idea, or a chance to collaborate? I’d be happy to hear from you.",
+  emailHint:"Before publishing, replace the sample email link with your own contact address.",emailButton:"Email me",footer:"Made to share ideas and inspire growth."
+ },
+ om:{
+  navHome:"Fuula Jalqabaa",navAbout:"Waa'ee Koo",navInterests:"Fedhiiwwan",navContact:"Na Quunnamaa",
+  eyebrow:"Marsariitii dhuunfaa · Yaadawwan · Guddina",heroTitle:"Baga gara<br>Barabiruk dhuftan.",
+  heroText:"Kun imala koo, yaadawwan koo, barnoota koo fi hojiiwwan koo itti qooduuf iddoo dhuunfaa kooti. Guddina itti fufiinsa qabu fi jijjiirama gaarii uumuun nan amana.",
+  discover:"Seenaa koo ilaali",getInTouch:"Na quunnamaa",photoHint:"Suuraa keessan as kaa'uu dandeessu",
+  aboutTitle:"Waa'ee koo gabaabinaan",aboutIntro:"Beekumsa, dandeettii fi yaadawwan koo suuta suutaan guddisaa jira. Marsariitiin kun waan hojjedhu, waan baradhu fi gumaacha gochuu barbaadu itti qooduuf na gargaara.",
+  editHint:"Osoo hin maxxansin dura kutaa kana seenaa jireenyaa, barnoota, muuxannoo fi galma keessaniin guutaa.",
+  valuesTitle:"Waan na qajeelchu",valuesText:"Fedhii barachuu, of-danda'uu, tajaajila fi barumsa jireenya guutuu. Hojii koo faayidaa qabu fi gara fuuldura gaariitti nama geessu gochuu barbaada.",
+  tagLearning:"Barumsa itti fufiinsa qabu",tagLeadership:"Hoggansa",tagCommunity:"Faayidaa hawaasaa",
+  interestTitle:"Fedhiiwwan fi xiyyeeffannoo",interestIntro:"Dhimmoota ani jaalladhu fi irratti guddachuu barbaadu muraasa.",
+  card1Title:"Barumsa fi guddina",card1Text:"Dandeettii haaraa horachuu, qunnamtii fooyyessuu fi beekumsa hojii irra oolchuu.",
+  card2Title:"Daldala fi yaadawwan",card2Text:"Yaadawwan hojii irra oolan, carraawwan dijitaalaa fi gatii uumuu qorachuu.",
+  card3Title:"Hawaasa",card3Text:"Namoota deeggaruu, beekumsa faayidaa qabu qooduu fi jijjiirama gaariif gumaachuu.",
+  contactTitle:"Wal haa quunnamnu.",contactText:"Gaaffii, yaada ykn waliin hojjechuuf carraa qabduu? Isin irraa dhaga'uun na gammachiisa.",
+  emailHint:"Osoo hin maxxansin dura email fakkeenyaa kana email keessaniin bakka buusaa.",emailButton:"Email naaf ergaa",footer:"Yaadawwan qooduu fi guddina kakaasuuf kan hojjetame."
+ },
+ am:{
+  navHome:"መነሻ",navAbout:"ስለ እኔ",navInterests:"ፍላጎቶች",navContact:"ያግኙኝ",
+  eyebrow:"የግል ድረ ገጽ · ሀሳቦች · እድገት",heroTitle:"ወደ<br>Barabiruk እንኳን በደህና መጡ።",
+  heroText:"ይህ ስለ ጉዞዬ፣ ሀሳቦቼ፣ ትምህርቴ እና ፕሮጀክቶቼ የማጋራበት የግል ቦታ ነው። በቀጣይነት ማደግን እና አዎንታዊ ለውጥ መፍጠርን አምናለሁ።",
+  discover:"ስለ እኔ ይወቁ",getInTouch:"ያግኙኝ",photoHint:"ፎቶዎን እዚህ ማስገባት ይችላሉ",
+  aboutTitle:"ስለ እኔ በአጭሩ",aboutIntro:"እውቀቴን፣ ችሎታዬን እና ሀሳቦቼን በደረጃ እያሳደግሁ ነው። ይህ ድረ ገጽ የምሰራውን፣ የምማረውን እና ለማበርከት የምፈልገውን የማጋራበት ቦታ ነው።",
+  editHint:"ከማተምዎ በፊት ይህን ክፍል በእውነተኛ የህይወት ታሪክዎ፣ ትምህርትዎ፣ ልምድዎ እና ግቦችዎ ያስተካክሉ።",
+  valuesTitle:"የሚመሩኝ እሴቶች",valuesText:"የመማር ፍላጎት፣ ተግሣጽ፣ አገልግሎት እና የሕይወት ዘመን ትምህርት። ሥራዬ ጠቃሚ እና ለመልካም ወደፊት የሚያግዝ እንዲሆን እፈልጋለሁ።",
+  tagLearning:"ቀጣይ ትምህርት",tagLeadership:"አመራር",tagCommunity:"ለማህበረሰብ አስተዋፅኦ",
+  interestTitle:"ፍላጎቶች እና ትኩረት",interestIntro:"ማዳበር የምፈልጋቸው ጥቂት ዘርፎች።",
+  card1Title:"ትምህርት እና እድገት",card1Text:"አዳዲስ ችሎታዎችን ማዳበር፣ ግንኙነትን ማሻሻል እና እውቀትን በተግባር ማዋል።",
+  card2Title:"ንግድ እና ሀሳቦች",card2Text:"ተግባራዊ ሀሳቦችን፣ ዲጂታል እድሎችን እና እሴት የሚፈጥሩ መንገዶችን መመርመር።",
+  card3Title:"ማህበረሰብ",card3Text:"ሰዎችን መደገፍ፣ ጠቃሚ እውቀትን ማጋራት እና ለመልካም ለውጥ ማበርከት።",
+  contactTitle:"እንገናኝ።",contactText:"ጥያቄ፣ ሀሳብ ወይም አብሮ የመስራት እድል ካለዎት እርስዎን መስማት ደስ ይለኛል።",
+  emailHint:"ከማተምዎ በፊት የምሳሌውን ኢሜይል በራስዎ ኢሜይል ይቀይሩ።",emailButton:"ኢሜይል ይላኩልኝ",footer:"ሀሳቦችን ለማጋራት እና እድገትን ለማነሳሳት የተዘጋጀ።"
+ }
+};
+function setLanguage(lang){
+ const t=translations[lang]||translations.en;
+ document.documentElement.lang=lang==="om"?"om":lang==="am"?"am":"en";
+ document.querySelectorAll("[data-i18n]").forEach(el=>{
+   const key=el.getAttribute("data-i18n");
+   if(t[key]!==undefined) el.innerHTML=t[key];
+ });
+}
+document.getElementById("language").addEventListener("change",e=>setLanguage(e.target.value));
+document.getElementById("year").textContent=new Date().getFullYear();
+</script>
+</body>
+</html>
