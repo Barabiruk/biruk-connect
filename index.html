@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <meta name="description" content="Barabiruk Connect — Personal website, ideas, learning, and growth.">
   <meta name="theme-color" content="#f7f8f5">
   <title>Barabiruk Connect | Personal Website</title>
@@ -11,170 +11,204 @@
     @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap');
 
     :root{--ink:#17231f;--muted:#64736c;--paper:#f7f8f5;--green:#c9f36b;--deep:#163d32;--line:#dfe5dc;--white:#fff;--gold:#e6b85c;}
-    *{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:90px}
-    body{margin:0;background:var(--paper);color:var(--ink);font-family:'DM Sans',Arial,sans-serif;line-height:1.65;overflow-x:hidden;position:relative}
+    
+    *{box-sizing:border-box; margin:0; padding:0;}
+    
+    html, body {
+      width: 100%;
+      max-width: 100%;
+      overflow-x: hidden !important;
+      scroll-behavior: smooth;
+      scroll-padding-top: 80px;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: 'DM Sans', Arial, sans-serif;
+      line-height: 1.65;
+    }
 
-    /* 3D Particle Canvas Background */
     #bg-canvas{position:fixed;top:0;left:0;width:100%;height:100%;z-index:-1;pointer-events:none;}
 
     a{color:inherit;text-decoration:none}
-    .container{width:min(1160px,calc(100% - 48px));margin-inline:auto}
-    .site-header{position:sticky;top:0;z-index:20;background:rgba(247,248,245,.92);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid rgba(223,229,220,.8)}
-    .nav{height:78px;display:flex;align-items:center;gap:30px}
-    .brand{display:inline-flex;align-items:center;gap:10px;font-family:Manrope,sans-serif;font-size:18px;font-weight:800;letter-spacing:-.7px;white-space:nowrap}
-    .brand-mark{display:grid;place-items:center;width:34px;height:34px;background:var(--green);border-radius:11px;font-size:17px}
-    .brand-accent{color:#53836a;margin-left:3px}
     
-    .nav-right{display:flex;align-items:center;gap:16px;margin-left:auto;}
-    .nav-links{display:flex;gap:30px}
-    .nav-links a{font-size:13px;color:#53625a;font-weight:600;transition:color .2s}
+    .container{
+      width: 100%;
+      max-width: 1160px;
+      padding-left: 16px;
+      padding-right: 16px;
+      margin-inline: auto;
+    }
+    
+    .site-header{position:sticky;top:0;z-index:1000;background:rgba(247,248,245,.95);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid rgba(223,229,220,.8)}
+    .nav{height:70px;display:flex;align-items:center;justify-content:space-between;gap:10px;position:relative}
+    .brand{display:inline-flex;align-items:center;gap:8px;font-family:Manrope,sans-serif;font-size:18px;font-weight:800;letter-spacing:-.7px;white-space:nowrap}
+    .brand-mark{display:grid;place-items:center;width:32px;height:32px;background:var(--green);border-radius:10px;font-size:16px}
+    .brand-accent{color:#53836a;margin-left:2px}
+    
+    .nav-right{display:flex;align-items:center;gap:10px;}
+    
+    .nav-links{display:flex;gap:20px;align-items:center}
+    .nav-links a{font-size:14px;color:#53625a;font-weight:600;transition:color .2s}
     .nav-links a:hover,.text-link:hover{color:#578c3e}
     
-    .language-picker select{border:1px solid var(--line);border-radius:9px;padding:9px 11px;background:#fff;color:var(--ink);font:600 12px 'DM Sans',sans-serif;max-width:135px;cursor:pointer}
-    .menu-toggle{display:none;background:none;border:0;font-size:23px;color:var(--ink);cursor:pointer}
+    .language-picker select{border:1px solid var(--line);border-radius:8px;padding:6px 8px;background:#fff;color:var(--ink);font:600 12px 'DM Sans',sans-serif;cursor:pointer;outline:none}
+    .menu-toggle{display:none;background:none;border:0;font-size:24px;color:var(--ink);cursor:pointer;padding:4px}
 
-    .hero{position:relative;overflow:hidden;background:rgba(237,241,233,0.7);padding:86px 0 30px;min-height:630px}
-    .hero-grid{position:relative;z-index:1;display:grid;grid-template-columns:1.12fr .88fr;gap:70px;align-items:center}
-    .hero-copy{padding:12px 0 50px}
-    .eyebrow,.section-kicker{font-size:10px;font-weight:700;letter-spacing:2px;color:#65816b}
-    .eyebrow{display:flex;align-items:center;gap:9px}
-    .eyebrow-dot,.live-dot{width:7px;height:7px;border-radius:50%;background:#79aa4a;display:inline-block}
-    .hero h1,.section-title,.contact-inner h2{font-family:Manrope,sans-serif;font-size:clamp(40px,5.2vw,67px);line-height:1.09;letter-spacing:-3.3px;margin:24px 0 20px;font-weight:800}
+    .hero{position:relative;overflow:hidden;background:rgba(237,241,233,0.7);padding:30px 0}
+    .hero-grid{position:relative;z-index:1;display:grid;grid-template-columns:1.1fr .9fr;gap:30px;align-items:center}
+    .hero-copy{padding:10px 0}
+    .eyebrow,.section-kicker{font-size:10px;font-weight:700;letter-spacing:1.5px;color:#65816b}
+    .eyebrow{display:flex;align-items:center;gap:8px}
+    .eyebrow-dot{width:7px;height:7px;border-radius:50%;background:#79aa4a;display:inline-block}
+    .hero h1,.section-title,.contact-inner h2{font-family:Manrope,sans-serif;font-size:clamp(28px,5vw,56px);line-height:1.12;letter-spacing:-1.5px;margin:14px 0 14px;font-weight:800}
     .hero h1 span{color:#62834d}
-    .hero-text{max-width:510px;color:#637168;font-size:16px;line-height:1.9}
-    .hero-actions{display:flex;gap:12px;align-items:center;margin-top:30px;flex-wrap:wrap}
-    .button{display:inline-flex;align-items:center;justify-content:center;gap:15px;padding:13px 19px;border-radius:9px;font-size:12px;font-weight:700;transition:transform .2s,background .2s}
-    .button:hover{transform:translateY(-2px)}
+    .hero-text{max-width:510px;color:#637168;font-size:15px;line-height:1.7}
+    .hero-actions{display:flex;gap:10px;align-items:center;margin-top:20px;flex-wrap:wrap}
+    .button{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:12px 18px;border-radius:9px;font-size:12px;font-weight:700;transition:transform .2s,background .2s}
     .button-primary{background:var(--deep);color:#fff}
-    .button-primary:hover{background:#245b49}
-    .button-quiet{border:1px solid #d2dbd0;background:rgba(255,255,255,.5)}
-    .hero-note{display:flex;align-items:center;gap:12px;margin-top:45px;color:#7b897f;font-size:11px}
-    .note-line{height:1px;width:34px;background:#8ba182}
+    .button-quiet{border:1px solid #d2dbd0;background:rgba(255,255,255,.8)}
 
-    /* 3D Tilt Card & Portrait with Email Strip */
-    .hero-card-wrap{position:relative;max-width:400px;width:100%;margin:0 auto 25px;perspective:1000px}
-    .hero-card{position:relative;z-index:1;padding:25px 28px 25px;border:1px solid rgba(255,255,255,.9);border-radius:19px;background:rgba(255,255,255,.85);backdrop-filter:blur(10px);box-shadow:0 25px 70px rgba(34,57,39,.12);text-align:center;transform-style:preserve-3d;transition:transform 0.1s ease-out}
-    .card-top{display:flex;align-items:center;gap:8px;text-align:left;color:#718077;font-size:9px;font-weight:700;letter-spacing:1.5px}
-    .card-star{margin-left:auto;font-size:18px;color:#79a84e}
+    .hero-card-wrap{position:relative;width:100%;max-width:320px;margin:10px auto;perspective:1000px}
+    .hero-card{position:relative;z-index:1;padding:18px;border:1px solid rgba(255,255,255,.9);border-radius:19px;background:rgba(255,255,255,.92);backdrop-filter:blur(10px);box-shadow:0 15px 35px rgba(34,57,39,.08);text-align:center}
+    .card-top{display:flex;align-items:center;gap:8px;text-align:left;color:#718077;font-size:9px;font-weight:700;letter-spacing:1px}
+    .card-star{margin-left:auto;font-size:16px;color:#79a84e}
     
     .portrait{
-      width: min(220px, 100%);
-      aspect-ratio: 1 / 1;
-      margin: 20px auto 14px;
+      width: 160px;
+      height: 160px;
+      margin: 12px auto;
       overflow: hidden;
-      border-radius: 24px;
+      border-radius: 20px;
       border: 3px solid var(--gold);
       background: #102a43;
-      box-shadow: 0 10px 25px rgba(16,42,67,0.2);
       display: flex;
       align-items: center;
       justify-content: center;
     }
     .profile-photo{display:block;width:100%;height:100%;object-fit:cover;object-position:center}
 
-    /* Email badge right below portrait */
     .portrait-email-badge {
       display: inline-flex;
       align-items: center;
-      gap: 6px;
+      gap: 5px;
       background: #eef3ec;
       border: 1px solid #d5e2cd;
       color: #3b5a44;
-      padding: 6px 12px;
+      padding: 5px 10px;
       border-radius: 100px;
       font-size: 11px;
       font-weight: 600;
+      margin-bottom: 8px;
+      word-break: break-all;
+    }
+
+    /* Social Media Buttons Style */
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
       margin-bottom: 12px;
+    }
+    .social-btn {
+      display: inline-grid;
+      place-items: center;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: #f0f4eb;
+      color: var(--deep);
+      font-size: 13px;
+      font-weight: 700;
+      transition: transform 0.2s, background 0.2s;
+      border: 1px solid #dfe5dc;
+    }
+    .social-btn:hover {
+      transform: translateY(-2px);
+      background: var(--green);
+    }
+
+    .hero-card h2{font:800 18px Manrope,sans-serif;letter-spacing:-.5px;margin:0}
+    .profile-role{font-size:12px;color:#7b877f;margin:2px 0 10px}
+    .card-divider{height:1px;background:#e6ebe3}
+    .card-quote{font:500 12px Manrope,sans-serif;line-height:1.5;color:#4f6055;margin:10px 0}
+    .card-tags{display:flex;justify-content:center;gap:5px;flex-wrap:wrap}
+    .card-tags span{padding:4px 8px;border-radius:6px;background:#f0f4eb;color:#5e765a;font-size:10px;font-weight:700}
+    
+    .floating-label{
+      position: absolute;
+      z-index: 2;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      padding: 6px 10px;
+      border: 1px solid #e3e8df;
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 8px 15px rgba(0,0,0,0.05);
+      font-size: 9px;
+      font-weight: 700;
+    }
+    .label-top{top: -10px; right: 0px;}
+    .label-bottom{bottom: -10px; left: 0px;}
+
+    .section{padding:50px 0}
+    .two-column{display:grid;grid-template-columns:.9fr 1.1fr;gap:30px}
+    .section-title{font-size:clamp(26px,4vw,38px);letter-spacing:-1px;margin:0;line-height:1.2}
+    .section-title em,.contact-inner h2 em{font-style:normal;color:#73964e}
+
+    .contact-section{background:var(--deep);color:white;padding:50px 0;text-align:center}
+
+    /* Social Links Container inside Contact */
+    .contact-socials {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      margin-top: 20px;
+    }
+    .contact-social-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 16px;
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 10px;
+      color: #fff;
+      font-size: 13px;
+      font-weight: 600;
       transition: background 0.2s;
     }
-    .portrait-email-badge:hover {
-      background: #e3ebd9;
+    .contact-social-btn:hover {
+      background: var(--green);
       color: var(--deep);
     }
 
-    .hero-card h2{font:800 21px Manrope,sans-serif;letter-spacing:-.8px;margin:0}
-    .profile-role{font-size:12px;color:#7b877f;margin:4px 0 16px}
-    .card-divider{height:1px;background:#e6ebe3}
-    .card-quote{font:500 13px Manrope,sans-serif;line-height:1.7;color:#4f6055;margin:16px 0}
-    .card-tags{display:flex;justify-content:center;gap:7px;flex-wrap:wrap}
-    .card-tags span{padding:5px 9px;border-radius:7px;background:#f0f4eb;color:#5e765a;font-size:10px;font-weight:700}
-    
-    .floating-label{position:absolute;z-index:2;display:flex;align-items:center;gap:8px;padding:11px 14px;border:1px solid #e3e8df;background:#fff;border-radius:10px;box-shadow:0 12px 30px #1e382211;font-size:10px;font-weight:700}
-    .label-top{top:55px;right:-26px}
-    .label-top span:first-child{color:#75a64b}
-    .label-bottom{bottom:25px;left:-36px}
-    .mini-bars{color:#719a53;font-size:17px;letter-spacing:-3px}
+    .footer{background:#102e26;color:#d5e0d8;padding:20px 0;font-size:12px}
+    .footer-inner{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap}
 
-    .hero-glow{position:absolute;border-radius:50%;filter:blur(60px);pointer-events:none}
-    .glow-one{width:440px;height:440px;background:#dce9cd;top:-220px;right:7%;opacity:.55}
-    .glow-two{width:240px;height:240px;background:#e2ebd9;bottom:-180px;left:-100px}
-
-    .hero-bottom{display:flex;align-items:center;gap:14px;color:#849087;font-size:9px;font-weight:700;letter-spacing:1.5px}
-    .scroll-line{height:1px;background:#d5ddd1;width:55px}
-    .hero-bottom>span:last-child{margin-left:auto}
-
-    .section{padding:100px 0}
-    .two-column{display:grid;grid-template-columns:.9fr 1.1fr;gap:100px}
-    .section-kicker{margin:0 0 17px}
-    .section-title{font-size:clamp(33px,4vw,47px);letter-spacing:-2px;margin:0;line-height:1.2}
-    .section-title em,.contact-inner h2 em{font-style:normal;color:#73964e}
-    .section-content{padding-top:24px}
-    .section-content>p{font-size:15px;color:#5e6c63;line-height:1.95;margin:0 0 18px}
-    .section-content .muted{font-size:12px;color:#8a958d}
-    .text-link{display:inline-flex;gap:15px;margin-top:9px;font-size:12px;font-weight:700;color:#315844}
-
-    .focus-section{background:#fff}
-    .section-heading{display:flex;justify-content:space-between;align-items:flex-end;gap:40px;margin-bottom:38px}
-    .section-intro{max-width:320px;color:#748077;font-size:13px;line-height:1.8;margin:0 0 5px}
-    .focus-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-    .focus-card{position:relative;min-height:265px;padding:25px 25px 30px;border:1px solid #e6eae3;border-radius:13px;background:#fbfcfa;transition:transform .2s,box-shadow .2s}
-    .focus-card:hover{transform:translateY(-4px);box-shadow:0 15px 35px #17231f0c}
-    .focus-card.featured{background:#eff4e8;border-color:#eff4e8}
-    .icon-box{display:grid;place-items:center;width:39px;height:39px;border-radius:11px;background:#e9f0df;color:#557b42;font-size:19px}
-    .featured .icon-box{background:#dbe9c8}
-    .card-number{position:absolute;right:25px;top:25px;font-size:10px;color:#a0aaa0;font-weight:700}
-    .focus-card h3{font:700 17px Manrope,sans-serif;letter-spacing:-.5px;margin:28px 0 9px}
-    .focus-card>p:not(.card-number){font-size:12px;color:#768279;line-height:1.9;margin:0;max-width:260px}
-    .card-arrow{position:absolute;right:25px;bottom:22px;color:#65864d}
-
-    .goals-section{background:#f1f3ed}
-    .goals-layout{display:grid;grid-template-columns:.8fr 1.2fr;gap:80px;align-items:start}
-    .goals-panel{border-top:1px solid #dbe1d7}
-    .goal-row{display:grid;grid-template-columns:35px 1fr 20px;gap:15px;padding:22px 0;border-bottom:1px solid #dbe1d7;align-items:start}
-    .goal-index{font-size:10px;font-weight:700;color:#7e9c68;padding-top:4px}
-    .goal-row h3{font:700 15px Manrope,sans-serif;margin:0 0 5px}
-    .goal-row p{font-size:12px;color:#7a857c;line-height:1.8;margin:0}
-    .goal-symbol{color:#79945e}
-
-    .contact-section{background:var(--deep);color:white;padding:82px 0 76px;text-align:center;position:relative;overflow:hidden}
-    .contact-section:before{content:"";position:absolute;width:480px;height:480px;border:1px solid #ffffff12;border-radius:50%;top:-300px;left:calc(50% - 240px)}
-    .contact-inner{position:relative}
-    .contact-inner .section-kicker{color:#b6d28f}
-    .contact-inner h2{font-size:clamp(36px,5vw,56px);letter-spacing:-2.5px;margin:18px 0}
-    .contact-inner h2 em{color:var(--green)}
-    .contact-inner>p:not(.section-kicker):not(.contact-hint){color:#d0ddd5;font-size:13px;margin:0 auto 25px}
-    .button-light{background:var(--green);color:#1c392b}
-    .contact-hint{margin-top:18px!important;color:#a6bdb0;font-size:10px}
-
-    .footer{background:#102e26;color:#d5e0d8;padding:27px 0 17px}
-    .footer-inner{display:flex;align-items:center;gap:20px;padding-bottom:22px}
-    .footer-brand{font-size:15px}
-    .footer-brand .brand-mark{width:29px;height:29px;color:#1b3a2a}
-    .footer-inner>p{font-size:10px;color:#91a69a;margin:0 auto}
-    .back-top{font-size:10px;color:#c3d5c9}
-    .footer-bottom{border-top:1px solid #ffffff16;padding-top:15px;display:flex;justify-content:space-between;color:#82998c;font-size:9px}
-
-    @media(max-width:850px){.nav{gap:14px}.nav-links{gap:17px}.hero-grid{gap:25px}.hero h1{font-size:50px}.two-column,.goals-layout{gap:45px}.label-top{right:-5px}.label-bottom{left:-10px}}
-    @media(max-width:680px){.container{width:min(100% - 32px,520px)}.nav{height:68px;gap:12px}.menu-toggle{display:block}.nav-right{margin-left:auto}.nav-links{display:none;position:absolute;top:78px;left:0;right:0;padding:18px 24px 22px;background:#f7f8f5;border-bottom:1px solid var(--line);flex-direction:column;gap:17px;margin:0}.nav-links.open{display:flex}.nav-links a{font-size:14px}.language-picker select{max-width:116px;padding:8px 6px}.brand{font-size:16px}.hero{padding:55px 0 25px}.hero-grid{grid-template-columns:1fr;gap:10px}.hero-copy{padding:0 0 15px}.hero h1{font-size:clamp(42px,11vw,57px);letter-spacing:-2.7px}.hero-text{font-size:14px}.hero-note{margin-top:27px}.hero-card-wrap{max-width:350px;margin:20px auto 40px}.hero-card{padding:22px}.label-top{right:-4px;top:35px}.label-bottom{left:-5px;bottom:10px}.hero-bottom{font-size:8px}.section{padding:68px 0}.two-column,.goals-layout{grid-template-columns:1fr;gap:24px}.section-content{padding-top:0}.section-title{font-size:37px}.section-heading{display:block}.section-intro{margin-top:17px}.focus-grid{grid-template-columns:1fr}.focus-card{min-height:220px}.focus-card h3{margin-top:20px}.goals-layout{gap:30px}.contact-section{padding:65px 0}.contact-inner h2{font-size:39px}.footer-inner{flex-wrap:wrap}.footer-inner>p{order:3;flex-basis:100%;margin:0}.footer-bottom{gap:10px;flex-direction:column}}
+    @media(max-width:850px){
+      .menu-toggle{display:block;}
+      .nav-links{
+        display:none;
+        position:absolute;
+        top:70px;
+        left:0;
+        width:100%;
+        background:#f7f8f5;
+        flex-direction:column;
+        padding:15px;
+        gap:15px;
+        border-bottom:2px solid var(--line);
+        box-shadow:0 15px 25px rgba(0,0,0,0.1);
+        z-index:999;
+      }
+      .nav-links.open{display:flex !important;}
+      .hero-grid, .two-column{grid-template-columns:1fr;gap:20px}
+    }
   </style>
 </head>
 <body>
 
-  <!-- Background 3D Particles Canvas -->
   <canvas id="bg-canvas"></canvas>
-
-  <div class="hero-glow glow-one"></div>
-  <div class="hero-glow glow-two"></div>
 
   <header class="site-header">
     <div class="container nav">
@@ -184,12 +218,6 @@
       </a>
       
       <div class="nav-right">
-        <nav class="nav-links" id="navLinks">
-          <a href="#about" data-i18n="navAbout">About</a>
-          <a href="#focus" data-i18n="navFocus">My Focus</a>
-          <a href="#goals" data-i18n="navGoals">Goals</a>
-          <a href="#contact" data-i18n="navContact">Contact</a>
-        </nav>
         <div class="language-picker">
           <select id="languageSelect" aria-label="Select Language">
             <option value="en">English</option>
@@ -199,6 +227,13 @@
         </div>
         <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">☰</button>
       </div>
+
+      <nav class="nav-links" id="navLinks">
+        <a href="#about">About</a>
+        <a href="#focus">My Focus</a>
+        <a href="#goals">Goals</a>
+        <a href="#contact">Contact</a>
+      </nav>
     </div>
   </header>
 
@@ -208,58 +243,62 @@
         <div class="hero-copy">
           <div class="eyebrow">
             <span class="eyebrow-dot"></span>
-            <span data-i18n="eyebrow">PERSONAL WEBSITE · LEARNING · GROWTH</span>
+            <span>PERSONAL WEBSITE · LEARNING · GROWTH</span>
           </div>
-          <h1 data-i18n="heroTitle">Building knowledge.<br><span>Creating opportunity.</span></h1>
-          <p class="hero-text" data-i18n="heroText">Welcome to my personal space — a place to share my journey, ideas, ambitions, and the things I am learning along the way.</p>
+          <h1>Building knowledge.<br><span>Creating opportunity.</span></h1>
+          <p class="hero-text">Welcome to my personal space — a place to share my journey, ideas, ambitions, and the things I am learning along the way.</p>
           <div class="hero-actions">
-            <a href="#about" class="button button-primary" data-i18n="discover">Discover my story</a>
-            <a href="#contact" class="button button-quiet" data-i18n="contactMe">Contact me</a>
-          </div>
-          <div class="hero-note">
-            <span class="note-line"></span>
-            <span data-i18n="heroNote">Curiosity today. Impact tomorrow.</span>
+            <a href="#about" class="button button-primary">Discover my story</a>
+            <a href="#contact" class="button button-quiet">Contact me</a>
           </div>
         </div>
 
-        <!-- 3D Profile Card with Portrait & Email -->
         <div class="hero-card-wrap">
           <div class="floating-label label-top">
             <span>✦</span>
-            <span data-i18n="labelGrowth">Always growing</span>
+            <span>Always growing</span>
           </div>
           
           <div class="floating-label label-bottom">
-            <span class="mini-bars">•••</span>
-            <span data-i18n="labelFuture">Focused on the future</span>
+            <span>•••</span>
+            <span>Focused on the future</span>
           </div>
 
           <article class="hero-card" id="profileCard">
             <div class="card-top">
-              <span data-i18n="profileCard">A LITTLE ABOUT ME</span>
+              <span>A LITTLE ABOUT ME</span>
               <span class="card-star">★</span>
             </div>
 
             <div class="portrait">
-              <img src="bura.jpg" alt="Barabiruk" class="profile-photo" onerror="this.src='https://via.placeholder.com/220x220/102a43/ffffff?text=Barabiruk'">
+              <img src="bura.jpg" alt="Barabiruk" class="profile-photo" onerror="this.src='https://via.placeholder.com/160x160/102a43/ffffff?text=Barabiruk'">
             </div>
 
-            <!-- Email Badge Right Below Portrait -->
             <a href="mailto:barabiruuk@gmail.com" class="portrait-email-badge">
               ✉ barabiruuk@gmail.com
             </a>
 
-            <h2 data-i18n="yourName">Barabiruk</h2>
-            <div class="profile-role" data-i18n="profileRole">Educator · Lifelong Learner</div>
+            <!-- Social Media Icons (Profile Card irratti) -->
+            <div class="social-links">
+              <!-- LINK KEE TELEGRAM KANAA -->
+              <a href="https://t.me/MaqaaKeeAsittiBarreessi" target="_blank" class="social-btn" title="Telegram">✈</a>
+              <!-- LINK KEE WHATSAPP KANAA -->
+              <a href="https://wa.me/LakkoofsaBilbilaKee" target="_blank" class="social-btn" title="WhatsApp">💬</a>
+              <!-- LINK KEE FACEBOOK KANAA -->
+              <a href="https://facebook.com/MaqaaKeeAsittiBarreessi" target="_blank" class="social-btn" title="Facebook">f</a>
+            </div>
+
+            <h2>Barabiruk</h2>
+            <div class="profile-role">Educator · Lifelong Learner</div>
             
             <div class="card-divider"></div>
             
-            <p class="card-quote" data-i18n="quote">“Small steps, taken consistently, can create meaningful change.”</p>
+            <p class="card-quote">“Small steps, taken consistently, can create meaningful change.”</p>
             
             <div class="card-tags">
-              <span data-i18n="tagLearning">Learning</span>
-              <span data-i18n="tagLeadership">Leadership</span>
-              <span data-i18n="tagIdeas">Ideas</span>
+              <span>Learning</span>
+              <span>Leadership</span>
+              <span>Ideas</span>
             </div>
           </article>
         </div>
@@ -269,423 +308,58 @@
     <section class="section" id="about">
       <div class="container two-column">
         <div>
-          <div class="section-kicker" data-i18n="aboutKicker">01 / ABOUT ME</div>
-          <h2 class="section-title" data-i18n="aboutTitle">A journey shaped by <em>purpose.</em></h2>
+          <div class="section-kicker">01 / ABOUT ME</div>
+          <h2 class="section-title">A journey shaped by <em>purpose.</em></h2>
         </div>
         <div class="section-content">
-          <p data-i18n="aboutText">I believe that learning, discipline, and sharing knowledge can open doors to new opportunities. This website is where I introduce myself, document my growth, and connect with people who share a desire to learn and make a positive difference.</p>
-          <p class="muted" data-i18n="aboutNote">This is your website. Replace this text with your own story, experience, education, and achievements before publishing.</p>
-          <a href="#contact" class="text-link">
-            <span data-i18n="letsConnect">Let’s connect</span>
-            <span>→</span>
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <section class="section focus-section" id="focus">
-      <div class="container">
-        <div class="section-heading">
-          <div>
-            <div class="section-kicker" data-i18n="focusKicker">02 / MY FOCUS</div>
-            <h2 class="section-title" data-i18n="focusTitle">What I’m working <em>toward.</em></h2>
-          </div>
-          <p class="section-intro" data-i18n="focusIntro">A few areas that can shape a meaningful personal and professional journey.</p>
-        </div>
-
-        <div class="focus-grid">
-          <article class="focus-card featured">
-            <div class="icon-box">✦</div>
-            <div class="card-number">01</div>
-            <h3 data-i18n="focusOneTitle">Continuous Learning</h3>
-            <p data-i18n="focusOneText">Developing communication, digital, and practical skills through consistent learning.</p>
-            <div class="card-arrow">↗</div>
-          </article>
-
-          <article class="focus-card">
-            <div class="icon-box">◎</div>
-            <div class="card-number">02</div>
-            <h3 data-i18n="focusTwoTitle">Leadership & Service</h3>
-            <p data-i18n="focusTwoText">Growing the ability to lead responsibly, support others, and solve problems.</p>
-            <div class="card-arrow">↗</div>
-          </article>
-
-          <article class="focus-card">
-            <div class="icon-box">♡</div>
-            <div class="card-number">03</div>
-            <h3 data-i18n="focusThreeTitle">Ideas & Opportunity</h3>
-            <p data-i18n="focusThreeText">Exploring useful ideas, technology, and opportunities that create value.</p>
-            <div class="card-arrow">↗</div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section goals-section" id="goals">
-      <div class="container goals-layout">
-        <div>
-          <div class="section-kicker" data-i18n="goalsKicker">03 / THE BIGGER PICTURE</div>
-          <h2 class="section-title" data-i18n="goalsTitle">Progress with <em>meaning.</em></h2>
-        </div>
-        <div class="goals-panel">
-          <div class="goal-row">
-            <div class="goal-index">01</div>
-            <div>
-              <h3 data-i18n="goalOneTitle">Keep improving</h3>
-              <p data-i18n="goalOneText">Build strong habits and learn something useful every day.</p>
-            </div>
-            <div class="goal-symbol">✓</div>
-          </div>
-          <div class="goal-row">
-            <div class="goal-index">02</div>
-            <div>
-              <h3 data-i18n="goalTwoTitle">Share knowledge</h3>
-              <p data-i18n="goalTwoText">Exchange ideas and help others access useful information.</p>
-            </div>
-            <div class="goal-symbol">✓</div>
-          </div>
-          <div class="goal-row">
-            <div class="goal-index">03</div>
-            <div>
-              <h3 data-i18n="goalThreeTitle">Make a positive impact</h3>
-              <p data-i18n="goalThreeText">Use what I learn to contribute to my community and beyond.</p>
-            </div>
-            <div class="goal-symbol">✓</div>
-          </div>
+          <p>I believe that learning, discipline, and sharing knowledge can open doors to new opportunities. This website is where I introduce myself, document my growth, and connect with people who share a desire to learn and make a positive difference.</p>
         </div>
       </div>
     </section>
 
     <section class="contact-section" id="contact">
       <div class="container contact-inner">
-        <div class="section-kicker" data-i18n="contactKicker">04 / GET IN TOUCH</div>
-        <h2 data-i18n="contactTitle">Have an idea? <em>Let’s talk.</em></h2>
-        <p data-i18n="contactText">I’m open to thoughtful conversations, collaboration, and exchanging ideas.</p>
-        <a href="mailto:barabiruuk@gmail.com" class="button button-light" data-i18n="emailMe">Email me</a>
-        <p class="contact-hint" data-i18n="contactHint">Direct contact: barabiruuk@gmail.com</p>
+        <div class="section-kicker">02 / GET IN TOUCH</div>
+        <h2>Have an idea? <em>Let’s talk.</em></h2>
+        <a href="mailto:barabiruuk@gmail.com" class="button button-primary" style="background:#c9f36b; color:#163d32;">Email me</a>
+        
+        <!-- Social Media Buttons (Kutaa Contact Gubbatti) -->
+        <div class="contact-socials">
+          <a href="https://t.me/MaqaaKeeAsittiBarreessi" target="_blank" class="contact-social-btn">Telegram</a>
+          <a href="https://wa.me/LakkoofsaBilbilaKee" target="_blank" class="contact-social-btn">WhatsApp</a>
+          <a href="https://facebook.com/MaqaaKeeAsittiBarreessi" target="_blank" class="contact-social-btn">Facebook</a>
+        </div>
       </div>
     </section>
   </main>
 
   <footer class="footer">
-    <div class="container">
-      <div class="footer-inner">
-        <div class="brand footer-brand">
-          <span class="brand-mark">B</span>
-          <span>Bara<span class="brand-accent">biruk</span></span>
-        </div>
-        <p data-i18n="footerText">Made with purpose. Built for what comes next.</p>
-        <a href="#home" class="back-top" data-i18n="backTop">Back to top ↑</a>
-      </div>
-      <div class="footer-bottom">
-        <span data-i18n="footerSmall">Personal website · English · Afaan Oromo · Amharic</span>
-        <span>© <span id="year"></span> Barabiruk</span>
-      </div>
+    <div class="container footer-inner">
+      <span>© <span id="year"></span> Barabiruk</span>
+      <span>Personal website · English · Afaan Oromo</span>
     </div>
   </footer>
 
   <script>
-    const translations = {
-      en: {
-        navAbout:"About",navFocus:"My Focus",navGoals:"Goals",navContact:"Contact",
-        eyebrow:"PERSONAL WEBSITE · LEARNING · GROWTH",heroTitle:'Building knowledge.<br><span>Creating opportunity.</span>',
-        heroText:"Welcome to my personal space — a place to share my journey, ideas, ambitions, and the things I am learning along the way.",
-        discover:"Discover my story",contactMe:"Contact me",heroNote:"Curiosity today. Impact tomorrow.",profileCard:"A LITTLE ABOUT ME",
-        yourName:"Barabiruk",profileRole:"Educator · Lifelong Learner",quote:"“Small steps, taken consistently, can create meaningful change.”",
-        tagLearning:"Learning",tagLeadership:"Leadership",tagIdeas:"Ideas",labelGrowth:"Always growing",labelFuture:"Focused on the future",
-        aboutKicker:"01 / ABOUT ME",aboutTitle:'A journey shaped by <em>purpose.</em>',
-        aboutText:"I believe that learning, discipline, and sharing knowledge can open doors to new opportunities. This website is where I introduce myself, document my growth, and connect with people who share a desire to learn and make a positive difference.",
-        aboutNote:"This is your website. Replace this text with your own story, experience, education, and achievements before publishing.",letsConnect:"Let’s connect",
-        focusKicker:"02 / MY FOCUS",focusTitle:'What I’m working <em>toward.</em>',focusIntro:"A few areas that can shape a meaningful personal and professional journey.",
-        focusOneTitle:"Continuous Learning",focusOneText:"Developing communication, digital, and practical skills through consistent learning.",
-        focusTwoTitle:"Leadership & Service",focusTwoText:"Growing the ability to lead responsibly, support others, and solve problems.",
-        focusThreeTitle:"Ideas & Opportunity",focusThreeText:"Exploring useful ideas, technology, and opportunities that create value.",
-        goalsKicker:"03 / THE BIGGER PICTURE",goalsTitle:'Progress with <em>meaning.</em>',goalOneTitle:"Keep improving",goalOneText:"Build strong habits and learn something useful every day.",
-        goalTwoTitle:"Share knowledge",goalTwoText:"Exchange ideas and help others access useful information.",goalThreeTitle:"Make a positive impact",goalThreeText:"Use what I learn to contribute to my community and beyond.",
-        contactKicker:"04 / GET IN TOUCH",contactTitle:'Have an idea? <em>Let’s talk.</em>',contactText:"I’m open to thoughtful conversations, collaboration, and exchanging ideas.",emailMe:"Email me",
-        contactHint:"Direct contact: barabiruuk@gmail.com",footerText:"Made with purpose. Built for what comes next.",backTop:"Back to top ↑",footerSmall:"Personal website · English · Afaan Oromo · Amharic"
-      },
-      om: {
-        navAbout:"Waa'ee Koo",navFocus:"Xiyyeeffannoo Koo",navGoals:"Kaayyoo",navContact:"Na Quunnamaa",
-        eyebrow:"WEBSITE DHUNFAA · BARUMSA · GUDDINA",heroTitle:'Beekumsa ijaaruu.<br><span>Carraa uumuu.</span>',
-        heroText:"Baga gara iddoo dhuunfaa koo dhuftan — imala koo, yaadota koo, hawwii koo fi wantoota ani barachaa jiru itti qooddatan.",
-        discover:"Seenaa koo ilaali",contactMe:"Na quunnami",heroNote:"Har'a barachuu. Boru jijjiirama fiduu.",profileCard:"WAA'EE KOO XIQQOO",
-        yourName:"Barabiruk",profileRole:"Barsiisaa · Barataa Yeroo Hunda",quote:"“Tarkaanfiin xiqqaan yeroo hunda fudhatamu jijjiirama guddaa fida.”",
-        tagLearning:"Barumsa",tagLeadership:"Hoggansa",tagIdeas:"Yaadota",labelGrowth:"Yeroo hunda guddachaa",labelFuture:"Fuulduratti xiyyeeffata",
-        aboutKicker:"01 / WAA'EE KOO",aboutTitle:'Imala kaayyoon <em>qajeelfame.</em>',
-        aboutText:"Barumsi, of eeggannoon hojjechuu fi beekumsa qooduun carraa haaraa banuu danda'a jedheen amana. Website kana irratti of beeksisa, guddina koo galmeessa, akkasumas namoota barachuu fi jijjiirama gaarii fiduu barbaadan waliin wal qunnama.",
-        aboutNote:"Website kun kan keeti. Osoo hin maxxansin dura barruu kana seenaa, muuxannoo, barnootaa fi milkaa'ina kee irratti hundaa'een jijjiiri.",letsConnect:"Wal haa qunnamnu",
-        focusKicker:"02 / XIYYEEFFANNOO KOO",focusTitle:'Waan ani <em>galmaan ga'uuf</em> hojjedhu.',focusIntro:"Damee imala dhuunfaa fi hojii hiika qabu ijaaruuf gargaaran muraasa.",
-        focusOneTitle:"Barumsa Itti Fufaa",focusOneText:"Dandeettii qunnamtii, dijitaalaa fi hojii irra oolmaa yeroo hunda barachuun guddisuu.",
-        focusTwoTitle:"Hoggansaa fi Tajaajila",focusTwoText:"Itti gaafatamummaan hogganuu, namoota deeggaruu fi rakkoo furuu irratti guddachuu.",
-        focusThreeTitle:"Yaada fi Carraa",focusThreeText:"Yaadota faayidaa qaban, teeknooloojii fi carraawwan gatii uuman qorachuu.",
-        goalsKicker:"03 / MUL'ATA BAL'AA",goalsTitle:'Guddina <em>hiika qabu.</em>',goalOneTitle:"Fooyya'uu itti fufi",goalOneText:"Amala gaarii ijaaruu fi guyyaa hunda waan faayidaa qabu barachuu.",
-        goalTwoTitle:"Beekumsa qoodi",goalTwoText:"Yaada wal jijjiiruu fi namoonni odeeffannoo faayidaa qabu akka argatan gargaaruu.",goalThreeTitle:"Jijjiirama gaarii fidi",goalThreeText:"Waan baradhe hawaasa koo fi bakka biraatti gumaachuuf fayyadamuu.",
-        contactKicker:"04 / NA QUUNNAMAA",contactTitle:'Yaada qabdaa? <em>Haa haasofnu.</em>',contactText:"Mari'achuu, waliin hojjechuu fi yaada wal jijjiiruuf qophiidha.",emailMe:"Imeelii naaf ergi",
-        contactHint:"Qunnatii Kallattii: barabiruuk@gmail.com",footerText:"Kaayyoodhaan hojjetame. Fuulduraaf qophaa'e.",backTop:"Gara gubbaatti ↑",footerSmall:"Website dhuunfaa · English · Afaan Oromo · Amaariffa"
-      },
-      am: {
-        navAbout:"ስለ እኔ",navFocus:"ትኩረቴ",navGoals:"ግቦች",navContact:"አግኙኝ",
-        eyebrow:"የግል ድረ ገጽ · ትምህርት · እድገት",heroTitle:'እውቀትን መገንባት።<br><span>እድልን መፍጠር።</span>',
-        heroText:"ወደ የግል ድረ ገጼ እንኳን በደህና መጡ። ጉዞዬን፣ ሀሳቦቼን፣ ምኞቶቼን እና በመንገዴ ላይ የምማራቸውን ነገሮች የማካፍልበት ቦታ ነው።",
-        discover:"ታሪኬን ይወቁ",contactMe:"አግኙኝ",heroNote:"ዛሬ የማወቅ ጉጉት። ነገ ተፅዕኖ።",profileCard:"ስለ እኔ በጥቂቱ",
-        yourName:"Barabiruk",profileRole:"አስተማሪ · የዕድሜ ልክ ተማሪ",quote:"“በቋሚነት የሚወሰዱ ትንንሽ እርምጃዎች ትልቅ ለውጥ ያመጣሉ።”",
-        tagLearning:"ትምህርት",tagLeadership:"አመራር",tagIdeas:"ሀሳቦች",labelGrowth:"ሁልጊዜ በእድገት ላይ",labelFuture:"ለወደፊት ያተኮረ",
-        aboutKicker:"01 / ስለ እኔ",aboutTitle:'በዓላማ የተመራ <em>ጉዞ።</em>',
-        aboutText:"መማር፣ በትጋት መሥራት እና እውቀትን ማካፈል አዳዲስ እድሎችን እንደሚከፍቱ አምናለሁ። ይህ ድረ ገጽ ራሴን የማስተዋውቅበት፣ እድገቴን የማስመዘግብበት እና መማርና ጥሩ ለውጥ ማምጣት ከሚፈልጉ ሰዎች ጋር የምገናኝበት ቦታ ነው።",
-        aboutNote:"ይህ የእርስዎ ድረ ገጽ ነው። ከማተምዎ በፊት ይህን ጽሑፍ በራስዎ ታሪክ፣ ልምድ፣ ትምህርት እና ስኬቶች ይቀይሩት።",letsConnect:"እንገናኝ",
-        focusKicker:"02 / ትኩረቴ",focusTitle:'ወደ ምን <em>እየተጓዝኩ ነው?</em>',focusIntro:"ትርጉም ያለው የግልና የሥራ ጉዞ ለመገንባት የሚረዱ ጥቂት መስኮች።",
-        focusOneTitle:"ቀጣይነት ያለው ትምህርት",focusOneText:"የግንኙነት፣ የዲጂታል እና የተግባር ክህሎቶችን በቀጣይነት ማዳበር።",
-        focusTwoTitle:"አመራርና አገልግሎት",focusTwoText:"በኃላፊነት የመምራት፣ ሌሎችን የመደገፍ እና ችግሮችን የመፍታት ችሎታን ማዳበር።",
-        focusThreeTitle:"ሀሳቦችና እድሎች",focusThreeText:"ጠቃሚ ሀሳቦችን፣ ቴክኖሎጂን እና እሴት የሚፈጥሩ እድሎችን መመርመር።",
-        goalsKicker:"03 / ትልቁ ራዕይ",goalsTitle:'ትርጉም ያለው <em>እድገት።</em>',goalOneTitle:"ራስን ማሻሻል",goalOneText:"ጠንካራ ልምዶችን መገንባትና በየቀኑ ጠቃሚ ነገር መማር።",
-        goalTwoTitle:"እውቀትን ማካፈል",goalTwoText:"ሀሳቦችን መለዋወጥና ሌሎች ጠቃሚ መረጃ እንዲያገኙ መርዳት።",goalThreeTitle:"አዎንታዊ ተፅዕኖ ማምጣት",goalThreeText:"የተማርኩትን ለማህበረሰቤና ከዚያ በላይ አስተዋፅኦ ለማድረግ መጠቀም።",
-        contactKicker:"04 / ያግኙኝ",contactTitle:'ሀሳብ አለዎት? <em>እንወያይ።</em>',contactText:"ጠቃሚ ውይይቶችን፣ ትብብርን እና ሀሳብ መለዋወጥን እቀበላለሁ።",emailMe:"ኢሜይል ይላኩልኝ",
-        contactHint:"ቀጥተኛ አድራሻ: barabiruuk@gmail.com",footerText:"በዓላማ የተሠራ። ለቀጣዩ እርምጃ ዝግጁ።",backTop:"ወደ ላይ ↑",footerSmall:"የግል ድረ ገጽ · እንግሊዝኛ · አፋን ኦሮሞ · አማርኛ"
-      }
-    };
-
-    function setLanguage(lang) {
-      const dict = translations[lang] || translations.en;
-      document.documentElement.lang = lang;
-      document.querySelectorAll("[data-i18n]").forEach(el => {
-        const key = el.getAttribute("data-i18n");
-        if (dict[key] !== undefined) el.innerHTML = dict[key];
-      });
-      document.title = lang === "om" ? "Barabiruk Connect | Marsariitii Dhuunfaa" : lang === "am" ? "Barabiruk Connect | የግል ድረ ገጽ" : "Barabiruk Connect | Personal Website";
-    }
-
-    document.getElementById("languageSelect").addEventListener("change", e => setLanguage(e.target.value));
-
     const menuToggle = document.getElementById("menuToggle");
     const navLinks = document.getElementById("navLinks");
-    menuToggle.addEventListener("click", () => {
+    
+    menuToggle.addEventListener("click", (e) => {
+      e.stopPropagation();
       navLinks.classList.toggle("open");
     });
+
+    document.addEventListener("click", (e) => {
+      if (!navLinks.contains(e.target) && !menuToggle.contains(e.target)) {
+        navLinks.classList.remove("open");
+      }
+    });
+
     navLinks.querySelectorAll("a").forEach(a => a.addEventListener("click", () => {
       navLinks.classList.remove("open");
     }));
 
     document.getElementById("year").textContent = new Date().getFullYear();
-
-    /* 3D Tilt Card Effect */
-    const card = document.getElementById('profileCard');
-    if (card) {
-      card.addEventListener('mousemove', (e) => {
-        const rect = card.getBoundingClientRect();
-        const x = e.clientX - rect.left - (rect.width / 2);
-        const y = e.clientY - rect.top - (rect.height / 2);
-        card.style.transform = `perspective(1000px) rotateX(${-y / 15}deg) rotateY(${x / 15}deg) scale3d(1.02, 1.02, 1.02)`;
-      });
-      card.addEventListener('mouseleave', () => {
-        card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)';
-      });
-    }
-
-    /* 3D Particle Canvas Background */
-    const canvas = document.getElementById('bg-canvas');
-    const ctx = canvas.getContext('2d');
-    let particles = [];
-
-    function resizeCanvas() {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
-    }
-    window.addEventListener('resize', resizeCanvas);
-    resizeCanvas();
-
-    class Particle {
-      constructor() {
-        this.x = Math.random() * canvas.width;
-        this.y = Math.random() * canvas.height;
-        this.size = Math.random() * 2 + 0.8;
-        this.speedX = Math.random() * 0.5 - 0.25;
-        this.speedY = Math.random() * 0.5 - 0.25;
-      }
-      update() {
-        this.x += this.speedX;
-        this.y += this.speedY;
-        if (this.x > canvas.width) this.x = 0;
-        if (this.x < 0) this.x = canvas.width;
-        if (this.y > canvas.height) this.y = 0;
-        if (this.y < 0) this.y = canvas.height;
-      }
-      draw() {
-        ctx.fillStyle = '#53836a';
-        ctx.globalAlpha = 0.22;
-        ctx.beginPath();
-        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-        ctx.fill();
-      }
-    }
-
-    function initParticles() {
-      particles = [];
-      for (let i = 0; i < 40; i++) particles.push(new Particle());
-    }
-
-    function connectParticles() {
-      for (let a = 0; a < particles.length; a++) {
-        for (let b = a; b < particles.length; b++) {
-          let dx = particles[a].x - particles[b].x;
-          let dy = particles[a].y - particles[b].y;
-          let dist = Math.sqrt(dx * dx + dy * dy);
-
-          if (dist < 130) {
-            ctx.strokeStyle = '#79aa4a';
-            ctx.globalAlpha = (1 - dist / 130) * 0.12;
-            ctx.lineWidth = 1;
-            ctx.beginPath();
-            ctx.moveTo(particles[a].x, particles[a].y);
-            ctx.lineTo(particles[b].x, particles[b].y);
-            ctx.stroke();
-          }
-        }
-      }
-    }
-
-    function animate() {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      particles.forEach(p => { p.update(); p.draw(); });
-      connectParticles();
-      requestAnimationFrame(animate);
-    }
-
-    initParticles();
-    animate();
   </script>
 </body>
 </html>
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Barabiruk Connect — Personal website, ideas, learning, and growth.">
-  <meta name="theme-color" content="#f7f8f5">
-  <title>Barabiruk Connect | Personal Website</title>
-  
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap');
-
-    :root{--ink:#17231f;--muted:#64736c;--paper:#f7f8f5;--green:#c9f36b;--deep:#163d32;--line:#dfe5dc;--white:#fff;--gold:#e6b85c;}
-    *{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:90px}
-    body{margin:0;background:var(--paper);color:var(--ink);font-family:'DM Sans',Arial,sans-serif;line-height:1.65;overflow-x:hidden;position:relative}
-
-    #bg-canvas{position:fixed;top:0;left:0;width:100%;height:100%;z-index:-1;pointer-events:none;}
-
-    a{color:inherit;text-decoration:none}
-    .container{width:min(1160px,calc(100% - 48px));margin-inline:auto}
-    .site-header{position:sticky;top:0;z-index:20;background:rgba(247,248,245,.92);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid rgba(223,229,220,.8)}
-    .nav{height:78px;display:flex;align-items:center;gap:30px}
-    .brand{display:inline-flex;align-items:center;gap:10px;font-family:Manrope,sans-serif;font-size:18px;font-weight:800;letter-spacing:-.7px;white-space:nowrap}
-    .brand-mark{display:grid;place-items:center;width:34px;height:34px;background:var(--green);border-radius:11px;font-size:17px}
-    .brand-accent{color:#53836a;margin-left:3px}
-    
-    .nav-right{display:flex;align-items:center;gap:16px;margin-left:auto;}
-    .nav-links{display:flex;gap:30px}
-    .nav-links a{font-size:13px;color:#53625a;font-weight:600;transition:color .2s}
-    .nav-links a:hover,.text-link:hover{color:#578c3e}
-    
-    .language-picker select{border:1px solid var(--line);border-radius:9px;padding:9px 11px;background:#fff;color:var(--ink);font:600 12px 'DM Sans',sans-serif;max-width:135px;cursor:pointer}
-    .menu-toggle{display:none;background:none;border:0;font-size:23px;color:var(--ink);cursor:pointer}
-
-    .hero{position:relative;overflow:hidden;background:rgba(237,241,233,0.7);padding:86px 0 30px;min-height:630px}
-    .hero-grid{position:relative;z-index:1;display:grid;grid-template-columns:1.12fr .88fr;gap:70px;align-items:center}
-    .hero-copy{padding:12px 0 50px}
-    .eyebrow,.section-kicker{font-size:10px;font-weight:700;letter-spacing:2px;color:#65816b}
-    .eyebrow{display:flex;align-items:center;gap:9px}
-    .eyebrow-dot,.live-dot{width:7px;height:7px;border-radius:50%;background:#79aa4a;display:inline-block}
-    .hero h1,.section-title,.contact-inner h2{font-family:Manrope,sans-serif;font-size:clamp(40px,5.2vw,67px);line-height:1.09;letter-spacing:-3.3px;margin:24px 0 20px;font-weight:800}
-    .hero h1 span{color:#62834d}
-    .hero-text{max-width:510px;color:#637168;font-size:16px;line-height:1.9}
-    .hero-actions{display:flex;gap:12px;align-items:center;margin-top:30px;flex-wrap:wrap}
-    .button{display:inline-flex;align-items:center;justify-content:center;gap:15px;padding:13px 19px;border-radius:9px;font-size:12px;font-weight:700;transition:transform .2s,background .2s}
-    .button:hover{transform:translateY(-2px)}
-    .button-primary{background:var(--deep);color:#fff}
-    .button-primary:hover{background:#245b49}
-    .button-quiet{border:1px solid #d2dbd0;background:rgba(255,255,255,.5)}
-    .hero-note{display:flex;align-items:center;gap:12px;margin-top:45px;color:#7b897f;font-size:11px}
-    .note-line{height:1px;width:34px;background:#8ba182}
-
-    .hero-card-wrap{position:relative;max-width:400px;width:100%;margin:0 auto 25px;perspective:1000px}
-    .hero-card{position:relative;z-index:1;padding:25px 28px 25px;border:1px solid rgba(255,255,255,.9);border-radius:19px;background:rgba(255,255,255,.85);backdrop-filter:blur(10px);box-shadow:0 25px 70px rgba(34,57,39,.12);text-align:center;transform-style:preserve-3d;transition:transform 0.1s ease-out}
-    .card-top{display:flex;align-items:center;gap:8px;text-align:left;color:#718077;font-size:9px;font-weight:700;letter-spacing:1.5px}
-    .card-star{margin-left:auto;font-size:18px;color:#79a84e}
-    
-    .portrait{
-      width: min(220px, 100%);
-      aspect-ratio: 1 / 1;
-      margin: 20px auto 14px;
-      overflow: hidden;
-      border-radius: 24px;
-      border: 3px solid var(--gold);
-      background: #102a43;
-      box-shadow: 0 10px 25px rgba(16,42,67,0.2);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .profile-photo{display:block;width:100%;height:100%;object-fit:cover;object-position:center}
-
-    .portrait-email-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      background: #eef3ec;
-      border: 1px solid #d5e2cd;
-      color: #3b5a44;
-      padding: 6px 12px;
-      border-radius: 100px;
-      font-size: 11px;
-      font-weight: 600;
-      margin-bottom: 12px;
-      transition: background 0.2s;
-    }
-    .portrait-email-badge:hover {
-      background: #e3ebd9;
-      color: var(--deep);
-    }
-
-    .hero-card h2{font:800 21px Manrope,sans-serif;letter-spacing:-.8px;margin:0}
-    .profile-role{font-size:12px;color:#7b877f;margin:4px 0 16px}
-    .card-divider{height:1px;background:#e6ebe3}
-    .card-quote{font:500 13px Manrope,sans-serif;line-height:1.7;color:#4f6055;margin:16px 0}
-    .card-tags{display:flex;justify-content:center;gap:7px;flex-wrap:wrap}
-    .card-tags span{padding:5px 9px;border-radius:7px;background:#f0f4eb;color:#5e765a;font-size:10px;font-weight:700}
-    
-    .floating-label{position:absolute;z-index:2;display:flex;align-items:center;gap:8px;padding:11px 14px;border:1px solid #e3e8df;background:#fff;border-radius:10px;box-shadow:0 12px 30px #1e382211;font-size:10px;font-weight:700}
-    .label-top{top:55px;right:-26px}
-    .label-top span:first-child{color:#75a64b}
-    .label-bottom{bottom:25px;left:-36px}
-    .mini-bars{color:#719a53;font-size:17px;letter-spacing:-3px}
-
-    .hero-glow{position:absolute;border-radius:50%;filter:blur(60px);pointer-events:none}
-    .glow-one{width:440px;height:440px;background:#dce9cd;top:-220px;right:7%;opacity:.55}
-    .glow-two{width:240px;height:240px;background:#e2ebd9;bottom:-180px;left:-100px}
-
-    .hero-bottom{display:flex;align-items:center;gap:14px;color:#849087;font-size:9px;font-weight:700;letter-spacing:1.5px}
-    .scroll-line{height:1px;background:#d5ddd1;width:55px}
-    .hero-bottom>span:last-child{margin-left:auto}
-
-    .section{padding:100px 0}
-    .two-column{display:grid;grid-template-columns:.9fr 1.1fr;gap:100px}
-    .section-kicker{margin:0 0 17px}
-    .section-title{font-size:clamp(33px,4vw,47px);letter-spacing:-2px;margin:0;line-height:1.2}
-    .section-title em,.contact-inner h2 em{font-style:normal;color:#73964e}
-    .section-content{padding-top:24px}
-    .section-content>p{font-size:15px;color:#5e6c63;line-height:1.95;margin:0 0 18px}
-    .section-content .muted{font-size:12px;color:#8a958d}
-    .text-link{display:inline-flex;gap:15px;margin-top:9px;font-size:12px;font-weight:700;color:#315844}
-
-    .focus-section{background:#fff}
-    .section-heading{display:flex;justify-content:space-between;align-items:flex-end;gap:40px;margin-bottom:38px}
-    .section-intro{max-width:320px;color:#748077;font-size:13px;line-height:1.8;margin:0 0 5px}
-    .focus-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-    .focus-card{position:relative;min-height:265px;padding:25px 25px 30px;border:1px solid #e6eae3;border-radius:13px;background:#fbfcfa;transition:transform .2s,box-shadow .2s}
-    .focus-card:hover{transform:translateY(-4px);box-shadow:0 15px 35px #17231f0c}
-    .focus-card.featured{background:#eff4e8;border-color:#eff4e8}
-    .icon-box{display:grid;place-items:center;width:39px;height:39px;border-radius:11px;background:#e9f0df;color:#557b42;font-size:19px}
-    .featured .icon-box{background:#dbe9c8}
-    .card-number{position:absolute;right:25px;top:25px;font-size:10px;color:#a0aaa0;font-weight:700}
-    .focus-card h3{font:700 17
