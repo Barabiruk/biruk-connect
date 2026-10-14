@@ -248,3 +248,18 @@ footer {
   object-fit: contain;
   object-position: center;
 }
+.photo-placeholder {
+  display: block;
+  margin: 0 auto;
+  padding: 0;
+  overflow: hidden;
+}
+
+.photo-placeholder .profile-photo {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin: 0 auto;
+  object-fit: contain;
+  object-position: center;
+}
