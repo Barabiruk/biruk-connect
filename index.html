@@ -56,7 +56,6 @@
     
     .nav-right{display:flex;align-items:center;gap:8px;}
     
-    /* Menu / Foldaroota Gubbaa */
     .nav-links{display:flex;gap:15px;align-items:center}
     .nav-links a{font-size:12px;color:#53625a;font-weight:700;transition:color .2s;white-space:nowrap;}
     .nav-links a:hover{color:#578c3e}
@@ -64,57 +63,22 @@
     .language-picker select{border:1px solid var(--line);border-radius:8px;padding:5px 6px;background:#fff;color:var(--ink);font:600 11px 'DM Sans',sans-serif;cursor:pointer;outline:none}
     .menu-toggle{display:block;background:none;border:0;font-size:24px;color:var(--ink);cursor:pointer;padding:4px}
 
-    .hero{position:relative;overflow:hidden;background:rgba(237,241,233,0.7);padding:30px 0}
-    .hero-grid{position:relative;z-index:1;display:grid;grid-template-columns:1.1fr .9fr;gap:30px;align-items:center}
-    .hero-copy{padding:10px 0}
+    .hero{position:relative;overflow:hidden;background:rgba(237,241,233,0.7);padding:50px 0}
+    .hero-grid{position:relative;z-index:1;display:block;text-align:center;max-width:700px;margin:0 auto;}
     .eyebrow,.section-kicker{font-size:10px;font-weight:700;letter-spacing:1.5px;color:#65816b}
-    .eyebrow{display:flex;align-items:center;gap:8px}
+    .eyebrow{display:inline-flex;align-items:center;gap:8px}
     .eyebrow-dot{width:7px;height:7px;border-radius:50%;background:#79aa4a;display:inline-block}
-    .hero h1,.section-title,.contact-inner h2{font-family:Manrope,sans-serif;font-size:clamp(28px,5vw,56px);line-height:1.12;letter-spacing:-1.5px;margin:14px 0 14px;font-weight:800}
+    .hero h1,.section-title,.contact-inner h2{font-family:Manrope,sans-serif;font-size:clamp(32px,6vw,60px);line-height:1.12;letter-spacing:-1.5px;margin:16px 0 16px;font-weight:800}
     .hero h1 span{color:#62834d}
-    .hero-text{max-width:510px;color:#637168;font-size:15px;line-height:1.7}
-    .hero-actions{display:flex;gap:10px;align-items:center;margin-top:20px;flex-wrap:wrap}
+    .hero-text{color:#637168;font-size:16px;line-height:1.7;margin:0 auto;}
+    .hero-actions{display:flex;gap:12px;align-items:center;justify-content:center;margin-top:24px;flex-wrap:wrap}
     
-    .button{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:10px 16px;border-radius:9px;font-size:12px;font-weight:700;transition:transform .2s,background .2s;cursor:pointer;border:none;}
+    .button{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:12px 20px;border-radius:9px;font-size:13px;font-weight:700;transition:transform .2s,background .2s;cursor:pointer;border:none;}
     .button-primary{background:var(--deep);color:#fff}
     .button-quiet{border:1px solid #d2dbd0;background:rgba(255,255,255,.8)}
     .button-gold{background:var(--gold);color:var(--deep);}
     .button-danger{background:#d9534f;color:#fff}
 
-    .hero-card-wrap{position:relative;width:100%;max-width:320px;margin:10px auto;perspective:1000px}
-    .hero-card{position:relative;z-index:1;padding:18px;border:1px solid rgba(255,255,255,.9);border-radius:19px;background:rgba(255,255,255,.92);backdrop-filter:blur(10px);box-shadow:0 15px 35px rgba(34,57,39,.08);text-align:center}
-    .card-top{display:flex;align-items:center;gap:8px;text-align:left;color:#718077;font-size:9px;font-weight:700;letter-spacing:1px}
-    .card-star{margin-left:auto;font-size:16px;color:#79a84e}
-
-    .social-links {
-      display: flex;
-      justify-content: center;
-      gap: 8px;
-      margin: 12px 0;
-    }
-    .social-btn {
-      display: inline-grid;
-      place-items: center;
-      width: 30px;
-      height: 30px;
-      border-radius: 50%;
-      background: #f0f4eb;
-      color: var(--deep);
-      font-size: 12px;
-      font-weight: 700;
-      transition: transform 0.2s, background 0.2s;
-      border: 1px solid #dfe5dc;
-    }
-    .social-btn:hover {
-      transform: translateY(-2px);
-      background: var(--green);
-    }
-
-    .hero-card h2{font:800 18px Manrope,sans-serif;letter-spacing:-.5px;margin:0}
-    .profile-role{font-size:12px;color:#7b877f;margin:2px 0 10px}
-    .card-divider{height:1px;background:#e6ebe3}
-    .card-quote{font:500 12px Manrope,sans-serif;line-height:1.5;color:#4f6055;margin:10px 0}
-    
     .monetize-section {
       padding: 60px 0;
       background: #112821;
@@ -244,7 +208,6 @@
     .footer{background:#102e26;color:#d5e0d8;padding:20px 0;font-size:12px}
     .footer-inner{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap}
 
-    /* RESPONSIVE MENU CSS */
     @media(max-width:1150px){
       .menu-toggle{display:block !important;}
       .nav-links{
@@ -263,7 +226,6 @@
         z-index:999;
       }
       .nav-links.open{display:flex !important;}
-      .hero-grid, .two-column{grid-template-columns:1fr;gap:20px}
       .password-input-group{flex-direction:column;}
     }
   </style>
@@ -282,288 +244,17 @@
         </a>
       </div>
 
-      <!-- FOLDARA HUNDA FI IDDOON KITAABOTA, FILMI, CARRAA MENU GUBBAATTI -->
+      <!-- NAV LINKS WALIIN DATA-I18N -->
       <nav class="nav-links" id="navLinks">
-        <a href="#about">About</a>
-        <a href="#monetize" style="color:#b38f3e;">💎 Galii</a>
-        <a href="#portal">📚 Kitaabota</a>
-        <a href="#portal">🎬 Filmiwwan</a>
-        <a href="#lottery" style="color:#226644;">🎯 Carraa (Lottery)</a>
-        <a href="#payment">Baankii & Nagahee</a>
-        <a href="#experience">Muuxannoo</a>
-        <a href="#contact">Contact</a>
+        <a href="#monetize" style="color:#b38f3e;" data-i18n="navIncome">💎 Galii</a>
+        <a href="#portal" data-i18n="navBooks">📚 Kitaabota</a>
+        <a href="#portal" data-i18n="navMovies">🎬 Filmiwwan</a>
+        <a href="#portal" data-i18n="navMusic">🎵 Faarfannaa</a>
+        <a href="#lottery" style="color:#226644;" data-i18n="navLottery">🎯 Carraa (Lottery)</a>
+        <a href="#payment" data-i18n="navBank">Baankii & Nagahee</a>
+        <a href="#experience" data-i18n="navExperience">Muuxannoo</a>
+        <a href="#about" data-i18n="navAbout">About</a>
+        <a href="#contact" data-i18n="navContact">Contact</a>
       </nav>
       
-      <div class="nav-right">
-        <div class="language-picker">
-          <select id="languageSelect" aria-label="Select Language">
-            <option value="en">English</option>
-            <option value="om">Afaan Oromo</option>
-            <option value="am">አማርኛ</option>
-          </select>
-        </div>
-        <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">☰</button>
-      </div>
-    </div>
-  </header>
-
-  <main>
-    <section class="hero" id="home">
-      <div class="container hero-grid">
-        <div class="hero-copy">
-          <div class="eyebrow">
-            <span class="eyebrow-dot"></span>
-            <span>PERSONAL WEBSITE · PROFESSIONAL HUB</span>
-          </div>
-          <h1>Building knowledge.<br><span>Creating opportunity.</span></h1>
-          <p class="hero-text">Welcome to my personal space — share my journey, ideas, ambitions, and professional services.</p>
-          <div class="hero-actions">
-            <a href="#about" class="button button-primary">Discover my story</a>
-            <a href="#lottery" class="button button-gold">Carraa Yaalchi 🎯</a>
-          </div>
-        </div>
-
-        <div class="hero-card-wrap">
-          <article class="hero-card" id="profileCard">
-            <div class="card-top">
-              <span>A LITTLE ABOUT ME</span>
-              <span class="card-star">★</span>
-            </div>
-
-            <div class="social-links">
-              <a href="https://t.me/barabiruk" target="_blank" class="social-btn" title="Telegram">✈</a>
-              <a href="https://wa.me/251900000000" target="_blank" class="social-btn" title="WhatsApp">💬</a>
-              <a href="https://facebook.com/barabiruk" target="_blank" class="social-btn" title="Facebook">f</a>
-            </div>
-
-            <h2>Barabiruk</h2>
-            <div class="profile-role">Educator · Digital Creator</div>
-            
-            <div class="card-divider"></div>
-            
-            <p class="card-quote">“Small steps, taken consistently, can create meaningful change.”</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- GALII -->
-    <section class="monetize-section" id="monetize">
-      <div class="container">
-        <div class="section-kicker" style="color:var(--gold);">💎 01 / GALII FI TAJAAJILA GUDDAA</div>
-        <h2 class="section-title" style="color:#fff;">Iddoo Galii fi <em>Tajaajila Premium</em></h2>
-        <div class="monetize-grid">
-          <div class="monetize-card">
-            <h3>📚 Gurgurtaa Kitaabota Dijitaalaa</h3>
-            <p>Kitaabota PDF guddina dhuunfaa fi barnootaa gurguruuf.</p>
-            <a href="#payment" class="button button-gold" style="font-size:11px;">Bitachuuf</a>
-          </div>
-          <div class="monetize-card">
-            <h3>🎓 Tajaajila Konsaltaashinii</h3>
-            <p>Deeggarsa, gorsa dhuunfaa fi leenjii addaa argachuuf.</p>
-            <a href="#contact" class="button button-primary" style="background:var(--green); color:var(--deep); font-size:11px;">Qabachuu</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- CARRAA (LOTTERY) -->
-    <section class="lottery-section" id="lottery">
-      <div class="container">
-        <div class="section-kicker">🎯 02 / SIRNA CARRAA (LOTTERY SYSTEM)</div>
-        <h2 class="section-title" style="margin-bottom:20px;">Carraa Kee <em>Yaalchi (Lucky Draw)</em></h2>
-        
-        <div class="lottery-box">
-          <h3 style="color:var(--deep); margin-bottom:10px;">Lakkoofsa Carraa Filadhu</h3>
-          <p style="font-size:13px; color:var(--muted); margin-bottom:15px;">Namoota meeqa gidduudhaa carraan akka si baasu barbaadda? (Fkn: Nama 25 ykn Nama 50)</p>
-          
-          <div style="display:flex; gap:10px; justify-content:center; margin-bottom:15px; flex-wrap:wrap;">
-            <button class="button button-quiet" onclick="runLottery(25)">Carraa Nama 25 🎯</button>
-            <button class="button button-primary" onclick="runLottery(50)">Carraa Nama 50 🌟</button>
-            <button class="button button-gold" onclick="runLottery(100)">Carraa Nama 100 🔥</button>
-          </div>
-
-          <div id="lotteryResult" class="lottery-result"></div>
-        </div>
-      </div>
-    </section>
-
-    <!-- PRIVATE PORTAL (KITAABOTA & FILMI) -->
-    <section class="portal-section" id="portal">
-      <div class="container">
-        <div class="section-kicker">03 / KITAABOTA, FILMIWWAN & RESOURCES</div>
-        <h2 class="section-title">Protected <em>Portal (Login)</em></h2>
-
-        <div class="portal-box" id="lockBox">
-          <div class="lock-screen">
-            <h3>🔒 Seensa Akaawuntii (Password: 1234)</h3>
-            <p>Iddoo kitaabotaa, gaaffiwwan, filmiwwan, fi faarfannootaa argachuuf Password galchaa.</p>
-            <div class="password-input-group">
-              <input type="password" id="hubPassword" placeholder="Password galchaa (1234)...">
-              <button class="button button-primary" onclick="loginUser()">Seeni (Login)</button>
-            </div>
-            <p id="errorMsg" style="color:red; font-size:11px; margin-top:8px; display:none;">Password dogoggora! Irra deebi'aa yaalaa.</p>
-          </div>
-        </div>
-
-        <div class="portal-content" id="portalContent">
-          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:20px;">
-            <p style="color:var(--deep); font-weight:700;">🟢 Baga Gara Dashboard Dhuunfaa Dhuftan!</p>
-            <button class="button button-danger" onclick="logoutUser()">Bahi (Logout) 🚪</button>
-          </div>
-
-          <div class="portal-grid">
-            <div class="portal-item">
-              <h4>📚 Iddoo Kitaabotaa</h4>
-              <p>Kitaabota PDF buusuuf qophaayeera.</p>
-              <a href="#" class="button button-quiet" style="font-size:11px;">PDF Buusuu</a>
-            </div>
-            <div class="portal-item">
-              <h4>🎬 Iddoo Filmiwwanii & Viidiyoo</h4>
-              <p>Filmiwwan fi sagantaa barnootaa addaa.</p>
-              <a href="#" class="button button-primary" style="font-size:11px;">Ilaaluu</a>
-            </div>
-            <div class="portal-item">
-              <h4>🎵 Faarfannaa / Sirboota</h4>
-              <p>Faayila sagalee dhaggeeffadhaa:</p>
-              <audio controls style="width:100%; margin-top:8px;">
-                <source src="faarfannaa1.mp3" type="audio/mpeg">
-                Browser kee audio kana hin deeggaru.
-              </audio>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- BANK & RECEIPT -->
-    <section class="section" id="payment">
-      <div class="container">
-        <div class="section-kicker">04 / KAFFALTII FI BAANKII</div>
-        <h2 class="section-title">Lakkoofsa <em>Herrega Baankii Sadii</em></h2>
-        <div class="portal-grid" style="margin-bottom:25px;">
-          <div class="bank-card">
-            <h4>🏦 Commercial Bank of Ethiopia (CBE)</h4>
-            <p>1000XXXXXXXXX</p>
-          </div>
-          <div class="bank-card">
-            <h4>🏦 Bank of Abyssinia</h4>
-            <p>9876XXXXXXXXX</p>
-          </div>
-          <div class="bank-card">
-            <h4>🏦 Awash Bank</h4>
-            <p>0132XXXXXXXXX</p>
-          </div>
-        </div>
-        <div class="portal-box">
-          <h3 style="color:var(--deep); margin-bottom:10px;">📄 Nagahee Kaffaltii Erguuf</h3>
-          <form action="https://formspree.io/f/barabiruuk@gmail.com" method="POST" enctype="multipart/form-data" style="display:grid; gap:12px; max-width:500px;">
-            <input type="text" name="name" class="form-control" placeholder="Maqaa Keessan" required>
-            <input type="email" name="email" class="form-control" placeholder="Imeelii Keessan" required>
-            <input type="file" name="receipt" class="form-control" accept="image/*,.pdf" required>
-            <button type="submit" class="button button-primary">Nagahee Ergi 📤</button>
-          </form>
-        </div>
-      </div>
-    </section>
-
-    <!-- MUXANNOO -->
-    <section class="section" id="experience" style="background:#fff;">
-      <div class="container">
-        <div class="section-kicker">05 / MUXANNOO FI PIROJEKTOOTA</div>
-        <h2 class="section-title">Website <em>kan Biroo fi Muuxannoo</em></h2>
-        <div class="portal-grid">
-          <div class="portal-item">
-            <h4>🌐 Website 1: Portfolio</h4>
-            <a href="https://barabiruk.github.io" target="_blank" class="button button-quiet" style="font-size:11px;">Ilaalaa ↗</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="about">
-      <div class="container two-column">
-        <div>
-          <div class="section-kicker">06 / ABOUT ME</div>
-          <h2 class="section-title">A journey shaped by <em>purpose.</em></h2>
-        </div>
-        <div class="section-content">
-          <p>I believe that learning, discipline, and sharing knowledge can open doors to new opportunities.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="contact-section" id="contact">
-      <div class="container contact-inner">
-        <div class="section-kicker">07 / GET IN TOUCH</div>
-        <h2>Have an idea? <em>Let’s talk.</em></h2>
-        <a href="mailto:barabiruuk@gmail.com" class="button button-primary" style="background:#c9f36b; color:#163d32;">Email me</a>
-        <div class="contact-socials">
-          <a href="https://t.me/barabiruk" target="_blank" class="contact-social-btn">Telegram</a>
-          <a href="https://wa.me/251900000000" target="_blank" class="contact-social-btn">WhatsApp</a>
-          <a href="https://facebook.com/barabiruk" target="_blank" class="contact-social-btn">Facebook</a>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer class="footer">
-    <div class="container footer-inner">
-      <span>© <span id="year"></span> Barabiruk</span>
-      <span>Professional Hub · English · Afaan Oromo</span>
-    </div>
-  </footer>
-
-  <script>
-    function runLottery(maxLimit) {
-      const resultDiv = document.getElementById("lotteryResult");
-      resultDiv.style.display = "block";
-      resultDiv.innerHTML = "🎲 Carraan filatamaa jira... Qophaa'aa!";
-      setTimeout(() => {
-        const luckyNumber = Math.floor(Math.random() * maxLimit) + 1;
-        resultDiv.innerHTML = `🎉 Fayyaadamaan Carraa (Winner): <b>Lakkoofsa #${luckyNumber}</b> (Gidduu nama ${maxLimit} keessaa filatame)!`;
-      }, 1000);
-    }
-
-    function loginUser() {
-      const pass = document.getElementById("hubPassword").value;
-      if (pass === "1234") {
-        document.getElementById("lockBox").style.display = "none";
-        document.getElementById("portalContent").style.display = "block";
-        localStorage.setItem("isLoggedIn", "true");
-      } else {
-        document.getElementById("errorMsg").style.display = "block";
-      }
-    }
-
-    function logoutUser() {
-      document.getElementById("lockBox").style.display = "block";
-      document.getElementById("portalContent").style.display = "none";
-      document.getElementById("hubPassword").value = "";
-      localStorage.removeItem("isLoggedIn");
-    }
-
-    if (localStorage.getItem("isLoggedIn") === "true") {
-      document.getElementById("lockBox").style.display = "none";
-      document.getElementById("portalContent").style.display = "block";
-    }
-
-    const menuToggle = document.getElementById("menuToggle");
-    const navLinks = document.getElementById("navLinks");
-    menuToggle.addEventListener("click", (e) => {
-      e.stopPropagation();
-      navLinks.classList.toggle("open");
-    });
-    document.addEventListener("click", (e) => {
-      if (!navLinks.contains(e.target) && !menuToggle.contains(e.target)) {
-        navLinks.classList.remove("open");
-      }
-    });
-    navLinks.querySelectorAll("a").forEach(a => a.addEventListener("click", () => {
-      navLinks.classList.remove("open");
-    }));
-
-    document.getElementById("year").textContent = new Date().getFullYear();
-  </script>
-</body>
-</html>
+      <div class="nav
