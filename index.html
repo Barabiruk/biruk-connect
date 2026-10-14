@@ -61,7 +61,7 @@
     .nav-links a:hover{color:#578c3e}
     
     .language-picker select{border:1px solid var(--line);border-radius:8px;padding:5px 6px;background:#fff;color:var(--ink);font:600 11px 'DM Sans',sans-serif;cursor:pointer;outline:none}
-    .menu-toggle{display:block;background:none;border:0;font-size:24px;color:var(--ink);cursor:pointer;padding:4px}
+    .menu-toggle{display:none;background:none;border:0;font-size:24px;color:var(--ink);cursor:pointer;padding:4px}
 
     .hero{position:relative;overflow:hidden;background:rgba(237,241,233,0.7);padding:50px 0}
     .hero-grid{position:relative;z-index:1;display:block;text-align:center;max-width:700px;margin:0 auto;}
@@ -257,4 +257,17 @@
         <a href="#contact" data-i18n="navContact">Contact</a>
       </nav>
       
-      <div class="nav
+      <div class="nav-right">
+        <div class="language-picker">
+          <select id="langSelect">
+            <option value="om">Afaan Oromoo</option>
+            <option value="en">English</option>
+          </select>
+        </div>
+        <button class="menu-toggle" id="menuToggle" aria-label="Toggle Navigation">☰</button>
+      </div>
+    </div>
+  </header>
+
+</body>
+</html>
