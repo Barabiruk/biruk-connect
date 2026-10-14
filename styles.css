@@ -232,3 +232,19 @@ footer {
     max-width: 100%;
   }
 }
+.photo-placeholder {
+  width: 100%;
+  max-width: 300px;
+  height: auto;
+  margin: 24px auto;
+  overflow: hidden;
+}
+
+.photo-placeholder .profile-photo {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: none;
+  object-fit: contain;
+  object-position: center;
+}
