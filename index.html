@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <meta name="description" content="Barabiruk Connect — Personal website, library, monetization, and growth.">
   <meta name="theme-color" content="#f7f8f5">
-  <title>Bara Biruk Connect | Professional Hub</title>
+  <title>Barabiruk Connect | Professional Hub</title>
   
   <style>
     @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap');
@@ -39,13 +39,13 @@
     }
     
     /* Header & Profile Thumbnail */
-    .site-header{position:sticky;top:0;z-index:1000;background:rgba(247,248,245,.95);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid rgba(223,229,220,.8)}
-    .nav{height:70px;display:flex;align-items:center;justify-content:space-between;gap:10px;position:relative}
+    .site-header{position:sticky;top:0;z-index:1000;background:rgba(247,248,245,.98);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid rgba(223,229,220,.8)}
+    .nav{height:75px;display:flex;align-items:center;justify-content:space-between;gap:10px;position:relative}
     
     .brand-group {display:flex; align-items:center; gap:10px;}
     .header-mini-avatar {
-      width: 36px;
-      height: 36px;
+      width: 38px;
+      height: 38px;
       border-radius: 50%;
       border: 2px solid var(--gold);
       object-fit: cover;
@@ -56,8 +56,10 @@
     .brand-accent{color:#53836a;margin-left:2px}
     
     .nav-right{display:flex;align-items:center;gap:10px;}
-    .nav-links{display:flex;gap:15px;align-items:center}
-    .nav-links a{font-size:13px;color:#53625a;font-weight:600;transition:color .2s}
+    
+    /* Foldara Hunda Header Gubbaatti Fiduu */
+    .nav-links{display:flex;gap:16px;align-items:center}
+    .nav-links a{font-size:12px;color:#53625a;font-weight:700;transition:color .2s;white-space:nowrap;}
     .nav-links a:hover{color:#578c3e}
     
     .language-picker select{border:1px solid var(--line);border-radius:8px;padding:6px 8px;background:#fff;color:var(--ink);font:600 12px 'DM Sans',sans-serif;cursor:pointer;outline:none}
@@ -160,7 +162,7 @@
     .label-top{top: -10px; right: 0px;}
     .label-bottom{bottom: -10px; left: 0px;}
 
-    /* Monetization & High Income Hub */
+    /* Monetization Section */
     .monetize-section {
       padding: 60px 0;
       background: #112821;
@@ -179,19 +181,9 @@
       padding: 24px;
       transition: transform 0.2s;
     }
-    .monetize-card:hover {
-      transform: translateY(-4px);
-    }
-    .monetize-card h3 {
-      font-size: 18px;
-      color: var(--green);
-      margin-bottom: 8px;
-    }
-    .monetize-card p {
-      font-size: 13px;
-      color: #c5d4cc;
-      margin-bottom: 16px;
-    }
+    .monetize-card:hover { transform: translateY(-4px); }
+    .monetize-card h3 { font-size: 18px; color: var(--green); margin-bottom: 8px; }
+    .monetize-card p { font-size: 13px; color: #c5d4cc; margin-bottom: 16px; }
 
     /* Portal & Bank Section */
     .portal-section {
@@ -280,18 +272,19 @@
     .footer{background:#102e26;color:#d5e0d8;padding:20px 0;font-size:12px}
     .footer-inner{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap}
 
-    @media(max-width:850px){
+    @media(max-width:950px){
       .menu-toggle{display:block;}
       .nav-links{
         display:none;
         position:absolute;
-        top:70px;
+        top:75px;
         left:0;
         width:100%;
         background:#f7f8f5;
         flex-direction:column;
-        padding:15px;
-        gap:15px;
+        align-items:flex-start !important;
+        padding:20px;
+        gap:14px;
         border-bottom:2px solid var(--line);
         box-shadow:0 15px 25px rgba(0,0,0,0.1);
         z-index:999;
@@ -309,13 +302,23 @@
   <header class="site-header">
     <div class="container nav">
       <div class="brand-group">
-        <!-- SUURAA KEE GUBBAA HEADER BIRATTI -->
-        <img src="bura.jpg" alt="Bara Biruk" class="header-mini-avatar" onerror="this.src='https://via.placeholder.com/36x36/102a43/ffffff?text=B'">
+        <!-- Suuraa kee header gubbaatti -->
+        <img src="bura.jpg" alt="Barabiruk" class="header-mini-avatar" onerror="this.src='https://via.placeholder.com/38x38/102a43/ffffff?text=B'">
         <a href="#home" class="brand">
           <span class="brand-mark">B</span>
           <span>Bara<span class="brand-accent">biruk</span></span>
         </a>
       </div>
+
+      <!-- FOLDARA HUNDA HEADER GUBBAATTI (NAVIGATION) -->
+      <nav class="nav-links" id="navLinks">
+        <a href="#about">About</a>
+        <a href="#monetize" style="color:#b38f3e;">💎 Galii</a>
+        <a href="#portal">Private Hub</a>
+        <a href="#payment">Baankii & Nagahee</a>
+        <a href="#experience">Muuxannoo</a>
+        <a href="#contact">Contact</a>
+      </nav>
       
       <div class="nav-right">
         <div class="language-picker">
@@ -327,14 +330,6 @@
         </div>
         <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">☰</button>
       </div>
-
-      <nav class="nav-links" id="navLinks">
-        <a href="#about">About</a>
-        <a href="#monetize" style="color:#e6b85c; font-weight:700;">💎 Galii (Income)</a>
-        <a href="#portal">Private Hub</a>
-        <a href="#payment">Bank & Support</a>
-        <a href="#contact">Contact</a>
-      </nav>
     </div>
   </header>
 
@@ -347,10 +342,10 @@
             <span>PERSONAL WEBSITE · PROFESSIONAL HUB</span>
           </div>
           <h1>Building knowledge.<br><span>Creating opportunity.</span></h1>
-          <p class="hero-text">Welcome to my personal space — a place to share my journey, ideas, ambitions, and professional services.</p>
+          <p class="hero-text">Welcome to my personal space — share my journey, ideas, ambitions, and professional services.</p>
           <div class="hero-actions">
             <a href="#about" class="button button-primary">Discover my story</a>
-            <a href="#monetize" class="button button-gold">(Monetize) 💰</a>
+            <a href="#monetize" class="button button-gold">Galii Argadhu 💰</a>
           </div>
         </div>
 
@@ -379,11 +374,11 @@
               ✉ barabiruuk@gmail.com
             </a>
 
+            <!-- Social Media Links -->
             <div class="social-links">
-              <a href="https://t.me/bara Biruk" target="_blank" class="social-btn" title="YouTube ">✈</a>
-              <a href="https://t.me/bara Biruk" target="_blank" class="social-btn" title="Telegram">✈</a>
+              <a href="https://t.me/barabiruk" target="_blank" class="social-btn" title="Telegram">✈</a>
               <a href="https://wa.me/251900000000" target="_blank" class="social-btn" title="WhatsApp">💬</a>
-              <a href="https://facebook.com/bara Biruk" target="_blank" class="social-btn" title="Facebook">f</a>
+              <a href="https://facebook.com/barabiruk" target="_blank" class="social-btn" title="Facebook">f</a>
             </div>
 
             <h2>Barabiruk</h2>
@@ -397,47 +392,47 @@
       </div>
     </section>
 
-    <!-- (MONETIZATION & HIGH INCOME HUB) -->
+    <!-- 1. MONETIZATION / GALII GUDDAA -->
     <section class="monetize-section" id="monetize">
       <div class="container">
         <div class="section-kicker" style="color:var(--gold);">💎 01 / GALII FI TAJAAJILA GUDDAA</div>
         <h2 class="section-title" style="color:#fff;">Iddoo Galii fi <em>Tajaajila Premium</em></h2>
-        <p style="color:#b5c4bd; font-size:14px; margin-top:6px;">Marsariitii kana irraa galii fi bu'aa guddaa argachuuf tajaajiloota armaan gadii fayyadamaa:</p>
+        <p style="color:#b5c4bd; font-size:14px; margin-top:6px;">Marsariitii kana irraa galii fi bu'aa guddaa argachuuf tajaajiloota kana fayyadamaa:</p>
 
         <div class="monetize-grid">
           <div class="monetize-card">
             <h3>📚 Gurgurtaa Kitaabota Dijitaalaa</h3>
-            <p>Kitaabota PDF guddina dhuunfaa fi barnootaa irratti qophaayesaniif gurgurtaa taasisaa.</p>
+            <p>Kitaabota PDF guddina dhuunfaa fi barnootaa gurguruuf.</p>
             <a href="#payment" class="button button-gold" style="font-size:11px;">Bitachuuf / Bitisiisuuf</a>
           </div>
 
           <div class="monetize-card">
-            <h3>🎓 Tajaajila Marii fi Konsaltaashinii</h3>
-            <p>Deeggarsa, gorsa dhuunfaa fi leenjii addaa argachuuf nu quunnamaa.</p>
+            <h3>🎓 Tajaajila Konsaltaashinii</h3>
+            <p>Deeggarsa, gorsa dhuunfaa fi leenjii addaa argachuuf.</p>
             <a href="#contact" class="button button-primary" style="background:var(--green); color:var(--deep); font-size:11px;">Qabachuu (Book Now)</a>
           </div>
 
           <div class="monetize-card">
-            <h3>⭐ Premium Private Hub Access</h3>
-            <p>Qabiyyee dhuunfaa eegamaa (Filmii, Faarfannaa, Q&A) daawwachuuf deeggarsa kaffaltii godhaa.</p>
-            <a href="#portal" class="button button-quiet" style="font-size:11px;">Password Seensisaa</a>
+            <h3>⭐ Private Hub Access</h3>
+            <p>Filmii, Faarfannaa, fi Q&A daawwachuuf deeggarsa kaffaltii godhaa.</p>
+            <a href="#portal" class="button button-quiet" style="font-size:11px;">Hub Seensisaa</a>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- PRIVATE PORTAL & LOGIN -->
+    <!-- 2. PRIVATE PORTAL (KITAABU, Q&A, FILMI, FAARFANNAA MP3 UPLOAD) -->
     <section class="portal-section" id="portal">
       <div class="container">
-        <div class="section-kicker">02 / PRIVATE HUB</div>
-        <h2 class="section-title">Protected <em>Portal</em></h2>
+        <div class="section-kicker">02 / PRIVATE HUB & RESOURCES</div>
+        <h2 class="section-title">Protected <em>Portal (Login)</em></h2>
 
         <div class="portal-box" id="lockBox">
           <div class="lock-screen">
-            <h3>🔒 Seensa Akaawuntii (Login)</h3>
-            <p>Iddoo kitaabotaa, gaaffiwwan, filmiwwan, fi faarfannootaa argachuuf Password galchaa. (Default: <b>303015</b>)</p>
+            <h3>🔒 Seensa Akaawuntii (Password: 1234)</h3>
+            <p>Iddoo kitaabotaa, gaaffiwwan, filmiwwan, fi faarfannootaa argachuuf Password galchaa.</p>
             <div class="password-input-group">
-              <input type="password" id="hubPassword" placeholder="Password galchaa...">
+              <input type="password" id="hubPassword" placeholder="Password galchaa (1234)...">
               <button class="button button-primary" onclick="loginUser()">Seeni (Login)</button>
             </div>
             <p id="errorMsg" style="color:red; font-size:11px; margin-top:8px; display:none;">Password dogoggora! Irra deebi'aa yaalaa.</p>
@@ -446,27 +441,47 @@
 
         <div class="portal-content" id="portalContent">
           <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:20px;">
-            <p style="color:var(--deep); font-weight:700;">🟢 Baga Baga Gara Dashboard Dhuunfaa Dhuftan!</p>
+            <p style="color:var(--deep); font-weight:700;">🟢 Baga Gara Dashboard Dhuunfaa Dhuftan!</p>
             <button class="button button-danger" onclick="logoutUser()">Bahi (Logout) 🚪</button>
           </div>
 
           <div class="portal-grid">
+            <!-- Kitaabota -->
             <div class="portal-item">
               <h4>📚 Kitaaba Dijitaalaa</h4>
-              <p>Buusuuf (Download) qophaayeera.</p>
+              <p>Buusuuf (PDF) qophaayeera.</p>
               <a href="#" class="button button-quiet" style="font-size:11px;">PDF Buusuu</a>
             </div>
+
+            <!-- Gaaffiwwan (Q&A) -->
+            <div class="portal-item">
+              <h4>❓ Gaaffiwwan & Marii</h4>
+              <p>Yaada fi gaaffii keessan asitti kaasuu dandeessu.</p>
+            </div>
+
+            <!-- Filmiwwan -->
             <div class="portal-item">
               <h4>🎬 Filmii fi Viidiyoo</h4>
               <p>Sagantaa addaa fi barnoota.</p>
               <a href="#" class="button button-primary" style="font-size:11px;">Ilaaluu</a>
+            </div>
+
+            <!-- FAARFANNAA (Kallattiin MP3 Upload gochuun dhaggeeffachuuf) -->
+            <div class="portal-item">
+              <h4>🎵 Faarfannaa / Sirboota</h4>
+              <p>Faayila sagalee dhaggeeffadhaa:</p>
+              <!-- Faayila MP3 kee magaa 'faarfannaa1.mp3' jechuun foldara keetti galchi -->
+              <audio controls style="width:100%; margin-top:8px;">
+                <source src="faarfannaa1.mp3" type="audio/mpeg">
+                Browser kee audio kana hin deeggaru.
+              </audio>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- BANK & RECEIPT UPLOAD -->
+    <!-- 3. BANK & RECEIPT UPLOAD -->
     <section class="section" id="payment">
       <div class="container">
         <div class="section-kicker">03 / KAFFALTII FI BAANKII</div>
@@ -480,7 +495,7 @@
             <span style="font-size:11px; color:#666;">Maqaa: Barabiruk K.</span>
           </div>
           <div class="bank-card">
-            <h4>🏦 SIINQEE BANK</h4>
+            <h4>🏦 Bank of Abyssinia</h4>
             <p>9876XXXXXXXXX</p>
             <span style="font-size:11px; color:#666;">Maqaa: Barabiruk K.</span>
           </div>
@@ -503,15 +518,47 @@
       </div>
     </section>
 
+    <!-- 4. MUXANNOO FI WEBSITE KAN BIROO -->
+    <section class="section" id="experience" style="background:#fff;">
+      <div class="container">
+        <div class="section-kicker">04 / MUXANNOO FI PIROJEKTOOTA</div>
+        <h2 class="section-title">Website <em>kan Biroo fi Muuxannoo</em></h2>
+        <p style="color:var(--muted); font-size:14px; margin-bottom:20px;">Muuxannoowwan fi marsariitiiwwan biraa:</p>
+
+        <div class="portal-grid">
+          <div class="portal-item">
+            <h4>🌐 Website 1: Portfolio/Educational</h4>
+            <p>Marsariitii barnootaa fi odeeffannoo qooduuf ijaarame.</p>
+            <a href="https://barabiruk.github.io" target="_blank" class="button button-quiet" style="font-size:11px;">Ilaalaa ↗</a>
+          </div>
+          <div class="portal-item">
+            <h4>🌐 Website 2: Digital Resource Hub</h4>
+            <p>Iddoo muuxannoo fi meeshaalee dijitaalaa.</p>
+            <a href="#" class="button button-quiet" style="font-size:11px;">Ilaalaa ↗</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="about">
+      <div class="container two-column">
+        <div>
+          <div class="section-kicker">05 / ABOUT ME</div>
+          <h2 class="section-title">A journey shaped by <em>purpose.</em></h2>
+        </div>
+        <div class="section-content">
+          <p>I believe that learning, discipline, and sharing knowledge can open doors to new opportunities. This website is where I introduce myself, document my growth, and connect with people who share a desire to learn and make a positive difference.</p>
+        </div>
+      </div>
+    </section>
+
     <section class="contact-section" id="contact">
       <div class="container contact-inner">
-        <div class="section-kicker">04 / GET IN TOUCH</div>
+        <div class="section-kicker">06 / GET IN TOUCH</div>
         <h2>Have an idea? <em>Let’s talk.</em></h2>
         <a href="mailto:barabiruuk@gmail.com" class="button button-primary" style="background:#c9f36b; color:#163d32;">Email me</a>
         
         <div class="contact-socials">
-         
-          <a href="https://t.me/@BirukAjemaBalcha" target="_blank" class="contact-social-btn">YouTube </a> 
           <a href="https://t.me/barabiruk" target="_blank" class="contact-social-btn">Telegram</a>
           <a href="https://wa.me/251900000000" target="_blank" class="contact-social-btn">WhatsApp</a>
           <a href="https://facebook.com/barabiruk" target="_blank" class="contact-social-btn">Facebook</a>
@@ -570,13 +617,3 @@
   </script>
 </body>
 </html>
-<div class="portal-item">
-  <h4>🎵 Faarfannaa Haaraa</h4>
-  <p>Dhaggeeffadhaa:</p>
-  
-  <!-- HTML Audio Player -->
-  <audio controls style="width:100%; margin-top:8px;">
-    <source src="anuma.mp3" type="audio/mpeg">
-    Browser kee audio kana deeggaruu dhiisuu danda'a.
-  </audio>
-</div>
