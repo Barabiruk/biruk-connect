@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <meta name="description" content="Barabiruk Connect — Personal website, library, monetization, and growth.">
+  <meta name="description" content="Barabiruk Connect — Personal website, library, lottery, and growth.">
   <meta name="theme-color" content="#f7f8f5">
   <title>Barabiruk Connect | Professional Hub</title>
   
@@ -56,8 +56,8 @@
     
     .nav-right{display:flex;align-items:center;gap:8px;}
     
-    .nav-links{display:flex;gap:14px;align-items:center}
-    .nav-links a{font-size:12px;color:#53625a;font-weight:700;transition:color .2s;white-space:nowrap;}
+    .nav-links{display:flex;gap:12px;align-items:center}
+    .nav-links a{font-size:11px;color:#53625a;font-weight:700;transition:color .2s;white-space:nowrap;}
     .nav-links a:hover{color:#578c3e}
     
     .language-picker select{border:1px solid var(--line);border-radius:8px;padding:5px 6px;background:#fff;color:var(--ink);font:600 11px 'DM Sans',sans-serif;cursor:pointer;outline:none}
@@ -168,6 +168,32 @@
     .monetize-card h3 { font-size: 18px; color: var(--green); margin-bottom: 8px; }
     .monetize-card p { font-size: 13px; color: #c5d4cc; margin-bottom: 16px; }
 
+    /* Lottery Section Styling */
+    .lottery-section {
+      padding: 50px 0;
+      background: #eef3ec;
+      border-top: 1px solid var(--line);
+    }
+    .lottery-box {
+      background: #fff;
+      border: 1px solid #d5e2cd;
+      border-radius: 16px;
+      padding: 24px;
+      max-width: 600px;
+      margin: 0 auto;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+      text-align: center;
+    }
+    .lottery-result {
+      margin-top: 15px;
+      padding: 12px;
+      background: #f0f4eb;
+      border-radius: 8px;
+      font-weight: 700;
+      color: var(--deep);
+      display: none;
+    }
+
     .portal-section {
       padding: 50px 0;
       background: #ffffff;
@@ -226,4 +252,380 @@
     .bank-card p { font-size: 12px; color: var(--muted); font-weight: 600; }
 
     .section{padding:50px 0}
-    .two-column{display:grid;grid-
+    .two-column{display:grid;grid-template-columns:.9fr 1.1fr;gap:30px}
+    .section-title{font-size:clamp(26px,4vw,38px);letter-spacing:-1px;margin:0;line-height:1.2}
+    .section-title em,.contact-inner h2 em{font-style:normal;color:#73964e}
+
+    .contact-section{background:var(--deep);color:white;padding:50px 0;text-align:center}
+    .contact-socials {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      margin-top: 20px;
+      flex-wrap: wrap;
+    }
+    .contact-social-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 14px;
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 8px;
+      color: #fff;
+      font-size: 12px;
+      font-weight: 600;
+    }
+
+    .footer{background:#102e26;color:#d5e0d8;padding:20px 0;font-size:12px}
+    .footer-inner{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap}
+
+    @media(max-width:1150px){
+      .menu-toggle{display:block;}
+      .nav-links{
+        display:none;
+        position:absolute;
+        top:75px;
+        left:0;
+        width:100%;
+        background:#f7f8f5;
+        flex-direction:column;
+        align-items:flex-start !important;
+        padding:20px;
+        gap:14px;
+        border-bottom:2px solid var(--line);
+        box-shadow:0 15px 25px rgba(0,0,0,0.1);
+        z-index:999;
+      }
+      .nav-links.open{display:flex !important;}
+      .hero-grid, .two-column{grid-template-columns:1fr;gap:20px}
+      .password-input-group{flex-direction:column;}
+    }
+  </style>
+</head>
+<body>
+
+  <canvas id="bg-canvas"></canvas>
+
+  <header class="site-header">
+    <div class="container nav">
+      <div class="brand-group">
+        <img src="bura.jpg" alt="Barabiruk" class="header-mini-avatar" onerror="this.src='https://via.placeholder.com/34x34/102a43/ffffff?text=B'">
+        <a href="#home" class="brand">
+          <span class="brand-mark">B</span>
+          <span>Bara<span class="brand-accent">biruk</span></span>
+        </a>
+      </div>
+
+      <!-- FOLDARA HUNDA HEADER GUBBAATTI -->
+      <nav class="nav-links" id="navLinks">
+        <a href="#about">About</a>
+        <a href="#monetize" style="color:#b38f3e;">💎 Galii</a>
+        <a href="#portal">📚 Kitaaba & Filmii</a>
+        <a href="#lottery" style="color:#226644;">🎯 Carraa (Lottery)</a>
+        <a href="#payment">Baankii & Nagahee</a>
+        <a href="#experience">Muuxannoo</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      
+      <div class="nav-right">
+        <div class="language-picker">
+          <select id="languageSelect" aria-label="Select Language">
+            <option value="en">English</option>
+            <option value="om">Afaan Oromo</option>
+            <option value="am">አማርኛ</option>
+          </select>
+        </div>
+        <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <div class="eyebrow">
+            <span class="eyebrow-dot"></span>
+            <span>PERSONAL WEBSITE · PROFESSIONAL HUB</span>
+          </div>
+          <h1>Building knowledge.<br><span>Creating opportunity.</span></h1>
+          <p class="hero-text">Welcome to my personal space — share my journey, ideas, ambitions, and professional services.</p>
+          <div class="hero-actions">
+            <a href="#about" class="button button-primary">Discover my story</a>
+            <a href="#lottery" class="button button-gold">Carraa Yaalchi 🎯</a>
+          </div>
+        </div>
+
+        <div class="hero-card-wrap">
+          <div class="floating-label label-top">
+            <span>✦</span>
+            <span>Always growing</span>
+          </div>
+          
+          <div class="floating-label label-bottom">
+            <span>•••</span>
+            <span>Focused on the future</span>
+          </div>
+
+          <article class="hero-card" id="profileCard">
+            <div class="card-top">
+              <span>A LITTLE ABOUT ME</span>
+              <span class="card-star">★</span>
+            </div>
+
+            <a href="mailto:barabiruuk@gmail.com" class="portrait-email-badge">
+              ✉ barabiruuk@gmail.com
+            </a>
+
+            <div class="social-links">
+              <a href="https://t.me/barabiruk" target="_blank" class="social-btn" title="Telegram">✈</a>
+              <a href="https://wa.me/251900000000" target="_blank" class="social-btn" title="WhatsApp">💬</a>
+              <a href="https://facebook.com/barabiruk" target="_blank" class="social-btn" title="Facebook">f</a>
+            </div>
+
+            <h2>Barabiruk</h2>
+            <div class="profile-role">Educator · Digital Creator</div>
+            
+            <div class="card-divider"></div>
+            
+            <p class="card-quote">“Small steps, taken consistently, can create meaningful change.”</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 1. MONETIZATION / GALII GUDDAA -->
+    <section class="monetize-section" id="monetize">
+      <div class="container">
+        <div class="section-kicker" style="color:var(--gold);">💎 01 / GALII FI TAJAAJILA GUDDAA</div>
+        <h2 class="section-title" style="color:#fff;">Iddoo Galii fi <em>Tajaajila Premium</em></h2>
+        <div class="monetize-grid">
+          <div class="monetize-card">
+            <h3>📚 Gurgurtaa Kitaabota Dijitaalaa</h3>
+            <p>Kitaabota PDF guddina dhuunfaa fi barnootaa gurguruuf.</p>
+            <a href="#payment" class="button button-gold" style="font-size:11px;">Bitachuuf</a>
+          </div>
+          <div class="monetize-card">
+            <h3>🎓 Tajaajila Konsaltaashinii</h3>
+            <p>Deeggarsa, gorsa dhuunfaa fi leenjii addaa argachuuf.</p>
+            <a href="#contact" class="button button-primary" style="background:var(--green); color:var(--deep); font-size:11px;">Qabachuu</a>
+          </div>
+          <div class="monetize-card">
+            <h3>⭐ Private Hub Access</h3>
+            <p>Filmii, Faarfannaa, fi Q&A daawwachuuf deeggarsa kaffaltii godhaa.</p>
+            <a href="#portal" class="button button-quiet" style="font-size:11px;">Hub Seensisaa</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. KUTAA CARRAA YAALCHISUU (LOTTERY SYSTEM: 25, 50, etc.) -->
+    <section class="lottery-section" id="lottery">
+      <div class="container">
+        <div class="section-kicker">🎯 02 / SIRNA CARRAA (LOTTERY SYSTEM)</div>
+        <h2 class="section-title" style="margin-bottom:20px;">Carraa Kee <em>Yaalchi (Lucky Draw)</em></h2>
+        
+        <div class="lottery-box">
+          <h3 style="color:var(--deep); margin-bottom:10px;">Lakkoofsa Carraa Filadhu</h3>
+          <p style="font-size:13px; color:var(--muted); margin-bottom:15px;">Namoota meeqa gidduudhaa carraan akka si baasu barbaadda? (Fkn: Nama 25 ykn Nama 50)</p>
+          
+          <div style="display:flex; gap:10px; justify-content:center; margin-bottom:15px; flex-wrap:wrap;">
+            <button class="button button-quiet" onclick="runLottery(25)">Carraa Nama 25 🎯</button>
+            <button class="button button-primary" onclick="runLottery(50)">Carraa Nama 50 🌟</button>
+            <button class="button button-gold" onclick="runLottery(100)">Carraa Nama 100 🔥</button>
+          </div>
+
+          <div id="lotteryResult" class="lottery-result">
+            <!-- Bu'aan carraa asitti mul'ata -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. PRIVATE PORTAL -->
+    <section class="portal-section" id="portal">
+      <div class="container">
+        <div class="section-kicker">03 / KITAABOTA, FILMIWWAN & RESOURCES</div>
+        <h2 class="section-title">Protected <em>Portal (Login)</em></h2>
+
+        <div class="portal-box" id="lockBox">
+          <div class="lock-screen">
+            <h3>🔒 Seensa Akaawuntii (Password: 1234)</h3>
+            <p>Iddoo kitaabotaa, gaaffiwwan, filmiwwan, fi faarfannootaa argachuuf Password galchaa.</p>
+            <div class="password-input-group">
+              <input type="password" id="hubPassword" placeholder="Password galchaa (1234)...">
+              <button class="button button-primary" onclick="loginUser()">Seeni (Login)</button>
+            </div>
+            <p id="errorMsg" style="color:red; font-size:11px; margin-top:8px; display:none;">Password dogoggora! Irra deebi'aa yaalaa.</p>
+          </div>
+        </div>
+
+        <div class="portal-content" id="portalContent">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:20px;">
+            <p style="color:var(--deep); font-weight:700;">🟢 Baga Gara Dashboard Dhuunfaa Dhuftan!</p>
+            <button class="button button-danger" onclick="logoutUser()">Bahi (Logout) 🚪</button>
+          </div>
+
+          <div class="portal-grid">
+            <div class="portal-item">
+              <h4>📚 Iddoo Kitaabotaa</h4>
+              <p>Kitaabota PDF buusuuf qophaayeera.</p>
+              <a href="#" class="button button-quiet" style="font-size:11px;">PDF Buusuu</a>
+            </div>
+            <div class="portal-item">
+              <h4>❓ Gaaffiwwan & Marii</h4>
+              <p>Yaada fi gaaffii keessan asitti kaasuu dandeessu.</p>
+            </div>
+            <div class="portal-item">
+              <h4>🎬 Iddoo Filmiwwanii & Viidiyoo</h4>
+              <p>Filmiwwan fi sagantaa barnootaa addaa.</p>
+              <a href="#" class="button button-primary" style="font-size:11px;">Ilaaluu</a>
+            </div>
+            <div class="portal-item">
+              <h4>🎵 Faarfannaa / Sirboota</h4>
+              <p>Faayila sagalee dhaggeeffadhaa:</p>
+              <audio controls style="width:100%; margin-top:8px;">
+                <source src="faarfannaa1.mp3" type="audio/mpeg">
+                Browser kee audio kana hin deeggaru.
+              </audio>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. BANK & RECEIPT UPLOAD -->
+    <section class="section" id="payment">
+      <div class="container">
+        <div class="section-kicker">04 / KAFFALTII FI BAANKII</div>
+        <h2 class="section-title">Lakkoofsa <em>Herrega Baankii Sadii</em></h2>
+        <div class="portal-grid" style="margin-bottom:25px;">
+          <div class="bank-card">
+            <h4>🏦 Commercial Bank of Ethiopia (CBE)</h4>
+            <p>1000XXXXXXXXX</p>
+          </div>
+          <div class="bank-card">
+            <h4>🏦 Bank of Abyssinia</h4>
+            <p>9876XXXXXXXXX</p>
+          </div>
+          <div class="bank-card">
+            <h4>🏦 Awash Bank</h4>
+            <p>0132XXXXXXXXX</p>
+          </div>
+        </div>
+        <div class="portal-box">
+          <h3 style="color:var(--deep); margin-bottom:10px;">📄 Nagahee Kaffaltii Erguuf</h3>
+          <form action="https://formspree.io/f/barabiruuk@gmail.com" method="POST" enctype="multipart/form-data" style="display:grid; gap:12px; max-width:500px;">
+            <input type="text" name="name" class="form-control" placeholder="Maqaa Keessan" required>
+            <input type="email" name="email" class="form-control" placeholder="Imeelii Keessan" required>
+            <input type="file" name="receipt" class="form-control" accept="image/*,.pdf" required>
+            <button type="submit" class="button button-primary">Nagahee Ergi 📤</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- MUXANNOO -->
+    <section class="section" id="experience" style="background:#fff;">
+      <div class="container">
+        <div class="section-kicker">05 / MUXANNOO FI PIROJEKTOOTA</div>
+        <h2 class="section-title">Website <em>kan Biroo fi Muuxannoo</em></h2>
+        <div class="portal-grid">
+          <div class="portal-item">
+            <h4>🌐 Website 1: Portfolio</h4>
+            <a href="https://barabiruk.github.io" target="_blank" class="button button-quiet" style="font-size:11px;">Ilaalaa ↗</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="about">
+      <div class="container two-column">
+        <div>
+          <div class="section-kicker">06 / ABOUT ME</div>
+          <h2 class="section-title">A journey shaped by <em>purpose.</em></h2>
+        </div>
+        <div class="section-content">
+          <p>I believe that learning, discipline, and sharing knowledge can open doors to new opportunities.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact-section" id="contact">
+      <div class="container contact-inner">
+        <div class="section-kicker">07 / GET IN TOUCH</div>
+        <h2>Have an idea? <em>Let’s talk.</em></h2>
+        <a href="mailto:barabiruuk@gmail.com" class="button button-primary" style="background:#c9f36b; color:#163d32;">Email me</a>
+        <div class="contact-socials">
+          <a href="https://t.me/barabiruk" target="_blank" class="contact-social-btn">Telegram</a>
+          <a href="https://wa.me/251900000000" target="_blank" class="contact-social-btn">WhatsApp</a>
+          <a href="https://facebook.com/barabiruk" target="_blank" class="contact-social-btn">Facebook</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <span>© <span id="year"></span> Barabiruk</span>
+      <span>Professional Hub · English · Afaan Oromo</span>
+    </div>
+  </footer>
+
+  <script>
+    /* LOTTERY LOGIC (Carraa Yaalchisuu) */
+    function runLottery(maxLimit) {
+      const resultDiv = document.getElementById("lotteryResult");
+      resultDiv.style.display = "block";
+      resultDiv.innerHTML = "🎲 Carraan filatamaa jira... Qophaa'aa!";
+      
+      setTimeout(() => {
+        // Carraa lakkoofsa 1 irraa hanga maxLimit (fkn: 25 ykn 50) jiru keessaa filata
+        const luckyNumber = Math.floor(Math.random() * maxLimit) + 1;
+        resultDiv.innerHTML = `🎉 Fayyaadamaan Carraa (Winner): <b>Lakkoofsa #${luckyNumber}</b> (Gidduu nama ${maxLimit} keessaa filatame)!`;
+      }, 1000);
+    }
+
+    function loginUser() {
+      const pass = document.getElementById("hubPassword").value;
+      if (pass === "1234") {
+        document.getElementById("lockBox").style.display = "none";
+        document.getElementById("portalContent").style.display = "block";
+        localStorage.setItem("isLoggedIn", "true");
+      } else {
+        document.getElementById("errorMsg").style.display = "block";
+      }
+    }
+
+    function logoutUser() {
+      document.getElementById("lockBox").style.display = "block";
+      document.getElementById("portalContent").style.display = "none";
+      document.getElementById("hubPassword").value = "";
+      localStorage.removeItem("isLoggedIn");
+    }
+
+    if (localStorage.getItem("isLoggedIn") === "true") {
+      document.getElementById("lockBox").style.display = "none";
+      document.getElementById("portalContent").style.display = "block";
+    }
+
+    const menuToggle = document.getElementById("menuToggle");
+    const navLinks = document.getElementById("navLinks");
+    menuToggle.addEventListener("click", (e) => {
+      e.stopPropagation();
+      navLinks.classList.toggle("open");
+    });
+    document.addEventListener("click", (e) => {
+      if (!navLinks.contains(e.target) && !menuToggle.contains(e.target)) {
+        navLinks.classList.remove("open");
+      }
+    });
+    navLinks.querySelectorAll("a").forEach(a => a.addEventListener("click", () => {
+      navLinks.classList.remove("open");
+    }));
+
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
