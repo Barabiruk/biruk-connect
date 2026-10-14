@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <meta name="description" content="Barabiruk Connect — Personal website, library, lottery, and growth.">
+  <meta name="description" content="Barabiruk Connect — Professional Hub">
   <meta name="theme-color" content="#f7f8f5">
   <title>Barabiruk Connect | Professional Hub</title>
   
@@ -43,8 +43,8 @@
     
     .brand-group {display:flex; align-items:center; gap:8px;}
     .header-mini-avatar {
-      width: 34px;
-      height: 34px;
+      width: 36px;
+      height: 36px;
       border-radius: 50%;
       border: 2px solid var(--gold);
       object-fit: cover;
@@ -56,12 +56,13 @@
     
     .nav-right{display:flex;align-items:center;gap:8px;}
     
-    .nav-links{display:flex;gap:12px;align-items:center}
-    .nav-links a{font-size:11px;color:#53625a;font-weight:700;transition:color .2s;white-space:nowrap;}
+    /* Menu / Foldaroota Gubbaa */
+    .nav-links{display:flex;gap:15px;align-items:center}
+    .nav-links a{font-size:12px;color:#53625a;font-weight:700;transition:color .2s;white-space:nowrap;}
     .nav-links a:hover{color:#578c3e}
     
     .language-picker select{border:1px solid var(--line);border-radius:8px;padding:5px 6px;background:#fff;color:var(--ink);font:600 11px 'DM Sans',sans-serif;cursor:pointer;outline:none}
-    .menu-toggle{display:none;background:none;border:0;font-size:22px;color:var(--ink);cursor:pointer;padding:4px}
+    .menu-toggle{display:block;background:none;border:0;font-size:24px;color:var(--ink);cursor:pointer;padding:4px}
 
     .hero{position:relative;overflow:hidden;background:rgba(237,241,233,0.7);padding:30px 0}
     .hero-grid{position:relative;z-index:1;display:grid;grid-template-columns:1.1fr .9fr;gap:30px;align-items:center}
@@ -85,26 +86,11 @@
     .card-top{display:flex;align-items:center;gap:8px;text-align:left;color:#718077;font-size:9px;font-weight:700;letter-spacing:1px}
     .card-star{margin-left:auto;font-size:16px;color:#79a84e}
 
-    .portrait-email-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 5px;
-      background: #eef3ec;
-      border: 1px solid #d5e2cd;
-      color: #3b5a44;
-      padding: 5px 10px;
-      border-radius: 100px;
-      font-size: 11px;
-      font-weight: 600;
-      margin-bottom: 8px;
-      word-break: break-all;
-    }
-
     .social-links {
       display: flex;
       justify-content: center;
       gap: 8px;
-      margin-bottom: 12px;
+      margin: 12px 0;
     }
     .social-btn {
       display: inline-grid;
@@ -129,23 +115,6 @@
     .card-divider{height:1px;background:#e6ebe3}
     .card-quote{font:500 12px Manrope,sans-serif;line-height:1.5;color:#4f6055;margin:10px 0}
     
-    .floating-label{
-      position: absolute;
-      z-index: 2;
-      display: flex;
-      align-items: center;
-      gap: 5px;
-      padding: 6px 10px;
-      border: 1px solid #e3e8df;
-      background: #fff;
-      border-radius: 8px;
-      box-shadow: 0 8px 15px rgba(0,0,0,0.05);
-      font-size: 9px;
-      font-weight: 700;
-    }
-    .label-top{top: -10px; right: 0px;}
-    .label-bottom{bottom: -10px; left: 0px;}
-
     .monetize-section {
       padding: 60px 0;
       background: #112821;
@@ -162,13 +131,10 @@
       border: 1px solid rgba(255,255,255,0.12);
       border-radius: 14px;
       padding: 24px;
-      transition: transform 0.2s;
     }
-    .monetize-card:hover { transform: translateY(-4px); }
     .monetize-card h3 { font-size: 18px; color: var(--green); margin-bottom: 8px; }
     .monetize-card p { font-size: 13px; color: #c5d4cc; margin-bottom: 16px; }
 
-    /* Lottery Section Styling */
     .lottery-section {
       padding: 50px 0;
       background: #eef3ec;
@@ -181,7 +147,6 @@
       padding: 24px;
       max-width: 600px;
       margin: 0 auto;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.03);
       text-align: center;
     }
     .lottery-result {
@@ -246,7 +211,6 @@
       border-left: 4px solid var(--deep);
       padding: 15px;
       border-radius: 8px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.03);
     }
     .bank-card h4 { font-size: 14px; color: var(--deep); margin-bottom: 5px; }
     .bank-card p { font-size: 12px; color: var(--muted); font-weight: 600; }
@@ -280,8 +244,9 @@
     .footer{background:#102e26;color:#d5e0d8;padding:20px 0;font-size:12px}
     .footer-inner{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap}
 
+    /* RESPONSIVE MENU CSS */
     @media(max-width:1150px){
-      .menu-toggle{display:block;}
+      .menu-toggle{display:block !important;}
       .nav-links{
         display:none;
         position:absolute;
@@ -310,18 +275,19 @@
   <header class="site-header">
     <div class="container nav">
       <div class="brand-group">
-        <img src="bura.jpg" alt="Barabiruk" class="header-mini-avatar" onerror="this.src='https://via.placeholder.com/34x34/102a43/ffffff?text=B'">
+        <img src="bura.jpg" alt="Barabiruk" class="header-mini-avatar" onerror="this.src='https://via.placeholder.com/36x36/102a43/ffffff?text=B'">
         <a href="#home" class="brand">
           <span class="brand-mark">B</span>
           <span>Bara<span class="brand-accent">biruk</span></span>
         </a>
       </div>
 
-      <!-- FOLDARA HUNDA HEADER GUBBAATTI -->
+      <!-- FOLDARA HUNDA FI IDDOON KITAABOTA, FILMI, CARRAA MENU GUBBAATTI -->
       <nav class="nav-links" id="navLinks">
         <a href="#about">About</a>
         <a href="#monetize" style="color:#b38f3e;">💎 Galii</a>
-        <a href="#portal">📚 Kitaaba & Filmii</a>
+        <a href="#portal">📚 Kitaabota</a>
+        <a href="#portal">🎬 Filmiwwan</a>
         <a href="#lottery" style="color:#226644;">🎯 Carraa (Lottery)</a>
         <a href="#payment">Baankii & Nagahee</a>
         <a href="#experience">Muuxannoo</a>
@@ -358,25 +324,11 @@
         </div>
 
         <div class="hero-card-wrap">
-          <div class="floating-label label-top">
-            <span>✦</span>
-            <span>Always growing</span>
-          </div>
-          
-          <div class="floating-label label-bottom">
-            <span>•••</span>
-            <span>Focused on the future</span>
-          </div>
-
           <article class="hero-card" id="profileCard">
             <div class="card-top">
               <span>A LITTLE ABOUT ME</span>
               <span class="card-star">★</span>
             </div>
-
-            <a href="mailto:barabiruuk@gmail.com" class="portrait-email-badge">
-              ✉ barabiruuk@gmail.com
-            </a>
 
             <div class="social-links">
               <a href="https://t.me/barabiruk" target="_blank" class="social-btn" title="Telegram">✈</a>
@@ -395,7 +347,7 @@
       </div>
     </section>
 
-    <!-- 1. MONETIZATION / GALII GUDDAA -->
+    <!-- GALII -->
     <section class="monetize-section" id="monetize">
       <div class="container">
         <div class="section-kicker" style="color:var(--gold);">💎 01 / GALII FI TAJAAJILA GUDDAA</div>
@@ -411,16 +363,11 @@
             <p>Deeggarsa, gorsa dhuunfaa fi leenjii addaa argachuuf.</p>
             <a href="#contact" class="button button-primary" style="background:var(--green); color:var(--deep); font-size:11px;">Qabachuu</a>
           </div>
-          <div class="monetize-card">
-            <h3>⭐ Private Hub Access</h3>
-            <p>Filmii, Faarfannaa, fi Q&A daawwachuuf deeggarsa kaffaltii godhaa.</p>
-            <a href="#portal" class="button button-quiet" style="font-size:11px;">Hub Seensisaa</a>
-          </div>
         </div>
       </div>
     </section>
 
-    <!-- 2. KUTAA CARRAA YAALCHISUU (LOTTERY SYSTEM: 25, 50, etc.) -->
+    <!-- CARRAA (LOTTERY) -->
     <section class="lottery-section" id="lottery">
       <div class="container">
         <div class="section-kicker">🎯 02 / SIRNA CARRAA (LOTTERY SYSTEM)</div>
@@ -436,14 +383,12 @@
             <button class="button button-gold" onclick="runLottery(100)">Carraa Nama 100 🔥</button>
           </div>
 
-          <div id="lotteryResult" class="lottery-result">
-            <!-- Bu'aan carraa asitti mul'ata -->
-          </div>
+          <div id="lotteryResult" class="lottery-result"></div>
         </div>
       </div>
     </section>
 
-    <!-- 3. PRIVATE PORTAL -->
+    <!-- PRIVATE PORTAL (KITAABOTA & FILMI) -->
     <section class="portal-section" id="portal">
       <div class="container">
         <div class="section-kicker">03 / KITAABOTA, FILMIWWAN & RESOURCES</div>
@@ -474,10 +419,6 @@
               <a href="#" class="button button-quiet" style="font-size:11px;">PDF Buusuu</a>
             </div>
             <div class="portal-item">
-              <h4>❓ Gaaffiwwan & Marii</h4>
-              <p>Yaada fi gaaffii keessan asitti kaasuu dandeessu.</p>
-            </div>
-            <div class="portal-item">
               <h4>🎬 Iddoo Filmiwwanii & Viidiyoo</h4>
               <p>Filmiwwan fi sagantaa barnootaa addaa.</p>
               <a href="#" class="button button-primary" style="font-size:11px;">Ilaaluu</a>
@@ -495,7 +436,7 @@
       </div>
     </section>
 
-    <!-- 4. BANK & RECEIPT UPLOAD -->
+    <!-- BANK & RECEIPT -->
     <section class="section" id="payment">
       <div class="container">
         <div class="section-kicker">04 / KAFFALTII FI BAANKII</div>
@@ -574,14 +515,11 @@
   </footer>
 
   <script>
-    /* LOTTERY LOGIC (Carraa Yaalchisuu) */
     function runLottery(maxLimit) {
       const resultDiv = document.getElementById("lotteryResult");
       resultDiv.style.display = "block";
       resultDiv.innerHTML = "🎲 Carraan filatamaa jira... Qophaa'aa!";
-      
       setTimeout(() => {
-        // Carraa lakkoofsa 1 irraa hanga maxLimit (fkn: 25 ykn 50) jiru keessaa filata
         const luckyNumber = Math.floor(Math.random() * maxLimit) + 1;
         resultDiv.innerHTML = `🎉 Fayyaadamaan Carraa (Winner): <b>Lakkoofsa #${luckyNumber}</b> (Gidduu nama ${maxLimit} keessaa filatame)!`;
       }, 1000);
