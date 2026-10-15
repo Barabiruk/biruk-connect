@@ -57,12 +57,43 @@
     
     .nav-right{display:flex;align-items:center;gap:8px;}
     
-    .nav-links{display:flex;gap:15px;align-items:center}
-    .nav-links a{font-size:12px;color:#53625a;font-weight:700;transition:color .2s;white-space:nowrap;}
-    .nav-links a:hover{color:#578c3e}
+    /* MENU BAR BAREEDA FI AMMAYYAA */
+    .custom-styled-navbar {
+      display: flex;
+      align-items: center;
+      background: var(--deep);
+      border-radius: 10px;
+      padding: 4px;
+      gap: 4px !important;
+      box-shadow: 0 4px 12px rgba(22, 61, 50, 0.15);
+    }
+
+    .custom-styled-navbar .nav-item {
+      color: #c5d4cc !important;
+      font-weight: 700 !important;
+      font-size: 11px !important;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      padding: 8px 14px;
+      text-decoration: none;
+      border-radius: 7px;
+      transition: all 0.25s ease;
+      white-space: nowrap;
+    }
+
+    .custom-styled-navbar .nav-item:hover {
+      color: #ffffff !important;
+      background: rgba(255, 255, 255, 0.12);
+    }
+
+    .custom-styled-navbar .nav-item.active {
+      background: var(--green) !important;
+      color: var(--deep) !important;
+      font-weight: 800 !important;
+    }
     
     .language-picker select{border:1px solid var(--line);border-radius:8px;padding:5px 6px;background:#fff;color:var(--ink);font:600 11px 'DM Sans',sans-serif;cursor:pointer;outline:none}
-    .menu-toggle{display:block;background:none;border:0;font-size:24px;color:var(--ink);cursor:pointer;padding:4px}
+    .menu-toggle{display:none;background:none;border:0;font-size:24px;color:var(--ink);cursor:pointer;padding:4px}
 
     .hero{position:relative;overflow:hidden;background:rgba(237,241,233,0.7);padding:50px 0}
     .hero-grid{position:relative;z-index:1;display:block;text-align:center;max-width:700px;margin:0 auto;}
@@ -146,7 +177,7 @@
       max-width: 360px;
       width: 100%;
     }
-    .password-input-group input, .form-control {
+    .password-input-group input, .form-control, textarea.form-control {
       flex: 1;
       padding: 10px 14px;
       border: 1px solid var(--line);
@@ -154,6 +185,7 @@
       font-size: 13px;
       outline: none;
       width: 100%;
+      font-family: inherit;
     }
     .portal-content {
       display: none;
@@ -161,13 +193,13 @@
     }
     .portal-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 15px;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
       margin-top: 15px;
     }
     .portal-item {
       background: #fff;
-      padding: 18px;
+      padding: 20px;
       border-radius: 12px;
       border: 1px solid #e3e8df;
     }
@@ -215,22 +247,28 @@
 
     @media(max-width:1150px){
       .menu-toggle{display:block !important;}
-      .nav-links{
+      .custom-styled-navbar {
         display:none;
         position:absolute;
         top:75px;
         left:0;
         width:100%;
-        background:#f7f8f5;
+        background:var(--deep);
         flex-direction:column;
         align-items:flex-start !important;
-        padding:20px;
-        gap:14px;
+        padding:15px;
+        gap:8px !important;
         border-bottom:2px solid var(--line);
         box-shadow:0 15px 25px rgba(0,0,0,0.1);
         z-index:999;
+        border-radius:0;
       }
-      .nav-links.open{display:flex !important;}
+      .custom-styled-navbar.open{display:flex !important;}
+      .custom-styled-navbar .nav-item {
+        width: 100%;
+        text-align: left;
+        padding: 10px 16px;
+      }
       .password-input-group{flex-direction:column;}
     }
   </style>
@@ -249,17 +287,15 @@
         </a>
       </div>
 
-      <!-- NAV LINKS WALIIN DATA-I18N -->
-      <nav class="nav-links" id="navLinks">
-        <a href="#monetize" style="color:#b38f3e;" data-i18n="navIncome">💎 Galii</a>
-        <a href="#portal" data-i18n="navBooks">📚 Kitaabota</a>
-        <a href="#portal" data-i18n="navMovies">🎬 Filmiwwan</a>
-        <a href="#portal" data-i18n="navMusic">🎵 Faarfannaa</a>
-        <a href="#lottery" style="color:#226644;" data-i18n="navLottery">🎯 Carraa (Lottery)</a>
-        <a href="#payment" data-i18n="navBank">Baankii & Nagahee</a>
-        <a href="#experience" data-i18n="navExperience">Muuxannoo</a>
-        <a href="#about" data-i18n="navAbout">About</a>
-        <a href="#contact" data-i18n="navContact">Contact</a>
+      <!-- NAV LINKS MENU BAR FOYYA'AA -->
+      <nav class="nav-links custom-styled-navbar" id="navLinks">
+        <a href="#home" class="nav-item active" data-i18n="navHome">HOME</a>
+        <a href="#monetize" class="nav-item" data-i18n="navIncome">💎 GALII</a>
+        <a href="#portal" class="nav-item" data-i18n="navBooks">📚 KITAABOTA</a>
+        <a href="#lottery" class="nav-item" data-i18n="navLottery">🎯 CARRAA</a>
+        <a href="#payment" class="nav-item" data-i18n="navBank">BAANKII</a>
+        <a href="#about" class="nav-item" data-i18n="navAbout">ABOUT US</a>
+        <a href="#contact" class="nav-item" data-i18n="navContact">CONTACT US</a>
       </nav>
       
       <div class="nav-right">
@@ -334,7 +370,7 @@
       </div>
     </section>
 
-    <!-- PRIVATE PORTAL -->
+    <!-- PRIVATE PORTAL (KITAABOTA, FILMIWWAN FI FAARFANNAA) -->
     <section class="portal-section" id="portal">
       <div class="container">
         <div class="section-kicker" data-i18n="pKicker">03 / KITAABOTA, FILMIWWAN & RESOURCES</div>
@@ -359,23 +395,36 @@
           </div>
 
           <div class="portal-grid">
+            <!-- 📚 KITAABOTA PDF -->
             <div class="portal-item">
-              <h4 data-i18n="pBookTitle">📚 Iddoo Kitaabotaa</h4>
+              <h4 data-i18n="pBookTitle">📚 Iddoo Kitaabotaa (PDF)</h4>
               <p data-i18n="pBookSub">Kitaabota PDF buusuuf qophaayeera.</p>
-              <a href="kitaaba-koo.pdf" download class="button button-quiet" style="font-size:11px;" data-i18n="downloadPdfBtn">PDF Buusuu 📥</a>
+              <div style="display:flex; flex-direction:column; gap:8px; margin-top:10px;">
+                <a href="kitaaba-koo.pdf" download class="button button-quiet" style="font-size:11px;">📖 Kitaaba 1 Buusuu 📥</a>
+              </div>
             </div>
+
+            <!-- 🎬 FILMIWWAN FI VIIDIYOO -->
             <div class="portal-item">
               <h4 data-i18n="pMovieTitle">🎬 Iddoo Filmiwwanii & Viidiyoo</h4>
               <p data-i18n="pMovieSub">Filmiwwan fi sagantaa barnootaa addaa.</p>
-              <a href="#" class="button button-primary" style="font-size:11px;" data-i18n="watchBtn">Ilaaluu</a>
+              <div style="margin-top:10px;">
+                <!-- YouTube Video Frame / Video Player -->
+                <iframe style="width:100%; height:160px; border-radius:8px; border:none;" src="https://www.youtube.com/embed/tgbNymZ7vqY" title="Video Player" allowfullscreen></iframe>
+              </div>
             </div>
+
+            <!-- 🎵 FAARFANNAA FI SIRBOOTA -->
             <div class="portal-item">
-              <h4 data-i18n="pMusicTitle">🎵 Faarfannaa / Sirboota</h4>
+              <h4 data-i18n="pMusicTitle">🎵 Faarfannaa / Music Player</h4>
               <p data-i18n="pMusicSub">Faayila sagalee dhaggeeffadhaa:</p>
-              <audio controls style="width:100%; margin-top:8px;">
-                <source src="faarfannaa1.mp3" type="audio/mpeg">
-                Browser kee audio kana hin deeggaru.
-              </audio>
+              <div style="margin-top:10px;">
+                <p style="font-size:11px; font-weight:700; color:var(--deep);">🎶 Faarfannaa 01</p>
+                <audio controls style="width:100%; margin-top:4px;">
+                  <source src="faarfannaa1.mp3" type="audio/mpeg">
+                  Browser kee audio kana hin deeggaru.
+                </audio>
+              </div>
             </div>
           </div>
         </div>
@@ -401,14 +450,32 @@
             <p>0132XXXXXXXXX</p>
           </div>
         </div>
+
         <div class="portal-box">
           <h3 style="color:var(--deep); margin-bottom:10px;" data-i18n="bFormTitle">📄 Nagahee Kaffaltii Erguuf</h3>
-          <form action="https://formspree.io/f/xppqopar" method="POST" enctype="multipart/form-data" style="display:grid; gap:12px; max-width:500px;">
+          
+          <!-- FORMSPREE FORM (Transaction Ref No.) -->
+          <form action="https://formspree.io/f/xppqopar" method="POST" style="display:grid; gap:12px; max-width:500px; margin-bottom:20px;">
             <input type="text" name="name" class="form-control" placeholder="Maqaa Keessan" required id="nameInput">
             <input type="email" name="email" class="form-control" placeholder="Imeelii Keessan" required id="emailInput">
-            <input type="file" name="receipt" class="form-control" accept="image/*,.pdf" required>
+            <input type="text" name="transaction_ref" class="form-control" placeholder="Lakkoofsa Nagahee / Transaction Ref No. (Fkn: FT24...)" required>
+            <textarea name="message" class="form-control" rows="2" placeholder="Ergaa biraa yoo qabaattan..."></textarea>
+            
             <button type="submit" class="button button-primary" data-i18n="sendReceiptBtn">Nagahee Ergi 📤</button>
           </form>
+
+          <hr style="border:0; border-top:1px solid var(--line); margin:20px 0;">
+
+          <!-- FAAYILA / FAKKII NAGAHEE ERGUUF KARAALEE SOCIAL MEDIA -->
+          <p style="font-size:13px; font-weight:700; color:var(--deep); margin-bottom:10px;">Fakkii ykn Faayila Nagahee Erguuf:</p>
+          <div style="display:flex; gap:10px; flex-wrap:wrap;">
+            <a href="https://t.me/barabiruk" target="_blank" class="button" style="background:#0088cc; color:#fff;">
+              Telegram-iin Nagahee Ergi ✈️
+            </a>
+            <a href="https://wa.me/251900000000?text=Akam,%20nagahee%20kaffaltii%20qabadheen%20dhufe." target="_blank" class="button" style="background:#25D366; color:#fff;">
+              WhatsApp-iin Nagahee Ergi 💬
+            </a>
+          </div>
         </div>
       </div>
     </section>
@@ -445,7 +512,7 @@
         <h2 data-i18n="cTitle">Have an idea? <em>Let’s talk.</em></h2>
         <a href="mailto:barabiruuk@gmail.com" class="button button-primary" style="background:#c9f36b; color:#163d32; margin-bottom:20px;" data-i18n="cEmailBtn">Email me</a>
         
-        <!-- SOCIAL MEDIA LINKS (Telegram, WhatsApp, Facebook, YouTube) -->
+        <!-- SOCIAL MEDIA LINKS -->
         <div class="contact-socials">
           <a href="https://t.me/barabiruk" target="_blank" class="contact-social-btn">✈️ Telegram</a>
           <a href="https://wa.me/251900000000" target="_blank" class="contact-social-btn">💬 WhatsApp</a>
@@ -467,9 +534,8 @@
     /* TRANSLATIONS DICTIONARY FOR ALL THREE LANGUAGES */
     const translations = {
       en: {
-        navIncome: "💎 Income", navBooks: "📚 Books", navMovies: "🎬 Movies", navMusic: "🎵 Music",
-        navLottery: "🎯 Lottery", navBank: "Bank & Receipt", navExperience: "Experience",
-        navAbout: "About", navContact: "Contact",
+        navHome: "HOME", navIncome: "💎 INCOME", navBooks: "📚 BOOKS", navLottery: "🎯 LOTTERY", 
+        navBank: "BANK & RECEIPT", navAbout: "ABOUT US", navContact: "CONTACT US",
         eyebrow: "PERSONAL WEBSITE · PROFESSIONAL HUB",
         heroTitle: 'Building knowledge.<br><span>Creating opportunity.</span>',
         heroText: "Welcome to my personal space — share my journey, ideas, ambitions, and professional services.",
@@ -493,9 +559,8 @@
         cKicker: "07 / GET IN TOUCH", cTitle: 'Have an idea? <em>Let’s talk.</em>', cEmailBtn: "Email me"
       },
       om: {
-        navIncome: "💎 Galii", navBooks: "📚 Kitaabota", navMovies: "🎬 Filmiwwan", navMusic: "🎵 Faarfannaa",
-        navLottery: "🎯 Carraa (Lottery)", navBank: "Baankii & Nagahee", navExperience: "Muuxannoo",
-        navAbout: "Waa'ee Koo", navContact: "Na Quunnamaa",
+        navHome: "HOME", navIncome: "💎 GALII", navBooks: "📚 KITAABOTA", navLottery: "🎯 CARRAA", 
+        navBank: "BAANKII", navAbout: "ABOUT US", navContact: "CONTACT US",
         eyebrow: "WEBSITE DHUNFAA · PROFESSIONAL HUB",
         heroTitle: 'Beekumsa ijaaruu.<br><span>Carraa uumuu.</span>',
         heroText: "Baga gara iddoo dhuunfaa koo dhuftan — imala koo, yaadota koo, hawwii koo fi tajaajila koo itti qooddachuuf.",
@@ -519,9 +584,8 @@
         cKicker: "07 / NA QUUNNAMAA", cTitle: 'Yaada qabdaa? <em>Haa haasofnu.</em>', cEmailBtn: "Imeelii naaf ergi"
       },
       am: {
-        navIncome: "💎 ገቢ", navBooks: "📚 መጻሕፍት", navMovies: "🎬 ፊልሞች", navMusic: "🎵 መዝሙራት",
-        navLottery: "🎯 ዕድል (ሎተሪ)", navBank: "ባንክ እና ደረሰኝ", navExperience: "ልምድ",
-        navAbout: "ስለ እኔ", navContact: "ያግኙኝ",
+        navHome: "HOME", navIncome: "💎 ገቢ", navBooks: "📚 መጻሕፍት", navLottery: "🎯 ዕድል (ሎተሪ)", 
+        navBank: "ባንክ እና ደረሰኝ", navAbout: "ስለ እኔ", navContact: "ያግኙኝ",
         eyebrow: "የግል ድረ ገጽ · ፕሮፌሽናል ማዕከል",
         heroTitle: 'እውቀትን መገንባት።<br><span>እድልን መፍጠር።</span>',
         heroText: "ወደ የግል ድረ ገጼ እንኳን በደህና መጡ — ጉዞዬን፣ ሀሳቦቼን፣ ምኞቶቼን እና አገልግሎቶቼን የማካፍልበት ቦታ ነው።",
@@ -643,8 +707,10 @@
     });
 
     if (navLinks) {
-      navLinks.querySelectorAll("a").forEach(a => a.addEventListener("click", () => {
+      navLinks.querySelectorAll("a").forEach(a => a.addEventListener("click", (e) => {
         navLinks.classList.remove("open");
+        navLinks.querySelectorAll("a").forEach(link => link.classList.remove("active"));
+        e.target.classList.add("active");
       }));
     }
 
