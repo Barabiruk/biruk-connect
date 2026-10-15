@@ -57,43 +57,12 @@
     
     .nav-right{display:flex;align-items:center;gap:8px;}
     
-    /* MENU BAR FOYYA'AA FI BAREEDA */
-    .custom-styled-navbar {
-      display: flex;
-      align-items: center;
-      background: var(--deep);
-      border-radius: 10px;
-      padding: 4px;
-      gap: 4px !important;
-      box-shadow: 0 4px 12px rgba(22, 61, 50, 0.15);
-    }
-
-    .custom-styled-navbar .nav-item {
-      color: #c5d4cc !important;
-      font-weight: 700 !important;
-      font-size: 11px !important;
-      letter-spacing: 0.5px;
-      text-transform: uppercase;
-      padding: 8px 14px;
-      text-decoration: none;
-      border-radius: 7px;
-      transition: all 0.25s ease;
-      white-space: nowrap;
-    }
-
-    .custom-styled-navbar .nav-item:hover {
-      color: #ffffff !important;
-      background: rgba(255, 255, 255, 0.12);
-    }
-
-    .custom-styled-navbar .nav-item.active {
-      background: var(--green) !important;
-      color: var(--deep) !important;
-      font-weight: 800 !important;
-    }
+    .nav-links{display:flex;gap:15px;align-items:center}
+    .nav-links a{font-size:12px;color:#53625a;font-weight:700;transition:color .2s;white-space:nowrap;}
+    .nav-links a:hover{color:#578c3e}
     
     .language-picker select{border:1px solid var(--line);border-radius:8px;padding:5px 6px;background:#fff;color:var(--ink);font:600 11px 'DM Sans',sans-serif;cursor:pointer;outline:none}
-    .menu-toggle{display:none;background:none;border:0;font-size:24px;color:var(--ink);cursor:pointer;padding:4px}
+    .menu-toggle{display:block;background:none;border:0;font-size:24px;color:var(--ink);cursor:pointer;padding:4px}
 
     .hero{position:relative;overflow:hidden;background:rgba(237,241,233,0.7);padding:50px 0}
     .hero-grid{position:relative;z-index:1;display:block;text-align:center;max-width:700px;margin:0 auto;}
@@ -177,7 +146,7 @@
       max-width: 360px;
       width: 100%;
     }
-    .password-input-group input, .form-control, textarea.form-control {
+    .password-input-group input, .form-control {
       flex: 1;
       padding: 10px 14px;
       border: 1px solid var(--line);
@@ -185,7 +154,6 @@
       font-size: 13px;
       outline: none;
       width: 100%;
-      font-family: inherit;
     }
     .portal-content {
       display: none;
@@ -236,6 +204,10 @@
       color: #fff;
       font-size: 12px;
       font-weight: 600;
+      transition: background 0.2s;
+    }
+    .contact-social-btn:hover {
+      background: rgba(255,255,255,0.25);
     }
 
     .footer{background:#102e26;color:#d5e0d8;padding:20px 0;font-size:12px}
@@ -243,28 +215,22 @@
 
     @media(max-width:1150px){
       .menu-toggle{display:block !important;}
-      .custom-styled-navbar {
+      .nav-links{
         display:none;
         position:absolute;
         top:75px;
         left:0;
         width:100%;
-        background:var(--deep);
+        background:#f7f8f5;
         flex-direction:column;
         align-items:flex-start !important;
-        padding:15px;
-        gap:8px !important;
+        padding:20px;
+        gap:14px;
         border-bottom:2px solid var(--line);
         box-shadow:0 15px 25px rgba(0,0,0,0.1);
         z-index:999;
-        border-radius:0;
       }
-      .custom-styled-navbar.open{display:flex !important;}
-      .custom-styled-navbar .nav-item {
-        width: 100%;
-        text-align: left;
-        padding: 10px 16px;
-      }
+      .nav-links.open{display:flex !important;}
       .password-input-group{flex-direction:column;}
     }
   </style>
@@ -283,15 +249,17 @@
         </a>
       </div>
 
-      <!-- NAV LINKS MENU BAR -->
-      <nav class="nav-links custom-styled-navbar" id="navLinks">
-        <a href="#home" class="nav-item active" data-i18n="navHome">HOME</a>
-        <a href="#monetize" class="nav-item" data-i18n="navIncome">💎 GALII</a>
-        <a href="#portal" class="nav-item" data-i18n="navBooks">📚 KITAABOTA</a>
-        <a href="#lottery" class="nav-item" data-i18n="navLottery">🎯 CARRAA</a>
-        <a href="#payment" class="nav-item" data-i18n="navBank">BAANKII</a>
-        <a href="#about" class="nav-item" data-i18n="navAbout">ABOUT US</a>
-        <a href="#contact" class="nav-item" data-i18n="navContact">CONTACT US</a>
+      <!-- NAV LINKS WALIIN DATA-I18N -->
+      <nav class="nav-links" id="navLinks">
+        <a href="#monetize" style="color:#b38f3e;" data-i18n="navIncome">💎 Galii</a>
+        <a href="#portal" data-i18n="navBooks">📚 Kitaabota</a>
+        <a href="#portal" data-i18n="navMovies">🎬 Filmiwwan</a>
+        <a href="#portal" data-i18n="navMusic">🎵 Faarfannaa</a>
+        <a href="#lottery" style="color:#226644;" data-i18n="navLottery">🎯 Carraa (Lottery)</a>
+        <a href="#payment" data-i18n="navBank">Baankii & Nagahee</a>
+        <a href="#experience" data-i18n="navExperience">Muuxannoo</a>
+        <a href="#about" data-i18n="navAbout">About</a>
+        <a href="#contact" data-i18n="navContact">Contact</a>
       </nav>
       
       <div class="nav-right">
@@ -394,8 +362,6 @@
             <div class="portal-item">
               <h4 data-i18n="pBookTitle">📚 Iddoo Kitaabotaa</h4>
               <p data-i18n="pBookSub">Kitaabota PDF buusuuf qophaayeera.</p>
-
-              <!-- Bakka kitaaba-koo.pdf jedhutti maqaa PDF kee kaachisi -->
               <a href="kitaaba-koo.pdf" download class="button button-quiet" style="font-size:11px;" data-i18n="downloadPdfBtn">PDF Buusuu 📥</a>
             </div>
             <div class="portal-item">
@@ -435,39 +401,15 @@
             <p>0132XXXXXXXXX</p>
           </div>
         </div>
-
-        <!-- SADAN ISAA: Web3Forms + Telegram + WhatsApp -->
         <div class="portal-box">
           <h3 style="color:var(--deep); margin-bottom:10px;" data-i18n="bFormTitle">📄 Nagahee Kaffaltii Erguuf</h3>
-          <p style="font-size:13px; color:var(--muted); margin-bottom:15px;">Karaa siif mijatuun nagahee kaffaltii kee naaf ergaa:</p>
-
-          <!-- 1. WEB3FORMS -->
-          <form action="https://api.web3forms.com/submit" method="POST" enctype="multipart/form-data" style="display:grid; gap:12px; max-width:500px; margin-bottom:20px;">
-            <input type="hidden" name="access_key" value="4bea371c-72b1-4810-983f-d00b320385b3">
-
+          <form action="https://formspree.io/f/xppqopar" method="POST" enctype="multipart/form-data" style="display:grid; gap:12px; max-width:500px;">
             <input type="text" name="name" class="form-control" placeholder="Maqaa Keessan" required id="nameInput">
             <input type="email" name="email" class="form-control" placeholder="Imeelii Keessan" required id="emailInput">
-            <textarea name="message" class="form-control" rows="3" placeholder="Ergaa keessan ykn odeeffannoo nagahee (Nagahee TXT / Lakkoofsa transaction)..." required></textarea>
-            <input type="file" name="receipt" class="form-control" accept="image/*,.pdf">
-            
-            <button type="submit" class="button button-primary" data-i18n="sendReceiptBtn">Form-iin Nagahee Ergi 📤</button>
+            <input type="file" name="receipt" class="form-control" accept="image/*,.pdf" required>
+            <button type="submit" class="button button-primary" data-i18n="sendReceiptBtn">Nagahee Ergi 📤</button>
           </form>
-
-          <hr style="border:0; border-top:1px solid var(--line); margin:20px 0;">
-
-          <!-- 2 & 3. TELEGRAM FI WHATSAPP -->
-          <p style="font-size:13px; font-weight:700; color:var(--deep); margin-bottom:10px;">Ykn Kallattiin Ergaa:</p>
-          <div style="display:flex; gap:10px; flex-wrap:wrap;">
-            <a href="https://t.me/barabiruk" target="_blank" class="button" style="background:#0088cc; color:#fff;">
-              Telegram-iin Ergi ✈️
-            </a>
-
-            <a href="https://wa.me/251900000000?text=Akam,%20nagahee%20kaffaltii%20qabadheen%20dhufe." target="_blank" class="button" style="background:#25D366; color:#fff;">
-              WhatsApp-iin Ergi 💬
-            </a>
-          </div>
         </div>
-
       </div>
     </section>
 
@@ -501,11 +443,14 @@
       <div class="container contact-inner">
         <div class="section-kicker" data-i18n="cKicker">07 / GET IN TOUCH</div>
         <h2 data-i18n="cTitle">Have an idea? <em>Let’s talk.</em></h2>
-        <a href="mailto:barabiruuk@gmail.com" class="button button-primary" style="background:#c9f36b; color:#163d32;" data-i18n="cEmailBtn">Email me</a>
+        <a href="mailto:barabiruuk@gmail.com" class="button button-primary" style="background:#c9f36b; color:#163d32; margin-bottom:20px;" data-i18n="cEmailBtn">Email me</a>
+        
+        <!-- SOCIAL MEDIA LINKS (Telegram, WhatsApp, Facebook, YouTube) -->
         <div class="contact-socials">
-          <a href="https://t.me/barabiruk" target="_blank" class="contact-social-btn">Telegram</a>
-          <a href="https://wa.me/251900000000" target="_blank" class="contact-social-btn">WhatsApp</a>
-          <a href="https://facebook.com/barabiruk" target="_blank" class="contact-social-btn">Facebook</a>
+          <a href="https://t.me/barabiruk" target="_blank" class="contact-social-btn">✈️ Telegram</a>
+          <a href="https://wa.me/251900000000" target="_blank" class="contact-social-btn">💬 WhatsApp</a>
+          <a href="https://facebook.com/barabiruk" target="_blank" class="contact-social-btn">📘 Facebook</a>
+          <a href="https://youtube.com/@barabiruk" target="_blank" class="contact-social-btn">▶️ YouTube</a>
         </div>
       </div>
     </section>
@@ -522,8 +467,9 @@
     /* TRANSLATIONS DICTIONARY FOR ALL THREE LANGUAGES */
     const translations = {
       en: {
-        navHome: "HOME", navIncome: "💎 INCOME", navBooks: "📚 BOOKS", navLottery: "🎯 LOTTERY", 
-        navBank: "BANK & RECEIPT", navAbout: "ABOUT US", navContact: "CONTACT US",
+        navIncome: "💎 Income", navBooks: "📚 Books", navMovies: "🎬 Movies", navMusic: "🎵 Music",
+        navLottery: "🎯 Lottery", navBank: "Bank & Receipt", navExperience: "Experience",
+        navAbout: "About", navContact: "Contact",
         eyebrow: "PERSONAL WEBSITE · PROFESSIONAL HUB",
         heroTitle: 'Building knowledge.<br><span>Creating opportunity.</span>',
         heroText: "Welcome to my personal space — share my journey, ideas, ambitions, and professional services.",
@@ -547,8 +493,9 @@
         cKicker: "07 / GET IN TOUCH", cTitle: 'Have an idea? <em>Let’s talk.</em>', cEmailBtn: "Email me"
       },
       om: {
-        navHome: "HOME", navIncome: "💎 GALII", navBooks: "📚 KITAABOTA", navLottery: "🎯 CARRAA", 
-        navBank: "BAANKII", navAbout: "ABOUT US", navContact: "CONTACT US",
+        navIncome: "💎 Galii", navBooks: "📚 Kitaabota", navMovies: "🎬 Filmiwwan", navMusic: "🎵 Faarfannaa",
+        navLottery: "🎯 Carraa (Lottery)", navBank: "Baankii & Nagahee", navExperience: "Muuxannoo",
+        navAbout: "Waa'ee Koo", navContact: "Na Quunnamaa",
         eyebrow: "WEBSITE DHUNFAA · PROFESSIONAL HUB",
         heroTitle: 'Beekumsa ijaaruu.<br><span>Carraa uumuu.</span>',
         heroText: "Baga gara iddoo dhuunfaa koo dhuftan — imala koo, yaadota koo, hawwii koo fi tajaajila koo itti qooddachuuf.",
@@ -572,8 +519,9 @@
         cKicker: "07 / NA QUUNNAMAA", cTitle: 'Yaada qabdaa? <em>Haa haasofnu.</em>', cEmailBtn: "Imeelii naaf ergi"
       },
       am: {
-        navHome: "HOME", navIncome: "💎 ገቢ", navBooks: "📚 መጻሕፍት", navLottery: "🎯 ዕድል (ሎተሪ)", 
-        navBank: "ባንክ እና ደረሰኝ", navAbout: "ስለ እኔ", navContact: "ያግኙኝ",
+        navIncome: "💎 ገቢ", navBooks: "📚 መጻሕፍት", navMovies: "🎬 ፊልሞች", navMusic: "🎵 መዝሙራት",
+        navLottery: "🎯 ዕድል (ሎተሪ)", navBank: "ባንክ እና ደረሰኝ", navExperience: "ልምድ",
+        navAbout: "ስለ እኔ", navContact: "ያግኙኝ",
         eyebrow: "የግል ድረ ገጽ · ፕሮፌሽናል ማዕከል",
         heroTitle: 'እውቀትን መገንባት።<br><span>እድልን መፍጠር።</span>',
         heroText: "ወደ የግል ድረ ገጼ እንኳን በደህና መጡ — ጉዞዬን፣ ሀሳቦቼን፣ ምኞቶቼን እና አገልግሎቶቼን የማካፍልበት ቦታ ነው።",
@@ -695,10 +643,8 @@
     });
 
     if (navLinks) {
-      navLinks.querySelectorAll("a").forEach(a => a.addEventListener("click", (e) => {
+      navLinks.querySelectorAll("a").forEach(a => a.addEventListener("click", () => {
         navLinks.classList.remove("open");
-        navLinks.querySelectorAll("a").forEach(link => link.classList.remove("active"));
-        e.target.classList.add("active");
       }));
     }
 
