@@ -177,7 +177,7 @@
       max-width: 360px;
       width: 100%;
     }
-    .password-input-group input, .form-control {
+    .password-input-group input, .form-control, textarea.form-control {
       flex: 1;
       padding: 10px 14px;
       border: 1px solid var(--line);
@@ -185,6 +185,7 @@
       font-size: 13px;
       outline: none;
       width: 100%;
+      font-family: inherit;
     }
     .portal-content {
       display: none;
@@ -282,7 +283,7 @@
         </a>
       </div>
 
-      <!-- NAV LINKS MENU BAR FOYYA'AA -->
+      <!-- NAV LINKS MENU BAR -->
       <nav class="nav-links custom-styled-navbar" id="navLinks">
         <a href="#home" class="nav-item active" data-i18n="navHome">HOME</a>
         <a href="#monetize" class="nav-item" data-i18n="navIncome">💎 GALII</a>
@@ -389,13 +390,13 @@
             <button class="button button-danger" onclick="logoutUser()" data-i18n="logoutBtn">Bahi (Logout) 🚪</button>
           </div>
 
-          <div class="portal-item">
-  <h4 data-i18n="pBookTitle">📚 Iddoo Kitaabotaa</h4>
-  <p data-i18n="pBookSub">Kitaabota PDF buusuuf qophaayeera.</p>
-  <!-- Bakka kitaaba-koo.pdf jedhutti maqaa pdf keessaniin bakka buusaa -->
-  <a href="Mindset_ The New Psychology of Success 1_260322_100016.pdf" download class="button button-quiet" style="font-size:11px;" data-i18n="downloadPdfBtn">PDF Buusuu 📥</a>
-</div>
+          <div class="portal-grid">
+            <div class="portal-item">
+              <h4 data-i18n="pBookTitle">📚 Iddoo Kitaabotaa</h4>
+              <p data-i18n="pBookSub">Kitaabota PDF buusuuf qophaayeera.</p>
 
+              <!-- Bakka kitaaba-koo.pdf jedhutti maqaa PDF kee kaachisi -->
+              <a href="kitaaba-koo.pdf" download class="button button-quiet" style="font-size:11px;" data-i18n="downloadPdfBtn">PDF Buusuu 📥</a>
             </div>
             <div class="portal-item">
               <h4 data-i18n="pMovieTitle">🎬 Iddoo Filmiwwanii & Viidiyoo</h4>
@@ -434,15 +435,39 @@
             <p>0132XXXXXXXXX</p>
           </div>
         </div>
+
+        <!-- SADAN ISAA: Web3Forms + Telegram + WhatsApp -->
         <div class="portal-box">
           <h3 style="color:var(--deep); margin-bottom:10px;" data-i18n="bFormTitle">📄 Nagahee Kaffaltii Erguuf</h3>
-          <form action="https://formspree.io/f/barabiruuk@gmail.com" method="POST" enctype="multipart/form-data" style="display:grid; gap:12px; max-width:500px;">
+          <p style="font-size:13px; color:var(--muted); margin-bottom:15px;">Karaa siif mijatuun nagahee kaffaltii kee naaf ergaa:</p>
+
+          <!-- 1. WEB3FORMS -->
+          <form action="https://api.web3forms.com/submit" method="POST" enctype="multipart/form-data" style="display:grid; gap:12px; max-width:500px; margin-bottom:20px;">
+            <input type="hidden" name="access_key" value="4bea371c-72b1-4810-983f-d00b320385b3">
+
             <input type="text" name="name" class="form-control" placeholder="Maqaa Keessan" required id="nameInput">
             <input type="email" name="email" class="form-control" placeholder="Imeelii Keessan" required id="emailInput">
-            <input type="file" name="receipt" class="form-control" accept="image/*,.pdf" required>
-            <button type="submit" class="button button-primary" data-i18n="sendReceiptBtn">Nagahee Ergi 📤</button>
+            <textarea name="message" class="form-control" rows="3" placeholder="Ergaa keessan ykn odeeffannoo nagahee (Nagahee TXT / Lakkoofsa transaction)..." required></textarea>
+            <input type="file" name="receipt" class="form-control" accept="image/*,.pdf">
+            
+            <button type="submit" class="button button-primary" data-i18n="sendReceiptBtn">Form-iin Nagahee Ergi 📤</button>
           </form>
+
+          <hr style="border:0; border-top:1px solid var(--line); margin:20px 0;">
+
+          <!-- 2 & 3. TELEGRAM FI WHATSAPP -->
+          <p style="font-size:13px; font-weight:700; color:var(--deep); margin-bottom:10px;">Ykn Kallattiin Ergaa:</p>
+          <div style="display:flex; gap:10px; flex-wrap:wrap;">
+            <a href="https://t.me/barabiruk" target="_blank" class="button" style="background:#0088cc; color:#fff;">
+              Telegram-iin Ergi ✈️
+            </a>
+
+            <a href="https://wa.me/251900000000?text=Akam,%20nagahee%20kaffaltii%20qabadheen%20dhufe." target="_blank" class="button" style="background:#25D366; color:#fff;">
+              WhatsApp-iin Ergi 💬
+            </a>
+          </div>
         </div>
+
       </div>
     </section>
 
@@ -566,10 +591,10 @@
         pMovieTitle: "🎬 የፊልሞች እና ቪዲዮዎች ቦታ", pMovieSub: "ልዩ ፊልሞች እና የትምህርት ቪዲዮዎች።", watchBtn: "ይመልከቱ",
         pMusicTitle: "🎵 መዝሙራት / ዘፈኖች", pMusicSub: "የድምፅ ፋይሉን ያዳምጡ፡",
         bKicker: "04 / ክፍያ እና የባንክ መረጃ", bTitle: 'ሦስት <em>የባንክ ሒሳብ ቁጥሮች</em>',
-        bFormTitle: "📄 የክፍያ ደረሰኝ ለመላክ", sendReceiptBtn: "ደረሰኝ ላክ 📤",
-        eKicker: "05 / ልምድ እና ፕሮጀክቶች", eTitle: 'ሌሎች <em>ድረ ገጾች እና ልምድ</em>', eSite1: "🌐 ድረ ገጽ 1: ፖርትፎሊዮ", viewBtn: "ይመልከቱ ↗",
-        aKicker: "06 / ስለ እኔ", aTitle: 'በዓላማ የተመራ <em>ጉዞ።</em>', aText: "መማር፣ በትጋት መሥራት እና እውቀትን ማካፈል አዳዲስ እድሎችን እንደሚከፍቱ አምናለሁ።",
-        cKicker: "07 / ያግኙኝ", cTitle: 'ሀሳብ አለዎት? <em>እንወያይ።</em>', cEmailBtn: "ኢሜይል ይላኩልኝ"
+        bFormTitle: "📄 Send Payment Receipt", sendReceiptBtn: "Send Receipt 📤",
+        eKicker: "05 / EXPERIENCE & PROJECTS", eTitle: 'Other <em>Websites & Experience</em>', eSite1: "🌐 Website 1: Portfolio", viewBtn: "View ↗",
+        aKicker: "06 / ABOUT ME", aTitle: 'A journey shaped by <em>purpose.</em>', aText: "I believe that learning, discipline, and sharing knowledge can open doors to new opportunities.",
+        cKicker: "07 / GET IN TOUCH", cTitle: 'Have an idea? <em>Let’s talk.</em>', cEmailBtn: "Email me"
       }
     };
 
