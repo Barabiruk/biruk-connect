@@ -453,7 +453,7 @@
       </div>
     </section>
 
-    <!-- SOCIAL MEDIA FEEDS SECTION -->
+    <!-- SOCIAL MEDIA FEEDS SECTION (FIXED EMBEDS) -->
     <section class="section" id="social-feeds" style="background:#edf1e9;">
       <div class="container">
         <div class="section-kicker">📱 ODUU FI BARRUU HAAROO</div>
@@ -461,15 +461,25 @@
         
         <div class="portal-grid" style="margin-top:20px;">
           <!-- TELEGRAM BOX -->
-          <div class="portal-item">
-            <h3 style="color:#0088cc; margin-bottom:15px; font-size:16px;">✈️ Telegram Post Haaraa</h3>
-            <script async src="https://telegram.org/js/telegram-widget.js?22" data-telegram-post="BRKJMBLCH/1" data-width="100%"></script>
+          <div class="portal-item" style="text-align:center;">
+            <h3 style="color:#0088cc; margin-bottom:15px; font-size:16px;">✈️ Telegram Channel & Post</h3>
+            <div style="display:flex; justify-content:center; overflow:hidden; border-radius:8px;">
+              <script async src="https://telegram.org/js/telegram-widget.js?22" data-telegram-post="BRKJMBLCH/1" data-width="100%"></script>
+            </div>
+            <div style="margin-top:15px;">
+              <a href="https://t.me/BRKJMBLCH" target="_blank" class="button" style="background:#0088cc; color:#fff; font-size:11px; width:100%;">Telegram Channel Ilaali ✈️</a>
+            </div>
           </div>
 
           <!-- FACEBOOK BOX -->
-          <div class="portal-item">
-            <h3 style="color:#1877f2; margin-bottom:15px; font-size:16px;">📘 Facebook Post Haaraa</h3>
-            <iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fbiruk.ajema.92&show_text=true&width=500" width="100%" height="350" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
+          <div class="portal-item" style="text-align:center;">
+            <h3 style="color:#1877f2; margin-bottom:15px; font-size:16px;">📘 Facebook Page Post</h3>
+            <div style="width:100%; overflow:hidden; display:flex; justify-content:center;">
+              <iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fbiruk.ajema.92&show_text=true&width=300" width="100%" height="320" style="border:none;overflow:hidden;max-width:500px;" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
+            </div>
+            <div style="margin-top:15px;">
+              <a href="https://www.facebook.com/biruk.ajema.92" target="_blank" class="button" style="background:#1877f2; color:#fff; font-size:11px; width:100%;">Facebook Profile Ilaali 📘</a>
+            </div>
           </div>
         </div>
       </div>
@@ -680,7 +690,7 @@
       am: {
         navHome: "HOME", navIncome: "💎 ገቢ", navBooks: "📚 መጻሕፍት", navLottery: "🎯 ዕድል (ሎተሪ)", 
         navBank: "ባንክ እና ደረሰኝ", navAbout: "ስለ እኔ", navContact: "ያግኙኝ",
-        eyebrow: "የግል ድረ ገጽ · ፕሮፌሽናል ማዕከል",
+        eyebrow: "የ የግል ድረ ገጽ · ፕሮፌሽናል ማዕከል",
         heroTitle: 'እውቀትን መገንባት።<br><span>እድልን መፍጠር።</span>',
         heroText: "ወደ የግል ድረ ገጼ እንኳን በደህና መጡ — ጉዞዬን፣ ሀሳቦቼን፣ ምኞቶቼን እና አገልግሎቶቼን የማካፍልበት ቦታ ነው።",
         exploreBtn: "ይዘቶችን ይመልከቱ 📚", tryLotteryBtn: "ዕድልዎን ይሞክሩ 🎯",
@@ -787,7 +797,7 @@
     }
 
     if (menuToggle) menuToggle.addEventListener("click", toggleMenu);
-    if (profileMenuToggle) profileMenuToggle.addEventListener("click", toggleMenu);
+    if (profileMenuToggle) profileMenuToggle.addEventListener("click", profileMenuToggle ? toggleMenu : null);
 
     document.addEventListener("click", (e) => {
       if (navLinks && !navLinks.contains(e.target) && (!menuToggle || !menuToggle.contains(e.target)) && (!profileMenuToggle || !profileMenuToggle.contains(e.target))) {
