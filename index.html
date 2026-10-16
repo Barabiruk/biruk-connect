@@ -7,6 +7,9 @@
   <meta name="theme-color" content="#f7f8f5">
   <title>Barabiruk Connect | Professional Hub</title>
   
+  <!-- Chapa Checkout Script -->
+  <script src="https://checkout.chapa.co/v1/inline.js"></script>
+
   <style>
     @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap');
 
@@ -57,7 +60,6 @@
     
     .nav-right{display:flex;align-items:center;gap:8px;}
     
-    /* MENU BAR BAREEDA FI AMMAYYAA */
     .custom-styled-navbar {
       display: flex;
       align-items: center;
@@ -203,14 +205,67 @@
       border-radius: 12px;
       border: 1px solid #e3e8df;
     }
-    .bank-card {
-      background: #fff;
-      border-left: 4px solid var(--deep);
-      padding: 15px;
-      border-radius: 8px;
+
+    /* Pricing & Banks Styles */
+    .custom-pricing-wrapper {
+      background-color: #f8f9fa;
+      padding: 50px 20px;
+      color: #333;
     }
-    .bank-card h4 { font-size: 14px; color: var(--deep); margin-bottom: 5px; }
-    .bank-card p { font-size: 12px; color: var(--muted); font-weight: 600; }
+    .pricing-header { text-align: center; margin-bottom: 40px; }
+    .pricing-header h2 { font-size: 2rem; margin-bottom: 8px; color: #111; }
+    .pricing-header p { color: #666; font-size: 1rem; }
+    .pricing-cards-grid {
+      display: flex;
+      justify-content: center;
+      gap: 25px;
+      flex-wrap: wrap;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .pricing-card-item {
+      background: #ffffff;
+      border: 1px solid #e0e0e0;
+      border-radius: 12px;
+      padding: 30px 20px;
+      width: 280px;
+      text-align: center;
+      position: relative;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .pricing-card-item:hover { transform: translateY(-5px); box-shadow: 0 8px 20px rgba(0,0,0,0.1); }
+    .pricing-card-item.popular { border: 2px solid #007bff; }
+    .badge {
+      position: absolute; top: -12px; left: 50%; transform: translateX(-50%);
+      background: #007bff; color: #fff; font-size: 0.75rem; font-weight: bold;
+      padding: 4px 12px; border-radius: 20px; text-transform: uppercase;
+    }
+    .pricing-card-item h3 { margin-top: 10px; font-size: 1.4rem; }
+    .price-tag { font-size: 1.8rem; font-weight: bold; color: #007bff; margin: 15px 0; }
+    .price-tag span { font-size: 0.85rem; color: #666; font-weight: normal; }
+    .feature-list { list-style: none; padding: 0; margin: 20px 0 30px 0; text-align: left; }
+    .feature-list li { padding: 8px 0; border-bottom: 1px solid #f0f0f0; font-size: 0.95rem; color: #555; }
+    .select-plan-btn {
+      display: inline-block; width: 80%; padding: 10px 0; background-color: #007bff;
+      color: #ffffff; text-decoration: none; border-radius: 6px; font-weight: bold; transition: background-color 0.2s;
+    }
+    .select-plan-btn:hover { background-color: #0056b3; }
+
+    .section-divider { border: 0; height: 1px; background: #e0e0e0; margin: 50px auto; max-width: 900px; }
+    .bank-section-container { text-align: center; max-width: 1000px; margin: 0 auto; }
+    .bank-section-container h3 { font-size: 1.5rem; margin-bottom: 8px; }
+    .bank-section-container p { color: #666; margin-bottom: 30px; }
+    .bank-logos-grid { display: flex; justify-content: center; gap: 25px; flex-wrap: wrap; }
+    .bank-box {
+      background: #ffffff; border: 1px solid #e2e8f0; border-radius: 10px; padding: 20px;
+      width: 250px; display: flex; flex-direction: column; align-items: center; box-shadow: 0 2px 6px rgba(0,0,0,0.03);
+    }
+    .logo-wrapper { height: 70px; display: flex; align-items: center; justify-content: center; margin-bottom: 15px; }
+    .bank-logo-img { max-height: 100%; max-width: 140px; object-fit: contain; }
+    .bank-info h4 { margin: 0 0 5px 0; font-size: 1rem; color: #222; }
+    .acc-number { font-size: 0.85rem; color: #555; margin: 0; }
+    .acc-number span { font-weight: bold; color: #000; }
 
     .section{padding:50px 0}
     .two-column{display:grid;grid-template-columns:.9fr 1.1fr;gap:30px}
@@ -218,29 +273,13 @@
     .section-title em,.contact-inner h2 em{font-style:normal;color:#73964e}
 
     .contact-section{background:var(--deep);color:white;padding:50px 0;text-align:center}
-    .contact-socials {
-      display: flex;
-      justify-content: center;
-      gap: 12px;
-      margin-top: 20px;
-      flex-wrap: wrap;
-    }
+    .contact-socials { display: flex; justify-content: center; gap: 12px; margin-top: 20px; flex-wrap: wrap; }
     .contact-social-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      padding: 8px 14px;
-      background: rgba(255,255,255,0.1);
-      border: 1px solid rgba(255,255,255,0.2);
-      border-radius: 8px;
-      color: #fff;
-      font-size: 12px;
-      font-weight: 600;
-      transition: background 0.2s;
+      display: inline-flex; align-items: center; gap: 6px; padding: 8px 14px;
+      background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 8px; color: #fff; font-size: 12px; font-weight: 600; transition: background 0.2s;
     }
-    .contact-social-btn:hover {
-      background: rgba(255,255,255,0.25);
-    }
+    .contact-social-btn:hover { background: rgba(255,255,255,0.25); }
 
     .footer{background:#102e26;color:#d5e0d8;padding:20px 0;font-size:12px}
     .footer-inner{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap}
@@ -248,27 +287,13 @@
     @media(max-width:1150px){
       .menu-toggle{display:block !important;}
       .custom-styled-navbar {
-        display:none;
-        position:absolute;
-        top:75px;
-        left:0;
-        width:100%;
-        background:var(--deep);
-        flex-direction:column;
-        align-items:flex-start !important;
-        padding:15px;
-        gap:8px !important;
-        border-bottom:2px solid var(--line);
-        box-shadow:0 15px 25px rgba(0,0,0,0.1);
-        z-index:999;
-        border-radius:0;
+        display:none; position:absolute; top:75px; left:0; width:100%;
+        background:var(--deep); flex-direction:column; align-items:flex-start !important;
+        padding:15px; gap:8px !important; border-bottom:2px solid var(--line);
+        box-shadow:0 15px 25px rgba(0,0,0,0.1); z-index:999; border-radius:0;
       }
       .custom-styled-navbar.open{display:flex !important;}
-      .custom-styled-navbar .nav-item {
-        width: 100%;
-        text-align: left;
-        padding: 10px 16px;
-      }
+      .custom-styled-navbar .nav-item { width: 100%; text-align: left; padding: 10px 16px; }
       .password-input-group{flex-direction:column;}
     }
   </style>
@@ -287,13 +312,13 @@
         </a>
       </div>
 
-      <!-- NAV LINKS MENU BAR FOYYA'AA -->
       <nav class="nav-links custom-styled-navbar" id="navLinks">
         <a href="#home" class="nav-item active" data-i18n="navHome">HOME</a>
         <a href="#monetize" class="nav-item" data-i18n="navIncome">💎 GALII</a>
         <a href="#portal" class="nav-item" data-i18n="navBooks">📚 KITAABOTA</a>
+        <a href="#social-feeds" class="nav-item">📱 ODUU</a>
         <a href="#lottery" class="nav-item" data-i18n="navLottery">🎯 CARRAA</a>
-        <a href="#payment" class="nav-item" data-i18n="navBank">BAANKII</a>
+        <a href="#payment-and-pricing-section" class="nav-item" data-i18n="navBank">BAANKII</a>
         <a href="#about" class="nav-item" data-i18n="navAbout">ABOUT US</a>
         <a href="#contact" class="nav-item" data-i18n="navContact">CONTACT US</a>
       </nav>
@@ -338,7 +363,7 @@
           <div class="monetize-card">
             <h3 data-i18n="mCard1Title">📚 Gurgurtaa Kitaabota Dijitaalaa</h3>
             <p data-i18n="mCard1Text">Kitaabota PDF guddina dhuunfaa fi barnootaa gurguruuf.</p>
-            <a href="#payment" class="button button-gold" style="font-size:11px;" data-i18n="buyBtn">Bitachuuf</a>
+            <a href="#payment-and-pricing-section" class="button button-gold" style="font-size:11px;" data-i18n="buyBtn">Bitachuuf</a>
           </div>
           <div class="monetize-card">
             <h3 data-i18n="mCard2Title">🎓 Tajaajila Konsaltaashinii</h3>
@@ -370,7 +395,7 @@
       </div>
     </section>
 
-    <!-- PRIVATE PORTAL (KITAABOTA, FILMIWWAN FI FAARFANNAA) -->
+    <!-- PRIVATE PORTAL -->
     <section class="portal-section" id="portal">
       <div class="container">
         <div class="section-kicker" data-i18n="pKicker">03 / KITAABOTA, FILMIWWAN & RESOURCES</div>
@@ -378,7 +403,7 @@
 
         <div class="portal-box" id="lockBox">
           <div class="lock-screen">
-            <h3 data-i18n="pLockTitle">🔒 Seensa Akaawuntii (Password: 303015)</h3>
+            <h3 data-i18n="pLockTitle">🔒 Seensa Akaawuntii (Password: 1234)</h3>
             <p data-i18n="pLockSub">Iddoo kitaabotaa, gaaffiwwan, filmiwwan, fi faarfannootaa argachuuf Password galchaa.</p>
             <div class="password-input-group">
               <input type="password" id="hubPassword" placeholder="Password (1234)...">
@@ -395,28 +420,23 @@
           </div>
 
           <div class="portal-grid">
-            <!-- 📚 KITAABOTA PDF -->
             <div class="portal-item">
               <h4 data-i18n="pBookTitle">📚 Iddoo Kitaabotaa (PDF)</h4>
               <p data-i18n="pBookSub">Kitaabota PDF buusuuf qophaayeera.</p>
               <div style="display:flex; flex-direction:column; gap:8px; margin-top:10px;">
                 <a href="Mindset_ The New Psychology of Success 1_260322_100016.pdf" download class="button button-quiet" style="font-size:11px;">📖 Kitaaba 1 Buusuu 📥</a>
-                <a href="Learn the Latest Tech Skills; Advance Your Career _ Udacity(7).PDF" download class="button button-quiet" style="font-size:11px;">📖 Kitaaba 1 Buusuu 📥</a>
-             
+                <a href="Learn the Latest Tech Skills; Advance Your Career _ Udacity(7).PDF" download class="button button-quiet" style="font-size:11px;">📖 Kitaaba 2 Buusuu 📥</a>
              </div>
             </div>
 
-            <!-- 🎬 FILMIWWAN FI VIIDIYOO -->
             <div class="portal-item">
               <h4 data-i18n="pMovieTitle">🎬 Iddoo Filmiwwanii & Viidiyoo</h4>
               <p data-i18n="pMovieSub">Filmiwwan fi sagantaa barnootaa addaa.</p>
               <div style="margin-top:10px;">
-                <!-- YouTube Video Frame / Video Player -->
                 <iframe style="width:100%; height:160px; border-radius:8px; border:none;" src="https://www.youtube.com/embed/tgbNymZ7vqY" title="Video Player" allowfullscreen></iframe>
               </div>
             </div>
 
-            <!-- 🎵 FAARFANNAA-->
             <div class="portal-item">
               <h4 data-i18n="pMusicTitle">🎵 Faarfannaa / Music Player</h4>
               <p data-i18n="pMusicSub">Faayila sagalee dhaggeeffadhaa:</p>
@@ -433,78 +453,124 @@
       </div>
     </section>
 
-    <!-- BANK & RECEIPT -->
-    <section class="section" id="payment">
+    <!-- SOCIAL MEDIA FEEDS SECTION -->
+    <section class="section" id="social-feeds" style="background:#edf1e9;">
       <div class="container">
-        <div class="section-kicker" data-i18n="bKicker">04 / KAFFALTII FI BAANKII</div>
-        <h2 class="section-title" data-i18n="bTitle">Lakkoofsa <em>Herrega Baankii Sadii</em></h2>
-        <div class="portal-grid" style="margin-bottom:25px;">
-          <div class="bank-card">
-            <div class="bank-logos-grid">
-      <!-- Commercial Bank of Ethiopia (CBE) -->
-      <div class="bank-box">
-        <div class="logo-wrapper">
-          <img src="https://commons.wikimedia.org/wiki/Special:FilePath/LOGO_OF_COMMERCIAL_BANK_OF_ETHIOPIA_(BAANKII_DALDALA_ITIYOOPHIYAA).jpg" alt="CBE Logo" class="bank-logo-img">
+        <div class="section-kicker">📱 ODUU FI BARRUU HAAROO</div>
+        <h2 class="section-title">Post-iiwwan <em>Facebook fi Telegram</em></h2>
+        
+        <div class="portal-grid" style="margin-top:20px;">
+          <!-- TELEGRAM BOX -->
+          <div class="portal-item">
+            <h3 style="color:#0088cc; margin-bottom:15px; font-size:16px;">✈️ Telegram Post Haaraa</h3>
+            <script async src="https://telegram.org/js/telegram-widget.js?22" data-telegram-post="barabiruk/1" data-width="100%"></script>
+          </div>
+
+          <!-- FACEBOOK BOX -->
+          <div class="portal-item">
+            <h3 style="color:#1877f2; margin-bottom:15px; font-size:16px;">📘 Facebook Post Haaraa</h3>
+            <iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fbarabiruk%2Fposts%2F10158320380388221&show_text=true&width=500" width="100%" height="350" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
+          </div>
         </div>
-        <div class="bank-info">
-          <h4>Commercial Bank of Ethiopia</h4>
-          <p class="acc-number">Acc: <span>1000277351785</span></p>
+      </div>
+    </section>
+
+    <!-- SECTION PRICING & BANK DETAILS -->
+    <section id="payment-and-pricing-section" class="custom-pricing-wrapper">
+      <div class="pricing-header">
+        <h2>Karoora Kaffaltii fi Tajaajila</h2>
+        <p>Karoora tajaajila keetiif siif madaalu filadhu</p>
+      </div>
+
+      <div class="pricing-cards-grid">
+        <div class="pricing-card-item">
+          <h3>Basic</h3>
+          <div class="price-tag">1,000 ETB <span>/ ji'atti</span></div>
+          <ul class="feature-list">
+            <li>Tajaajila Bu'uuraa</li>
+            <li>Deeggarsa Email</li>
+          </ul>
+          <a href="#bank-details" class="select-plan-btn">Filadhu</a>
+        </div>
+
+        <div class="pricing-card-item popular">
+          <div class="badge">Filatamaa</div>
+          <h3>Standard</h3>
+          <div class="price-tag">1,000 ETB <span>/ ji'atti</span></div>
+          <ul class="feature-list">
+            <li>Tajaajila Guutuu</li>
+            <li>Deeggarsa sa'aatii 24/7</li>
+            <li>Fooyya'iinsa Ji'aa</li>
+          </ul>
+          <a href="#bank-details" class="select-plan-btn">Filadhu</a>
+        </div>
+
+        <div class="pricing-card-item">
+          <h3>Premium</h3>
+          <div class="price-tag">1,000 ETB <span>/ ji'atti</span></div>
+          <ul class="feature-list">
+            <li>Tajaajila Dhuunfaa (Custom)</li>
+            <li>Deeggarsa Saffisaa</li>
+            <li>Wal-qunnamtii Idil-addunyaa</li>
+          </ul>
+          <a href="#bank-details" class="select-plan-btn">Filadhu</a>
         </div>
       </div>
 
-      <!-- Awash Bank -->
-      <div class="bank-box">
-        <div class="logo-wrapper">
-          <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Awash_International_Bank.png" alt="Awash Bank Logo" class="bank-logo-img">
+      <hr class="section-divider">
+
+      <div id="bank-details" class="bank-section-container">
+        <h3>Karaalee Kaffaltii Baankii Kallattii</h3>
+        <p>Kaffaltii keessan lakkoofsa herrega baankota armaan gadiitiin kaffaluu dandeessu:</p>
+
+        <div class="bank-logos-grid">
+          <!-- CBE -->
+          <div class="bank-box">
+            <div class="logo-wrapper">
+              <img src="https://commons.wikimedia.org/wiki/Special:FilePath/LOGO_OF_COMMERCIAL_BANK_OF_ETHIOPIA_(BAANKII_DALDALA_ITIYOOPHIYAA).jpg" alt="CBE Logo" class="bank-logo-img">
+            </div>
+            <div class="bank-info">
+              <h4>Commercial Bank of Ethiopia</h4>
+              <p class="acc-number">Acc: <span>1000277351785</span></p>
+            </div>
+          </div>
+
+          <!-- Awash Bank -->
+          <div class="bank-box">
+            <div class="logo-wrapper">
+              <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Awash_International_Bank.png" alt="Awash Bank Logo" class="bank-logo-img">
+            </div>
+            <div class="bank-info">
+              <h4>Awash Bank</h4>
+              <p class="acc-number">Acc: <span>013XXXXXXXXXX</span></p>
+            </div>
+          </div>
+
+          <!-- Siinqee Bank -->
+          <div class="bank-box">
+            <div class="logo-wrapper">
+              <img src="Siinqee.png" alt="Siinqee Bank Logo" class="bank-logo-img">
+            </div>
+            <div class="bank-info">
+              <h4>Siinqee Bank</h4>
+              <p class="acc-number">Acc: <span>104XXXXXXXXXX</span></p>
+            </div>
+          </div>
         </div>
-        <div class="bank-info">
-          <h4>Awash Bank</h4>
-          <p class="acc-number">Acc: <span>013XXXXXXXXXX</span></p>
-        </div>
-      </div>
 
-      <<!-- Siinqee Bank -->
-<div class="bank-box">
-  <div class="logo-wrapper">
-    <img
-      src="Siinqee.png"
-      alt="Siinqee Bank Logo"
-      class="bank-logo-img"
-    >
-  </div>
-
-  <div class="bank-info">
-    <h4>Siinqee Bank</h4>
-    <p class="acc-number">
-      Acc: <span>104XXXXXXXXXX</span>
-    </p>
-  </div>
-</div>
-
-        <div class="portal-box">
-          <h3 style="color:var(--deep); margin-bottom:10px;" data-i18n="bFormTitle">📄 Nagahee Kaffaltii Erguuf</h3>
-          
-          <!-- FORMSPREE FORM (Transaction Ref No.) -->
-          <form action="https://formspree.io/f/xppqopar" method="POST" style="display:grid; gap:12px; max-width:500px; margin-bottom:20px;">
+        <div class="portal-box" style="margin-top:30px; text-align:left; max-width:600px; margin-inline:auto;">
+          <h3 style="color:var(--deep); margin-bottom:10px; text-align:center;" data-i18n="bFormTitle">📄 Nagahee Kaffaltii Erguuf</h3>
+          <form action="https://formspree.io/f/xppqopar" method="POST" style="display:grid; gap:12px;">
             <input type="text" name="name" class="form-control" placeholder="Maqaa Keessan" required id="nameInput">
             <input type="email" name="email" class="form-control" placeholder="Imeelii Keessan" required id="emailInput">
-            <input type="text" name="transaction_ref" class="form-control" placeholder="Lakkoofsa Nagahee / Transaction Ref No. (Fkn: FT24...)" required>
+            <input type="text" name="transaction_ref" class="form-control" placeholder="Lakkoofsa Nagahee / Transaction Ref No." required>
             <textarea name="message" class="form-control" rows="2" placeholder="Ergaa biraa yoo qabaattan..."></textarea>
-            
-            <button type="submit" class="button button-primary" data-i18n="sendReceiptBtn">Nagahee Ergi 📤</button>
+            <button type="submit" class="button button-primary" style="width:100%;" data-i18n="sendReceiptBtn">Nagahee Ergi 📤</button>
           </form>
 
-          <hr style="border:0; border-top:1px solid var(--line); margin:20px 0;">
-
-          <!-- FAAYILA / FAKKII NAGAHEE ERGUUF KARAALEE SOCIAL MEDIA -->
-          <p style="font-size:13px; font-weight:700; color:var(--deep); margin-bottom:10px;">Fakkii ykn Faayila Nagahee Erguuf:</p>
-          <div style="display:flex; gap:10px; flex-wrap:wrap;">
-            <a href="https://t.me/barabiruk" target="_blank" class="button" style="background:#0088cc; color:#fff;">
-              Telegram-iin Nagahee Ergi ✈️
-            </a>
-            <a href="https://wa.me/251900000000?text=Akam,%20nagahee%20kaffaltii%20qabadheen%20dhufe." target="_blank" class="button" style="background:#25D366; color:#fff;">
-              WhatsApp-iin Nagahee Ergi 💬
-            </a>
+          <div style="display:flex; gap:10px; flex-wrap:wrap; justify-content:center; margin-top:15px;">
+            <a href="https://t.me/barabiruk" target="_blank" class="button" style="background:#0088cc; color:#fff; font-size:11px;">Telegram-iin Nagahee Ergi ✈️</a>
+            <a href="https://wa.me/251900000000?text=Akam,%20nagahee%20kaffaltii%20qabadheen%20dhufe." target="_blank" class="button" style="background:#25D366; color:#fff; font-size:11px;">WhatsApp-iin Nagahee Ergi 💬</a>
           </div>
         </div>
       </div>
@@ -542,7 +608,6 @@
         <h2 data-i18n="cTitle">Have an idea? <em>Let’s talk.</em></h2>
         <a href="mailto:barabiruuk@gmail.com" class="button button-primary" style="background:#c9f36b; color:#163d32; margin-bottom:20px;" data-i18n="cEmailBtn">Email me</a>
         
-        <!-- SOCIAL MEDIA LINKS -->
         <div class="contact-socials">
           <a href="https://t.me/barabiruk" target="_blank" class="contact-social-btn">✈️ Telegram</a>
           <a href="https://Telegram.con/@BRKJMBLCH" target="_blank" class="contact-social-btn">💬 WhatsApp</a>
@@ -561,7 +626,6 @@
   </footer>
 
   <script>
-    /* TRANSLATIONS DICTIONARY FOR ALL THREE LANGUAGES */
     const translations = {
       en: {
         navHome: "HOME", navIncome: "💎 INCOME", navBooks: "📚 BOOKS", navLottery: "🎯 LOTTERY", 
@@ -640,7 +704,6 @@
       }
     };
 
-    /* SWITCH LANGUAGE FUNCTION */
     function setLanguage(lang) {
       const dict = translations[lang] || translations.en;
       document.documentElement.lang = lang;
@@ -652,7 +715,6 @@
         }
       });
 
-      // Update Form Inputs Placeholders
       if (lang === "om") {
         document.getElementById("nameInput").placeholder = "Maqaa Keessan";
         document.getElementById("emailInput").placeholder = "Imeelii Keessan";
@@ -667,7 +729,6 @@
 
     document.getElementById("languageSelect").addEventListener("change", e => setLanguage(e.target.value));
 
-    /* LOTTERY LOGIC */
     function runLottery(maxLimit) {
       const resultDiv = document.getElementById("lotteryResult");
       resultDiv.style.display = "block";
@@ -693,7 +754,6 @@
       }, 1000);
     }
 
-    /* AUTH LOGIC */
     function loginUser() {
       const pass = document.getElementById("hubPassword").value;
       if (pass === "1234") {
@@ -717,7 +777,6 @@
       document.getElementById("portalContent").style.display = "block";
     }
 
-    /* MENU TOGGLE (MOBILE & PROFILE AVATAR) */
     const menuToggle = document.getElementById("menuToggle");
     const profileMenuToggle = document.getElementById("profileMenuToggle");
     const navLinks = document.getElementById("navLinks");
@@ -748,550 +807,3 @@
   </script>
 </body>
 </html>
-<!-- Section Kaffaltii Haaraa -->
-<section id="pricing-section" class="pricing-container">
-  <h2 class="pricing-title">Gatii Tajaajiloota Keessan</h2>
-  <p class="pricing-subtitle">Karoora siif madaalu filadhu</p>
-
-  <div class="pricing-cards">
-    <!-- Card 1 -->
-    <div class="pricing-card">
-      <h3>Basic</h3>
-      <div class="price">1,000 ETB <span>/ ji'atti</span></div>
-      <ul>
-        <li>Tajaajila Bu'uuraa</li>
-        <li>Deeggarsa Email</li>
-      </ul>
-      <a href="#contact" class="pricing-btn">Filadhu</a>
-    </div>
-
-    <!-- Card 2 (Popular) -->
-    <div class="pricing-card featured">
-      <h3>Standard</h3>
-      <div class="price">1,000 ETB <span>/ ji'atti</span></div>
-      <ul>
-        <li>Tajaajila Guutuu</li>
-        <li>Deeggarsa 24/7</li>
-        <li>Fooyya'iinsa Ji'aa</li>
-      </ul>
-      <a href="#contact" class="pricing-btn">Filadhu</a>
-    </div>
-
-    <!-- Card 3 -->
-    <div class="pricing-card">
-      <h3>Premium</h3>
-      <div class="price">1,000 ETB <span>/ ji'atti</span></div>
-      <ul>
-        <li>Tajaajila Dhuunfaa</li>
-        <li>Deeggarsa Saffisaa</li>
-        <li>Gorsa Qeeqa Web</li>
-      </ul>
-      <a href="#contact" class="pricing-btn">Filadhu</a>
-    </div>
-  </div>
-</section>
-
-<style>
-  /* Style haaraa kan kan duraa hin tuqne */
-  .pricing-container {
-    padding: 40px 20px;
-    text-align: center;
-    background-color: #f9f9f9;
-    font-family: sans-serif;
-  }
-  .pricing-title {
-    font-size: 2rem;
-    color: #333;
-    margin-bottom: 5px;
-  }
-  .pricing-subtitle {
-    color: #646;
-    margin-bottom: 30px;
-  }
-  .pricing-cards {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    flex-wrap: wrap;
-  }
-  .pricing-card {
-    background: #fff;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    padding: 25px;
-    width: 260px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-    transition: transform 0.2s;
-  }
-  .pricing-card:hover {
-    transform: translateY(-5px);
-  }
-  .pricing-card.featured {
-    border: 2px solid #007bff;
-  }
-  .pricing-card h3 {
-    margin-top: 0;
-    color: #222;
-  }
-  .pricing-card .price {
-    font-size: 1.8rem;
-    font-weight: bold;
-    color: #007bff;
-    margin: 15px 0;
-  }
-  .pricing-card .price span {
-    font-size: 0.9rem;
-    color: #777;
-  }
-  .pricing-card ul {
-    list-style: none;
-    padding: 0;
-    margin-bottom: 20px;
-    text-align: left;
-  }
-  .pricing-card ul li {
-    padding: 8px 0;
-    border-bottom: 1px solid #eee;
-    color: #555;
-  }
-  .pricing-btn {
-    display: inline-block;
-    background: #007bff;
-    color: #fff;
-    padding: 10px 20px;
-    text-decoration: none;
-    border-radius: 5px;
-    font-weight: bold;
-  }
-  .pricing-btn:hover {
-    background: #0056b3;
-  }
-</style>
-<!-- ================= SECTION KAFFALTII FI LOGO BAANKOTAA ================= -->
-<section id="payment-and-pricing-section" class="custom-pricing-wrapper">
-  
-  <!-- Part 1: Pricing Plans -->
-  <div class="pricing-header">
-    <h2>Karoora Kaffaltii fi Tajaajila</h2>
-    <p>Karoora tajaajila keetiif siif madaalu filadhu</p>
-  </div>
-
-  <div class="pricing-cards-grid">
-    <!-- Basic Plan -->
-    <div class="pricing-card-item">
-      <h3>Basic</h3>
-      <div class="price-tag">1,000 ETB <span>/ ji'atti</span></div>
-      <ul class="feature-list">
-        <li>Tajaajila Bu'uuraa</li>
-        <li>Deeggarsa Email</li>
-      </ul>
-      <a href="#bank-details" class="select-plan-btn">Filadhu</a>
-    </div>
-
-    <!-- Standard Plan -->
-    <div class="pricing-card-item popular">
-      <div class="badge">Filatamaa</div>
-      <h3>Standard</h3>
-      <div class="price-tag">1,000 ETB <span>/ ji'atti</span></div>
-      <ul class="feature-list">
-        <li>Tajaajila Guutuu</li>
-        <li>Deeggarsa sa'aatii 24/7</li>
-        <li>Fooyya'iinsa Ji'aa</li>
-      </ul>
-      <a href="#bank-details" class="select-plan-btn">Filadhu</a>
-    </div>
-
-    <!-- Premium Plan -->
-    <div class="pricing-card-item">
-      <h3>Premium</h3>
-      <div class="price-tag">1,000 ETB <span>/ ji'atti</span></div>
-      <ul class="feature-list">
-        <li>Tajaajila Dhuunfaa (Custom)</li>
-        <li>Deeggarsa Saffisaa</li>
-        <li>Wal-qunnamtii Idil-addunyaa</li>
-      </ul>
-      <a href="#bank-details" class="select-plan-btn">Filadhu</a>
-    </div>
-  </div>
-
-  <hr class="section-divider">
-
-  <!-- Part 2: Bank Logos & Details -->
-  <div id="bank-details" class="bank-section-container">
-    <h3>Karaalee Kaffaltii Baankii Kallattii</h3>
-    <p>Kaffaltii keessan lakkoofsa herrega baankota armaan gadiitiin kaffaluu dandeessu:</p>
-
-    <div class="bank-logos-grid">
-      <!-- Commercial Bank of Ethiopia (CBE) -->
-      <div class="bank-box">
-        <div class="logo-wrapper">
-          <img src="https://commons.wikimedia.org/wiki/Special:FilePath/LOGO_OF_COMMERCIAL_BANK_OF_ETHIOPIA_(BAANKII_DALDALA_ITIYOOPHIYAA).jpg" alt="CBE Logo" class="bank-logo-img">
-        </div>
-        <div class="bank-info">
-          <h4>Commercial Bank of Ethiopia</h4>
-          <p class="acc-number">Acc: <span>1000277351785</span></p>
-        </div>
-      </div>
-
-      <!-- Awash Bank -->
-      <div class="bank-box">
-        <div class="logo-wrapper">
-          <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Awash_International_Bank.png" alt="Awash Bank Logo" class="bank-logo-img">
-        </div>
-        <div class="bank-info">
-          <h4>Awash Bank</h4>
-          <p class="acc-number">Acc: <span>013XXXXXXXXXX</span></p>
-        </div>
-      </div>
-
-      <<!-- Siinqee Bank -->
-<div class="bank-box">
-  <div class="logo-wrapper">
-    <img
-      src="Siinqee.png"
-      alt="Siinqee Bank Logo"
-      class="bank-logo-img"
-    >
-  </div>
-
-  <div class="bank-info">
-    <h4>Siinqee Bank</h4>
-    <p class="acc-number">
-      Acc: <span>104XXXXXXXXXX</span>
-    </p>
-  </div>
-</div>
-
-</section>
-
-<!-- CSS Styling (Styles only this new section without affecting the rest of the site) -->
-<style>
-  .custom-pricing-wrapper {
-    background-color: #f8f9fa;
-    padding: 50px 20px;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-    color: #333;
-  }
-
-  .pricing-header {
-    text-align: center;
-    margin-bottom: 40px;
-  }
-
-  .pricing-header h2 {
-    font-size: 2rem;
-    margin-bottom: 8px;
-    color: #111;
-  }
-
-  .pricing-header p {
-    color: #666;
-    font-size: 1rem;
-  }
-
-  .pricing-cards-grid {
-    display: flex;
-    justify-content: center;
-    gap: 25px;
-    flex-wrap: wrap;
-    max-width: 1100px;
-    margin: 0 auto;
-  }
-
-  .pricing-card-item {
-    background: #ffffff;
-    border: 1px solid #e0e0e0;
-    border-radius: 12px;
-    padding: 30px 20px;
-    width: 280px;
-    text-align: center;
-    position: relative;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-  }
-
-  .pricing-card-item:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-  }
-
-  .pricing-card-item.popular {
-    border: 2px solid #007bff;
-  }
-
-  .badge {
-    position: absolute;
-    top: -12px;
-    left: 50%;
-    transform: translateX(-50%);
-    background: #007bff;
-    color: #fff;
-    font-size: 0.75rem;
-    font-weight: bold;
-    padding: 4px 12px;
-    border-radius: 20px;
-    text-transform: uppercase;
-  }
-
-  .pricing-card-item h3 {
-    margin-top: 10px;
-    font-size: 1.4rem;
-  }
-
-  .price-tag {
-    font-size: 1.8rem;
-    font-weight: bold;
-    color: #007bff;
-    margin: 15px 0;
-  }
-
-  .price-tag span {
-    font-size: 0.85rem;
-    color: #666;
-    font-weight: normal;
-  }
-
-  .feature-list {
-    list-style: none;
-    padding: 0;
-    margin: 20px 0 30px 0;
-    text-align: left;
-  }
-
-  .feature-list li {
-    padding: 8px 0;
-    border-bottom: 1px solid #f0f0f0;
-    font-size: 0.95rem;
-    color: #555;
-  }
-
-  .select-plan-btn {
-    display: inline-block;
-    width: 80%;
-    padding: 10px 0;
-    background-color: #007bff;
-    color: #ffffff;
-    text-decoration: none;
-    border-radius: 6px;
-    font-weight: bold;
-    transition: background-color 0.2s;
-  }
-
-  .select-plan-btn:hover {
-    background-color: #0056b3;
-  }
-
-  .section-divider {
-    border: 0;
-    height: 1px;
-    background: #e0e0e0;
-    margin: 50px auto;
-    max-width: 900px;
-  }
-
-  .bank-section-container {
-    text-align: center;
-    max-width: 1000px;
-    margin: 0 auto;
-  }
-
-  .bank-section-container h3 {
-    font-size: 1.5rem;
-    margin-bottom: 8px;
-  }
-
-  .bank-section-container p {
-    color: #666;
-    margin-bottom: 30px;
-  }
-
-  .bank-logos-grid {
-    display: flex;
-    justify-content: center;
-    gap: 25px;
-    flex-wrap: wrap;
-  }
-
-  .bank-box {
-    background: #ffffff;
-    border: 1px solid #e2e8f0;
-    border-radius: 10px;
-    padding: 20px;
-    width: 250px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.03);
-  }
-
-  .logo-wrapper {
-    height: 70px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 15px;
-  }
-
-  .bank-logo-img {
-    max-height: 100%;
-    max-width: 140px;
-    object-fit: contain;
-  }
-
-  .bank-info h4 {
-    margin: 0 0 5px 0;
-    font-size: 1rem;
-    color: #222;
-  }
-
-  .acc-number {
-    font-size: 0.85rem;
-    color: #555;
-    margin: 0;
-  }
-
-  .acc-number span {
-    font-weight: bold;
-    color: #000;
-  }
-</style>
-<div style="display: flex; align-items: center; gap: 8px;">
-  <img src="Siinqee.png" alt="Siinqee Bank Logo" width="30" height="30">
-  <span>Siinqee Bank</span>
-</div>
-<!DOCTYPE html>
-<html lang="om">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kaffaltii Website</title>
-    
-    <!-- Script Chapa Checkout Galchuu -->
-    <script src="https://checkout.chapa.co/v1/inline.js"></script>
-
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f7f6;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-        }
-        .pay-container {
-            background: #ffffff;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-            width: 100%;
-            max-width: 400px;
-        }
-        .pay-container h2 {
-            margin-bottom: 20px;
-            color: #333;
-            text-align: center;
-        }
-        .form-group {
-            margin-bottom: 15px;
-        }
-        .form-group label {
-            display: block;
-            margin-bottom: 5px;
-            color: #666;
-        }
-        .form-group input {
-            width: 100%;
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            box-sizing: border-box;
-        }
-        .pay-btn {
-            width: 100%;
-            padding: 12px;
-            background-color: #00a859; /* Keelloo/Magaariisa Chapa */
-            color: white;
-            border: none;
-            border-radius: 5px;
-            font-size: 16px;
-            font-weight: bold;
-            cursor: pointer;
-            transition: background 0.3s;
-        }
-        .pay-btn:hover {
-            background-color: #008f4c;
-        }
-    </style>
-</head>
-<body>
-
-<div class="pay-container">
-    <h2>Formii Kaffaltii</h2>
-    <form id="paymentForm">
-        <div class="form-group">
-            <label for="fname">Maqaa Jalqabaa</label>
-            <input type="text" id="fname" placeholder="Maqaa keessan" required>
-        </div>
-        <div class="form-group">
-            <label for="lname">Maqaa Abbaa</label>
-            <input type="text" id="lname" placeholder="Maqaa abbaa" required>
-        </div>
-        <div class="form-group">
-            <label for="email">Email</label>
-            <input type="email" id="email" placeholder="example@gmail.com" required>
-        </div>
-        <div class="form-group">
-            <label for="amount">Hangam Kaffaltu (ETB)</label>
-            <input type="number" id="amount" placeholder="100" required>
-        </div>
-        
-        <button type="button" class="pay-btn" onclick="makePayment()">Kaffaltii Raawwadhu</button>
-    </form>
-</div>
-
-<script>
-    function makePayment() {
-        const fname = document.getElementById('fname').value;
-        const lname = document.getElementById('lname').value;
-        const email = document.getElementById('email').value;
-        const amount = document.getElementById('amount').value;
-
-        if (!fname || !lname || !email || !amount) {
-            alert('Moochuu: Maaloo odeeffannoo guutuu galchaa!');
-            return;
-        }
-
-        ChapaCheckout.configure({
-            // PUBLIC KEY keessan dashboard Chapa irraa fuutanii asii bakka buusaatii
-            publicKey: 'CHAPUBK_TEST-xxxxxxxYOUR_PUBLIC_KEY_HERExxxxxxx',
-            amount: amount,
-            currency: 'ETB',
-            email: email,
-            first_name: fname,
-            last_name: lname,
-            tx_ref: 'tx-barabiruk-' + Date.now(), // Lakkoofsa addaa kaffaltii kanaaf
-            callback_url: 'https://example.com/success', // Fuula kaffaltiin erga xumuramee booda itti deebi'u
-            customizations: {
-                title: 'Barabiruk Connect',
-                description: 'Kaffaltii Tajaajila Website',
-            }
-        });
-
-        ChapaCheckout.initialize();
-    }
-</script>
-
-</body>
-</html>
-<!-- Bakka post-iiwwan itti mul'atan -->
-<div id="posts-container"></div>
-
-<script>
-  // Post-iiwwan '_posts' irraa dubbisee agarsiisuu (Fetch API)
-  // Decap CMS erga post uumeen booda fiilii JSON ykn Markdown uuma.
-  async function loadPosts() {
-    // Fakkeenya gabaabaa: Post-iiwwan fetch gochuu
-    // (Static Site Generator kan akka Jekyll, Astro, ykn Vanilla JS fayyadamuu danda'u)
-  }
-</script>
